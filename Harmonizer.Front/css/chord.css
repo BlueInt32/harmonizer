@@ -1,0 +1,18 @@
+﻿.shadow {
+  -webkit-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  -moz-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+}
+.chordBlock {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  margin: 1%;
+  text-align: center;
+  background-color: ButtonFace;
+  border: 2px black;
+  border-radius: 5px;
+}
+.duration_1 {
+  width: 10%;
+}

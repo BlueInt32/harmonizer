@@ -6,32 +6,39 @@
 	<script src="js/app.js"></script>
 	<script src="js/controllers/mainController.js"></script>
 	<script src="js/directives/chordBlockDirective.js"></script>
-	<script src="js/directives/insertChordDirective.js"></script>
+	<script src="js/config.js"></script>
+
+	<link href="css/_utils.less" rel="stylesheet" />
+	<link href="css/home.less" rel="stylesheet" />
+	<link href="css/chord.less" rel="stylesheet" />
+	<link href="css/commands.less" rel="stylesheet" />
 </head>
-<body>
-	<section id="header">
-		<h1>Harmonizer</h1>
-		<div id="menu">
-			<a href="#">Save</a>
-			<a href="#">Share</a>
-			<a href="#">Load Examples</a>
-		</div>
-	</section>
-	<section id="edition" ng-controller="mainController">
-		<div id="chord">
-			<select ng-model="noteChosen" ng-options="note for note in notes">
-				<option>{{note}}</option>
-			</select>
-			<select ng-model="chordChosen" ng-options="chordType for chordType in chordTypes">
-				<option>{{chordType}}</option>
-			</select>
-			<input type="button" value="Insert" insert-chord-button/>
-		</div>
-		<div id="parameters"></div>
-	</section>
-	<section id="sequencer">
-		<chord-block>Salut</chord-block>
-	</section>
-	<section id="playback"></section>
+<body ng-controller="mainController">
+	<div id="container">
+		<section id="header">
+			<h1>Harmonizer</h1>
+			<div id="menu">
+				<a href="#">Save</a>
+				<a href="#">Share</a>
+				<a href="#">Load Examples</a>
+			</div>
+		</section>
+		<section id="edition">
+			<div id="chord">
+				<select ng-model="noteChosen" ng-options="note for note in notes">
+					<option>{{note}}</option>
+				</select>
+				<select ng-model="chordTypeChosen" ng-options="chordType.name for chordType in chordTypes track by chordType.name">
+					<option>{{chordType}}</option>
+				</select>
+				<input type="button" value="Insert" ng-click="insertChord()" />
+			</div>
+			<div id="parameters"></div>
+		</section>
+		<section id="sequencer">
+			<chord-block ng-repeat="chord in chords" chord="chord"></chord-block>
+		</section>
+		<section id="playback"></section>
+	</div>
 </body>
 </html>

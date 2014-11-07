@@ -1,0 +1,17 @@
+﻿.shadow {
+  -webkit-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  -moz-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+}
+section#edition select {
+  font-size: 35px;
+  padding: 15px 9px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  -moz-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}

@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dotless.Core">
+      <HintPath>..\packages\dotless.1.4.1.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -57,6 +60,30 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\chord.css">
+      <DependentUpon>chord.less</DependentUpon>
+    </Content>
+    <Content Include="css\chord.min.css">
+      <DependentUpon>chord.css</DependentUpon>
+    </Content>
+    <Content Include="css\commands.css">
+      <DependentUpon>commands.less</DependentUpon>
+    </Content>
+    <Content Include="css\commands.min.css">
+      <DependentUpon>commands.css</DependentUpon>
+    </Content>
+    <Content Include="css\home.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="css\home.min.css">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
+    <Content Include="js\config.js" />
+    <Content Include="packages.config" />
+    <Content Include="css\chord.less" />
+    <Content Include="css\home.less" />
+    <Content Include="css\commands.less" />
+    <Content Include="css\_utils.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -69,7 +96,6 @@
     <Content Include="js\app.js" />
     <Content Include="js\controllers\mainController.js" />
     <Content Include="js\directives\chordBlockDirective.js" />
-    <Content Include="js\directives\insertChordDirective.js" />
     <Content Include="js\vendor\angular.js" />
     <Content Include="partials\chordBlock.html" />
     <Content Include="Web.config" />

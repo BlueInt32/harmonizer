@@ -7,8 +7,9 @@
 		};
 		return {
 			restrict: 'E',
+			replace: true,
 			link: linkFn,
-			scope: { title: '@' },
+			scope: { chord: '=' },
 			templateUrl: '/partials/chordBlock.html'
 		};
 	}
