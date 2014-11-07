@@ -68,7 +68,10 @@
     <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\mainController.js" />
+    <Content Include="js\directives\chordBlockDirective.js" />
+    <Content Include="js\directives\insertChordDirective.js" />
     <Content Include="js\vendor\angular.js" />
+    <Content Include="partials\chordBlock.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

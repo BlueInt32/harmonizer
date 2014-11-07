@@ -6,4 +6,5 @@ Lightweight app for creating fast and simple harmony sequences.
 
 
 External Resources : 
-[Dynamically add directives in AngularJS](http://jsfiddle.net/ftfish/KyEr3/)
+
+- Dynamically add directives in AngularJS -> [JSFiddle](http://jsfiddle.net/ftfish/KyEr3/)

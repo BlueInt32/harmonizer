@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="harmonizerApp">
 <head>
-    <title>Harmonizer</title>
+	<title>Harmonizer</title>
 	<script src="js/vendor/angular.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers/mainController.js"></script>
+	<script src="js/directives/chordBlockDirective.js"></script>
+	<script src="js/directives/insertChordDirective.js"></script>
 </head>
 <body>
 	<section id="header">
@@ -18,17 +20,17 @@
 	<section id="edition" ng-controller="mainController">
 		<div id="chord">
 			<select ng-model="noteChosen" ng-options="note for note in notes">
-				<option >{{note}}</option>
+				<option>{{note}}</option>
 			</select>
 			<select ng-model="chordChosen" ng-options="chordType for chordType in chordTypes">
-				<option ng-repeat="chordType in chordTypes" >{{chordType}}</option>
+				<option>{{chordType}}</option>
 			</select>
-			<input type="button" value="Insert" ng-click="insertChord()" />
+			<input type="button" value="Insert" insert-chord-button/>
 		</div>
 		<div id="parameters"></div>
 	</section>
 	<section id="sequencer">
-
+		<chord-block>Salut</chord-block>
 	</section>
 	<section id="playback"></section>
 </body>
