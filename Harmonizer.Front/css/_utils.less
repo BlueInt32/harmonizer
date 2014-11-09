@@ -1,4 +1,15 @@
-﻿
+﻿// STATICS
+@classyBeige : #efefe9;
+@DarkTextColor: #252a2e;
+
+@MainFont: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+// CONTEXT COLORS
+@Background: @classyBeige;
+@TitleColor: @DarkTextColor;
+@TitleFont: @MainFont;
+
+
 .shadow {
 	-webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
     -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
@@ -8,4 +19,12 @@
 .borderradius(@size){
 	-webkit-border-radius:@size;
     -moz-border-radius:@size;
+}
+
+.transition(@time){
+	-webkit-transition: opacity @time ease-in-out;
+	-moz-transition: opacity @time ease-in-out;
+	-ms-transition: opacity @time ease-in-out;
+	-o-transition: opacity @time ease-in-out;
+	transition: opacity @time ease-in-out;
 }

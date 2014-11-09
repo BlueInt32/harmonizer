@@ -60,6 +60,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\atomics.css">
+      <DependentUpon>atomics.less</DependentUpon>
+    </Content>
+    <Content Include="css\atomics.min.css">
+      <DependentUpon>atomics.css</DependentUpon>
+    </Content>
     <Content Include="css\chord.css">
       <DependentUpon>chord.less</DependentUpon>
     </Content>
@@ -79,11 +85,13 @@
       <DependentUpon>home.css</DependentUpon>
     </Content>
     <Content Include="js\config.js" />
+    <Content Include="js\directives\wheelSelect.js" />
     <Content Include="packages.config" />
     <Content Include="css\chord.less" />
     <Content Include="css\home.less" />
     <Content Include="css\commands.less" />
     <Content Include="css\_utils.less" />
+    <Content Include="css\atomics.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -97,6 +105,7 @@
     <Content Include="js\controllers\mainController.js" />
     <Content Include="js\directives\chordBlockDirective.js" />
     <Content Include="js\vendor\angular.js" />
+    <Content Include="partials\wheelSelect.html" />
     <Content Include="partials\chordBlock.html" />
     <Content Include="Web.config" />
   </ItemGroup>

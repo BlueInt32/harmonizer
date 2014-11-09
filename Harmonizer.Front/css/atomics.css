@@ -1,0 +1,23 @@
+﻿.shadow {
+  -webkit-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  -moz-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+  box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
+}
+a {
+  line-height: 21px;
+  padding: 0 0 0 30px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 200;
+  text-decoration: none;
+  color: #3f3f3f;
+  -webkit-transition: opacity 0.15s ease-in-out;
+  -moz-transition: opacity 0.15s ease-in-out;
+  -ms-transition: opacity 0.15s ease-in-out;
+  -o-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+  opacity: .65;
+}
+a:hover {
+  opacity: 1;
+}

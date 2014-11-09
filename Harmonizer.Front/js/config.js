@@ -1,12 +1,12 @@
 ﻿harmonizerApp.value("notesConfig",
 [
-	'A',
-	'B',
-	'C',
-	'D',
-	'E',
-	'F',
-	'G'
+	{ name: 'A' },
+	{ name: 'B' },
+	{ name: 'C' },
+	{ name: 'D' },
+	{ name: 'E' },
+	{ name: 'F' },
+	{ name: 'G' }
 ]);
 
 harmonizerApp.value("chordTypesConfig",
