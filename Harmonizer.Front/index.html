@@ -8,12 +8,16 @@
 	<script src="js/config.js"></script>
 	<script src="js/directives/chordBlockDirective.js"></script>
 	<script src="js/directives/wheelSelect.js"></script>
+	<script src="js/services/soundFactory.js"></script>
+
+	<script src="js/vendor/howler.js"></script>
 
 	<link href="css/_utils.less" rel="stylesheet" />
 	<link href="css/atomics.less" rel="stylesheet" />
 	<link href="css/home.less" rel="stylesheet" />
 	<link href="css/chord.less" rel="stylesheet" />
 	<link href="css/commands.less" rel="stylesheet" />
+	<link rel="icon" type="image/png" href="/Images/favicon.png" />
 </head>
 	<body ng-controller="mainController">
 		<div id="topbar"></div>
@@ -29,11 +33,9 @@
 			<section id="edition">
 				<div id="chord">
 					<wheelselect elements="notes" selected="noteChosen"></wheelselect>
-					
 					<wheelselect elements="chordTypes" selected="chordTypeChosen"></wheelselect>
-					<!--<select ng-model="chordTypeChosen" ng-options="chordType.name for chordType in chordTypes track by chordType.name">
-						<option>{{chordType}}</option>
-					</select>-->
+					<wheelselect elements="durations" selected="durationChosen"></wheelselect>
+					<wheelselect elements="tempi" selected="tempoChosen"></wheelselect>
 					<input type="button" value="Insert" ng-click="insertChord()" />
 				</div>
 				<div id="parameters"></div>
@@ -41,7 +43,10 @@
 			<section id="sequencer">
 				<chord-block ng-repeat="chord in chords" chord="chord"></chord-block>
 			</section>
-			<section id="playback"></section>
+			<section id="playback">
+				<input type="button" value="play" ng-click="play();" />
+				<input type="button" value="stop" ng-click="stop();" />
+			</section>
 		</div>
 	</body>
 </html>

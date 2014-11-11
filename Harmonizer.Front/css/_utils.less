@@ -8,12 +8,22 @@
 @Background: @classyBeige;
 @TitleColor: @DarkTextColor;
 @TitleFont: @MainFont;
-
+@TextFont: @MainFont;
 
 .shadow {
 	-webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
     -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
 	box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+}
+.innershadow {
+	-moz-box-shadow: inset 3px 3px 1px 0px #ccc;
+	-webkit-box-shadow: inset 3px 3px 1px 0px #ccc;
+	-o-box-shadow: inset 3px 3px 1px 0px #ccc;
+	box-shadow: inset 3px 3px 1px 0px #ccc;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccc, Direction=135, Strength=1);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 
 .borderradius(@size){

@@ -86,6 +86,8 @@
     </Content>
     <Content Include="js\config.js" />
     <Content Include="js\directives\wheelSelect.js" />
+    <Content Include="js\services\soundFactory.js" />
+    <Content Include="js\vendor\howler.js" />
     <Content Include="packages.config" />
     <Content Include="css\chord.less" />
     <Content Include="css\home.less" />
@@ -107,6 +109,8 @@
     <Content Include="js\vendor\angular.js" />
     <Content Include="partials\wheelSelect.html" />
     <Content Include="partials\chordBlock.html" />
+    <Content Include="Samples\C\C 1.mp3" />
+    <Content Include="Samples\C\C 1.wav" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 body {
 	margin: 0;
 
-	font-family: Verdana;
+	font-family: @TextFont;
 	font-size:24px;
 
 
@@ -60,6 +60,19 @@ body {
 			list-style: none;
 			&> li { float:left; }
 		}
+	}
+	#sequencer{
+		height:300px;
+		padding:10px 0px 10px 10px;
+		background: #EAEAE4;
+		border-radius: 10px;
+		.innershadow;
+		border:1px solid darkgrey;
+	}
+
+	#playback
+	{
+		clear:both;
 	}
 }
 

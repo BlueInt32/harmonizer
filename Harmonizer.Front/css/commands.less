@@ -2,7 +2,10 @@
 
 section#edition
 {
-	
+	input, select
+	{
+		outline: none;
+	}
 	.inputs:extend(button,select) 
 	{ 
 		
@@ -18,18 +21,16 @@ section#edition
 	select 
 	{
 		width: 200px;
+		padding: 5px 10px;
 		-webkit-appearance: button;
 		-webkit-border-radius: 2px;
 		-webkit-box-shadow: 1px 2px 0px #AAA;
-		-webkit-padding-end: 20px;
-		-webkit-padding-start: 100px;
 		-webkit-user-select: none;
 		background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
 		background-position: 93% center;
 		background-repeat: no-repeat;
 		margin: 20px;
 		overflow: hidden;
-		padding: 5px 10px;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
