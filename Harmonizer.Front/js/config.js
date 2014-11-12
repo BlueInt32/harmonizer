@@ -1,4 +1,4 @@
-﻿harmonizerApp.value("notesConfig",
+﻿app.value("notesConfig",
 [
 	{ id: 'a', name: 'A' },
 	{ id: 'b', name: 'B' },
@@ -8,19 +8,19 @@
 	{ id: 'f', name: 'F' },
 	{ id: 'g', name: 'G' }
 ]);
-harmonizerApp.value("chordTypesConfig",
+app.value("chordTypesConfig",
 [
 	{ id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
 	{ id: 'min', name: 'Minor Triad', abbr: 'm', sprite_start: 7800}
 ]);
-harmonizerApp.value("durations",
+app.value("durations",
 [
 	{ id: 'quarterNote', name:'Quarter Note (1)', length: 1, sprite_offset: 0, sprite_excerpt_duration: 1800 },
 	{ id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 	{ id: 'wholeNote', name: 'Whole Note (4)', length: 4, sprite_offset: 4200, sprite_excerpt_duration: 3600 }
 ]);
 
-harmonizerApp.value("tempi",
+app.value("tempi",
 [
 	{ id: "t1", name: "slow (70bpm)", value:70 },
 	{ id: "t2", name: "85 bpm", value: 85 },
@@ -31,5 +31,5 @@ harmonizerApp.value("tempi",
 ]);
 
 
-harmonizerApp.value("fileQualityAndExtension", ".wav");
+app.value("fileQualityAndExtension", ".wav");
 

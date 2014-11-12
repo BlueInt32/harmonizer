@@ -1,4 +1,4 @@
-﻿harmonizerApp.controller('mainController', ['$scope', '$log', 'notesConfig', 'chordTypesConfig', 'soundFactory', 'tempi', 'durations', 'chordFactory',
+﻿app.controller('mainController', ['$scope', '$log', 'notesConfig', 'chordTypesConfig', 'soundFactory', 'tempi', 'durations', 'chordFactory',
 function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, durations, chordFactory)
 // TODO : sortir les values de config dans une facto
 	{
@@ -30,14 +30,6 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 
 		$scope.stop = soundFactory.stop;
 
-		$scope.increaseAChord = function ()
-		{
-			$log.info(chord);
-		}
-		$scope.increaseAChord = function ()
-		{
-			$log.info(chord);
-		}
 		$scope.toggleMetronome = soundFactory.toggleMetronome;
 	}
 ]);

@@ -1,1 +1,6 @@
-﻿var harmonizerApp = angular.module('harmonizerApp', []);
+﻿var app = angular.module('harmonizerApp', []);
+
+app.config(function ($logProvider)
+{
+	$logProvider.debugEnabled(false);
+});

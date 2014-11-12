@@ -1,4 +1,4 @@
-﻿harmonizerApp.directive("chordBlock", ["chordFactory",
+﻿app.directive("chordBlock", ["chordFactory",
 	function (chordFactory)
 	{
 		var linkFn = function (scope, element, attrs)

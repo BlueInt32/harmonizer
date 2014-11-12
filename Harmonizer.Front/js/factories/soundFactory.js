@@ -1,4 +1,4 @@
-﻿harmonizerApp.factory("soundFactory", ['fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log', 
+﻿app.factory("soundFactory", ['fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log', 
 	function (fileQualityAndExtension, notesConfig, chordTypesConfig, durations, $log)
 	{
 
@@ -50,12 +50,12 @@
 						onend: factory.chordPlayEndCB
 					});
 			}
-			$log.info("Howls loaded ", howls);
+			$log.debug("Howls loaded ", howls);
 		};
 
 		factory.playASound = function (noteId, chordTypeId, durationLength)
 		{
-			$log.info("Play ",noteId,  chordTypeId + "_" + durationLength);
+			$log.debug("Play ",noteId,  chordTypeId + "_" + durationLength);
 			howls[noteId].play(chordTypeId + "_" + durationLength);
 		}
 
@@ -67,24 +67,24 @@
 		
 		factory.playASequenceWithIntervals = function(chords, tempo)
 		{
-			$log.info("tempo", tempo);
+			$log.debug("tempo", tempo);
 			var interval = 60000 / tempo;
 			var step = 1; // 0-step is made by hand
 			var barStep = 1;
 			var chordIndex = 1;
 			factory.computeChordMap(chords);
-			$log.info("chordsStartIndex", chordsStartIndex);
+			$log.debug("chordsStartIndex", chordsStartIndex);
 
 			// start playing first step (setInterval forces us to make first step by hand)
 			if (factory.metronome) { metronomeHowl.play('tic'); }
 			factory.playASound(chords[0].note.id, chords[0].chordType.id, chords[0].noteLength);
 
 			// set timer for next steps
-			$log.info("------------------");
+			$log.debug("------------------");
 			timer = window.setInterval(function ()
 			{
-				$log.info("chordIndex", chordIndex);
-				$log.info("step", step);
+				$log.debug("chordIndex", chordIndex);
+				$log.debug("step", step);
 				if (factory.metronome) { metronomeHowl.play(barStep == 0 ? 'tic' : 'tac'); }
 				// check end
 				if (step >= totalSequenceLength)
@@ -99,7 +99,7 @@
 				}
 				step++;
 				barStep = (barStep + 1) % 4;
-				$log.info("------------------");
+				$log.debug("------------------");
 			}, interval);
 		}
 

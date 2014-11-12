@@ -1,4 +1,4 @@
-﻿harmonizerApp.factory("chordFactory", ['durations', function(durations)
+﻿app.factory("chordFactory", ['durations', function(durations)
 {
 	var factory = {};
 

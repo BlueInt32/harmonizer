@@ -1,4 +1,4 @@
-﻿harmonizerApp.directive("wheelselect", [
+﻿app.directive("wheelselect", [
 	function ()
 	{
 		var linkFn = function (scope, element, attrs)
