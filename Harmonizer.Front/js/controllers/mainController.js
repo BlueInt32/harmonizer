@@ -6,6 +6,7 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 		$scope.chordTypes = chordTypesConfig;
 		$scope.durations = durations;
 		$scope.tempi = tempi;
+		$scope.metronome = soundFactory.metronome;
 
 		$scope.noteChosen = notesConfig[0];
 		$scope.chordTypeChosen = chordTypesConfig[0];
@@ -24,8 +25,10 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 
 		$scope.play = function()
 		{
-			soundFactory.playASequenceWithIntervals($scope.chords, $scope.tempoChosen.value);
+			soundFactory.playASequenceWithIntervals($scope.chords, $scope.tempoChosen.value, $scope.metronome);
 		};
+
+		$scope.stop = soundFactory.stop;
 
 		$scope.increaseAChord = function ()
 		{
@@ -35,5 +38,6 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 		{
 			$log.info(chord);
 		}
+		$scope.toggleMetronome = soundFactory.toggleMetronome;
 	}
 ]);

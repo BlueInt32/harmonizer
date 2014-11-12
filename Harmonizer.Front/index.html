@@ -36,10 +36,13 @@
 				<wheelselect elements="notes" selected="noteChosen"></wheelselect>
 				<wheelselect elements="chordTypes" selected="chordTypeChosen"></wheelselect>
 				<wheelselect elements="durations" selected="durationChosen"></wheelselect>
-				<wheelselect elements="tempi" selected="tempoChosen"></wheelselect>
 				<input type="button" value="Insert" ng-click="insertChord()" />
 			</div>
-			<div id="parameters"></div>
+			<div id="parameters">
+				
+				<wheelselect elements="tempi" selected="tempoChosen"></wheelselect>
+				Metronome: <input type="checkbox" ng-model="metronome" ng-change="toggleMetronome()" />
+			</div>
 		</section>
 		<section id="sequencer">
 			<chord-block ng-repeat="chord in chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>

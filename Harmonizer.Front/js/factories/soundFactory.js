@@ -1,7 +1,10 @@
 ﻿harmonizerApp.factory("soundFactory", ['fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log', 
 	function (fileQualityAndExtension, notesConfig, chordTypesConfig, durations, $log)
 	{
+
 		var factory = {};
+
+		//#region Privates
 		var howls = {};
 		var metronomeHowl = new Howl(
 		{
@@ -13,7 +16,17 @@
 		var sequencePlayingMode = false;
 		var chordsStartIndex = [];
 		var totalSequenceLength = 0;
-	
+		//#endregion
+
+		// #region Publics
+		factory.metronome = true;
+		// #endregion
+
+
+		factory.toggleMetronome = function ()
+		{
+			factory.metronome = !factory.metronome;
+		}
 
 		factory.initializeHowls = function()
 		{
@@ -51,13 +64,11 @@
 			var spriteFile = '/samples/' + note + '_sprite' + fileQualityAndExtension;
 			return spriteFile;
 		}
-
-		factory.playASequenceWithIntervals = function(chords, tempo, metronome)
+		
+		factory.playASequenceWithIntervals = function(chords, tempo)
 		{
-			metronome = true;
 			$log.info("tempo", tempo);
 			var interval = 60000 / tempo;
-			var ratio = 1;
 			var step = 1; // 0-step is made by hand
 			var barStep = 1;
 			var chordIndex = 1;
@@ -65,7 +76,7 @@
 			$log.info("chordsStartIndex", chordsStartIndex);
 
 			// start playing first step (setInterval forces us to make first step by hand)
-			metronomeHowl.play('tic');
+			if (factory.metronome) { metronomeHowl.play('tic'); }
 			factory.playASound(chords[0].note.id, chords[0].chordType.id, chords[0].noteLength);
 
 			// set timer for next steps
@@ -74,7 +85,7 @@
 			{
 				$log.info("chordIndex", chordIndex);
 				$log.info("step", step);
-				metronomeHowl.play(barStep== 0 ? 'tic' : 'tac');
+				if (factory.metronome) { metronomeHowl.play(barStep == 0 ? 'tic' : 'tac'); }
 				// check end
 				if (step >= totalSequenceLength)
 				{
