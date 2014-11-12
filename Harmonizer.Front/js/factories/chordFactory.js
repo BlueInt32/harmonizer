@@ -1,16 +1,33 @@
-﻿app.factory("chordFactory", ['durations', function(durations)
+﻿app.factory("chordFactory", ['durations', '$log', function (durations, $log)
 {
 	var factory = {};
 
-	factory.chords = [];
+	factory.chords =
+		[
+			{
+				note: { id: 'a', name: 'A' },
+				chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
+				duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 }
+			},
+			{
+				note: { id: 'c', name: 'C' },
+				chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
+				duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 }
+			},
+			{
+				note: { id: 'g', name: 'G' },
+				chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
+				duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 }
+			}
+		];
 
-	factory.addAChord = function (note, chordType, duration)
+	factory.addAChord = function (_note, _chordType, _duration)
 	{
 		var newChord =
 		{
-			note: note,
-			chordType: chordType,
-			noteLength: duration
+			note: _note,
+			chordType: _chordType,
+			duration: _duration
 		};
 		factory.chords.push(newChord);
 	}
@@ -22,12 +39,12 @@
 
 	factory.increaseChordLength = function(index)
 	{
-		var currentLength = factory.chords[index].noteLength;
+		var currentLength = factory.chords[index].duration.length;
 		for (var i = 0; i < durations.length; i++)
 		{
 			if (currentLength === durations[i].length && i !== durations.length - 1)
 			{
-				factory.chords[index].noteLength = durations[i + 1].length;
+				factory.chords[index].duration.length = durations[i + 1].length;
 				return;
 			}
 		}
@@ -35,15 +52,38 @@
 
 	factory.decreaseChordLength = function (index)
 	{
-		var currentLength = factory.chords[index].noteLength;
+		var currentLength = factory.chords[index].duration.length;
 		for (var i = 1; i < durations.length; i++)
 		{
 			if (currentLength === durations[i].length)
 			{
-				factory.chords[index].noteLength = durations[i - 1].length;
+				factory.chords[index].duration.length = durations[i - 1].length;
 				return;
 			}
 		}
+	}
+
+	factory.moveChordLeft = function(index)
+	{
+		var intIndex = parseInt(index);
+		if (intIndex === 0)
+			return;
+		var temp = factory.chords[intIndex - 1];
+		factory.chords[intIndex - 1] = factory.chords[intIndex];
+		factory.chords[intIndex] = temp;
+	}
+
+	factory.moveChordRight = function(index)
+	{
+		var intIndex = parseInt(index);
+		$log.debug("move right", index);
+		if (intIndex === factory.chords.length - 1)
+			return;
+		var temp = factory.chords[intIndex + 1];
+		$log.debug(temp);
+		factory.chords[intIndex + 1] = factory.chords[intIndex];
+		factory.chords[intIndex] = temp;
+
 	}
 	return factory;
 }]);

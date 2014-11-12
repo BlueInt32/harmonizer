@@ -1,9 +1,11 @@
-﻿<div class="chordBlock duration_{{chord.noteLength}}">
+﻿<div class="chordBlock duration_{{chord.duration.length}}">
 	{{chord.note.name}}{{chord.chordType.abbr}}
 
 	<div class="chordCommands">
 		<input type="button" value="-" ng-click="decreaseChordLength(index);" />
 		<input type="button" value="+" ng-click="increaseChordLength(index);" />
-		<input type="button" value="X" ng-click="removeAChord(index);"
+		<input type="button" value="X" ng-click="removeAChord(index);" />
+		<input type="button" value="<-" ng-click="moveChordLeft(index);" />
+		<input type="button" value="->" ng-click="moveChordRight(index);" />
 	</div>
 </div>

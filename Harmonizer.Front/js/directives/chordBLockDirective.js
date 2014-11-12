@@ -6,6 +6,8 @@
 			scope.decreaseChordLength = chordFactory.decreaseChordLength;
 			scope.increaseChordLength = chordFactory.increaseChordLength;
 			scope.removeAChord = chordFactory.removeAChord;
+			scope.moveChordLeft = chordFactory.moveChordLeft;
+			scope.moveChordRight = chordFactory.moveChordRight;
 		};
 		return {
 			restrict: 'E',

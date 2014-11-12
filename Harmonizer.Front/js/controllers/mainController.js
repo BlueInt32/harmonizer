@@ -14,11 +14,11 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 		$scope.durationChosen = durations[1];
 
 		$scope.$log = $log;
-		$scope.chords = [];
+		$scope.chords = chordFactory.chords;
 
 		$scope.insertChord = function()
 		{
-			chordFactory.addAChord($scope.noteChosen, $scope.chordTypeChosen, $scope.durationChosen.length);
+			chordFactory.addAChord($scope.noteChosen, $scope.chordTypeChosen, $scope.durationChosen);
 			$scope.chords = chordFactory.chords;
 			soundFactory.playASound($scope.noteChosen.id, $scope.chordTypeChosen.id, $scope.durationChosen.length);
 		};

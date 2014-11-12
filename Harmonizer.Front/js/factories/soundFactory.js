@@ -77,7 +77,7 @@
 
 			// start playing first step (setInterval forces us to make first step by hand)
 			if (factory.metronome) { metronomeHowl.play('tic'); }
-			factory.playASound(chords[0].note.id, chords[0].chordType.id, chords[0].noteLength);
+			factory.playASound(chords[0].note.id, chords[0].chordType.id, chords[0].duration.length);
 
 			// set timer for next steps
 			$log.debug("------------------");
@@ -94,7 +94,7 @@
 				}
 				if (chordsStartIndex[chordIndex] === step)
 				{
-					factory.playASound(chords[chordIndex].note.id, chords[chordIndex].chordType.id, chords[chordIndex].noteLength);
+					factory.playASound(chords[chordIndex].note.id, chords[chordIndex].chordType.id, chords[chordIndex].duration.length);
 					chordIndex++;
 				}
 				step++;
@@ -111,7 +111,7 @@
 			for (var l = 0; l < chords.length; l++)
 			{
 				chordsStartIndex.push(totalSequenceLength);
-				totalSequenceLength += chords[l].noteLength;
+				totalSequenceLength += chords[l].duration.length;
 			}
 		};
 
