@@ -1,3 +1,8 @@
 ﻿<div class="chordBlock duration_{{chord.noteLength}}">
 	{{chord.note.name}}{{chord.chordType.abbr}}
+
+	<div class="chordCommands">
+		<input type="button" value="-" ng-click="alert('coucou');" />
+		<input type="button" value="+" ng-click="increaseLength()" />
+	</div>
 </div>

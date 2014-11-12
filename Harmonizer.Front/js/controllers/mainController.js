@@ -28,5 +28,14 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 		{
 			soundFactory.playASequenceWithIntervals($scope.chords, $scope.tempoChosen.value);
 		};
+
+		$scope.increaseAChord = function ()
+		{
+			$log.info(chord);
+		}
+		$scope.increaseAChord = function ()
+		{
+			$log.info(chord);
+		}
 	}
 ]);

@@ -41,7 +41,7 @@
 				<div id="parameters"></div>
 			</section>
 			<section id="sequencer">
-				<chord-block ng-repeat="chord in chords" chord="chord"></chord-block>
+				<chord-block ng-repeat="chord in chords" chord="chord" increaseLength="increaseAChord"></chord-block>
 			</section>
 			<section id="playback">
 				<input type="button" value="play" ng-click="play();" />

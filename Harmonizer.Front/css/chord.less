@@ -1,6 +1,8 @@
 ﻿@import "_utils.less";
 .chordBlock
 {
+
+	position:relative;
 	float: left;
 	height: 60px;
 	line-height: 60px;
@@ -10,6 +12,13 @@
 	background-color:ButtonFace;
 	border:2px black;
 	border-radius: 5px;
+
+	.chordCommands
+	{
+		position:absolute;
+		bottom:0;
+		right:0;
+	}
 }
 
 .duration_1 // 1 bar length

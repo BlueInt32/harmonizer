@@ -9,7 +9,10 @@
 			restrict: 'E',
 			replace: true,
 			link: linkFn,
-			scope: { chord: '=' },
+			scope: {
+				chord: '=',
+				increaseLength: '&'
+			},
 			templateUrl: '/partials/chordBlock.html'
 		};
 	}
