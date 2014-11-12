@@ -86,7 +86,8 @@
     </Content>
     <Content Include="js\config.js" />
     <Content Include="js\directives\wheelSelect.js" />
-    <Content Include="js\services\soundFactory.js" />
+    <Content Include="js\factories\chordFactory.js" />
+    <Content Include="js\factories\soundFactory.js" />
     <Content Include="js\vendor\howler.js" />
     <Content Include="packages.config" />
     <Content Include="css\chord.less" />

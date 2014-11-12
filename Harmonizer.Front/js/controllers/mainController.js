@@ -1,5 +1,5 @@
-﻿harmonizerApp.controller('mainController', ['$scope', '$log', 'notesConfig', 'chordTypesConfig', 'soundFactory', 'tempi', 'durations', 
-function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, durations)
+﻿harmonizerApp.controller('mainController', ['$scope', '$log', 'notesConfig', 'chordTypesConfig', 'soundFactory', 'tempi', 'durations', 'chordFactory',
+function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, durations, chordFactory)
 // TODO : sortir les values de config dans une facto
 	{
 		$scope.notes = notesConfig;
@@ -17,10 +17,8 @@ function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, dura
 
 		$scope.insertChord = function()
 		{
-
-			var newChord = { note: $scope.noteChosen, chordType: $scope.chordTypeChosen, noteLength: $scope.durationChosen.length };
-			$scope.chords.push(newChord);
-
+			chordFactory.addAChord($scope.noteChosen, $scope.chordTypeChosen, $scope.durationChosen.length);
+			$scope.chords = chordFactory.chords;
 			soundFactory.playASound($scope.noteChosen.id, $scope.chordTypeChosen.id, $scope.durationChosen.length);
 		};
 

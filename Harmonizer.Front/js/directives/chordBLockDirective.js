@@ -1,9 +1,11 @@
-﻿harmonizerApp.directive("chordBlock", [
-	function()
+﻿harmonizerApp.directive("chordBlock", ["chordFactory",
+	function (chordFactory)
 	{
 		var linkFn = function (scope, element, attrs)
 		{
-			
+			scope.decreaseChordLength = chordFactory.decreaseChordLength;
+			scope.increaseChordLength = chordFactory.increaseChordLength;
+			scope.removeAChord = chordFactory.removeAChord;
 		};
 		return {
 			restrict: 'E',
@@ -11,7 +13,7 @@
 			link: linkFn,
 			scope: {
 				chord: '=',
-				increaseLength: '&'
+				index: '@'
 			},
 			templateUrl: '/partials/chordBlock.html'
 		};
