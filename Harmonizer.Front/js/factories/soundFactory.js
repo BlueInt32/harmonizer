@@ -1,7 +1,8 @@
 ﻿app.factory("soundFactory", ['fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log', 
+
 	function (fileQualityAndExtension, notesConfig, chordTypesConfig, durations, $log)
 	{
-
+		// TODO : gerer le chevauchement des accords : quand un accord joue, les autres doivent stopper en fadeout
 		var factory = {};
 
 		//#region Privates

@@ -1,17 +1,19 @@
-﻿app.controller('mainController', ['$scope', '$log', 'notesConfig', 'chordTypesConfig', 'soundFactory', 'tempi', 'durations', 'chordFactory',
-function ($scope, $log, notesConfig, chordTypesConfig, soundFactory, tempi, durations, chordFactory)
-// TODO : sortir les values de config dans une facto
+﻿app.controller('mainController', ['$scope', '$log' , 'soundFactory', 'chordFactory', 'configFactory',
+function ($scope, $log, soundFactory, chordFactory, configFactory)
+	// TODO : sortir les values de config dans une facto
+	// TODO : modification d'un chord après avoir cliqué dessus
+	// TODO : gestion du chord courant dans la lecture (style)
 	{
-		$scope.notes = notesConfig;
-		$scope.chordTypes = chordTypesConfig;
-		$scope.durations = durations;
-		$scope.tempi = tempi;
+		$scope.notes = configFactory.notesConfig;
+		$scope.chordTypes = configFactory.chordTypesConfig;
+		$scope.durations = configFactory.durations;
+		$scope.tempi = configFactory.tempi;
 		$scope.metronome = soundFactory.metronome;
 
-		$scope.noteChosen = notesConfig[0];
-		$scope.chordTypeChosen = chordTypesConfig[0];
-		$scope.tempoChosen = tempi[2];
-		$scope.durationChosen = durations[1];
+		$scope.noteChosen = $scope.notes[0];
+		$scope.chordTypeChosen = $scope.chordTypes[0];
+		$scope.durationChosen = $scope.durations[1];
+		$scope.tempoChosen = $scope.tempi[2];
 
 		$scope.$log = $log;
 		$scope.chords = chordFactory.chords;

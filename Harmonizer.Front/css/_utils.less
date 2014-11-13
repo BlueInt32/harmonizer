@@ -26,23 +26,24 @@
 	-o-box-shadow: inset 3px 3px 1px 0px #ccc;
 	box-shadow: inset 3px 3px 1px 0px #ccc;
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccc, Direction=135, Strength=1);
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
+	.borderradius(10px)
 }
 
-.borderradius(@size) {
-	-webkit-border-radius: @size;
-	-moz-border-radius: @size;
-	border-radius: @size;
+.borderradius(@s:5px) {
+	-webkit-border-radius: @s;
+	-moz-border-radius: @s;
+	border-radius: @s;
 }
-
-.transition(@time){
-	-webkit-transition: opacity @time ease-in-out;
-	-moz-transition: opacity @time ease-in-out;
-	-ms-transition: opacity @time ease-in-out;
-	-o-transition: opacity @time ease-in-out;
-	transition: opacity @time ease-in-out;
+.rounded_corners(@r: 5px) {
+  -moz-border-radius: @r;
+  -webkit-border-radius: @r;
+  border-radius: @r;
+}
+.transition(@t:2s){
+	-webkit-transition: opacity @t ease-in-out;
+	-moz-transition: opacity @t ease-in-out;
+	-o-transition: opacity @t ease-in-out;
+	transition: opacity @t ease-in-out;
 }
 
 .clear { clear:both; }
