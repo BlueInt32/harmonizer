@@ -119,12 +119,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\atomics.css">
-      <DependentUpon>atomics.less</DependentUpon>
-    </Content>
-    <Content Include="css\atomics.min.css">
-      <DependentUpon>atomics.css</DependentUpon>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="js\config.js" />
     <Content Include="js\directives\wheelSelect.js" />
@@ -140,9 +134,6 @@
     <Content Include="css\atomics.less" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="css\atomics.css.map">
-      <DependentUpon>atomics.css</DependentUpon>
-    </Content>
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
