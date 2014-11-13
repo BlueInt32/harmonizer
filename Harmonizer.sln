@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmonizer.Api", "Harmonize
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmonizer.Front", "Harmonizer.Front\Harmonizer.Front.csproj", "{9093C546-FA85-428F-9CF3-EA3C087412D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowMe", "ShowMe\ShowMe.csproj", "{FC3990A8-4B42-4F26-9F9D-58E922192D66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9093C546-FA85-428F-9CF3-EA3C087412D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9093C546-FA85-428F-9CF3-EA3C087412D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9093C546-FA85-428F-9CF3-EA3C087412D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3990A8-4B42-4F26-9F9D-58E922192D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3990A8-4B42-4F26-9F9D-58E922192D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3990A8-4B42-4F26-9F9D-58E922192D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3990A8-4B42-4F26-9F9D-58E922192D66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

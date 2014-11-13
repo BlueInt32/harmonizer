@@ -15,6 +15,11 @@
     -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
 	box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
 }
+.shadow2 {
+	-webkit-box-shadow: 1px 2px 0px #AAA;
+    -moz-box-shadow: 1px 2px 0px #AAA;
+	box-shadow: 1px 2px 0px #AAA;
+}
 .innershadow {
 	-moz-box-shadow: inset 3px 3px 1px 0px #ccc;
 	-webkit-box-shadow: inset 3px 3px 1px 0px #ccc;
@@ -26,9 +31,10 @@
 	border-radius: 10px;
 }
 
-.borderradius(@size){
-	-webkit-border-radius:@size;
-    -moz-border-radius:@size;
+.borderradius(@size) {
+	-webkit-border-radius: @size;
+	-moz-border-radius: @size;
+	border-radius: @size;
 }
 
 .transition(@time){
