@@ -1,12 +1,12 @@
-﻿// TODO : use IIFE https://github.com/johnpapa/angularjs-styleguide#iife
-(function() {
+﻿(function() {
 	'use strict';
 	angular.module('app').controller('mainController', ['$scope', '$log' , 'soundFactory', 'chordFactory', 'configFactory',
 	function ($scope, $log, soundFactory, chordFactory, configFactory)
 		// TODO : modification d'un chord après avoir cliqué dessus
-		// TODO : gestion du chord courant dans la lecture (style)
 		// TODO : use named functions instead of anonymous functions https://github.com/johnpapa/angularjs-styleguide#named-vs-anonymous-functions
-		{
+		// TODO : default chord selection should be placed in chordFactory, this will lead to chord selected = modification right away
+
+	{
 			$scope.notes = configFactory.notesConfig;
 			$scope.chordTypes = configFactory.chordTypesConfig;
 			$scope.durations = configFactory.durations;
@@ -30,7 +30,7 @@
 
 			$scope.play = function()
 			{
-				soundFactory.playASequenceWithIntervals($scope.chords, $scope.tempoChosen.value, $scope.metronome);
+				soundFactory.playSequence($scope.tempoChosen.value);
 			};
 
 			$scope.stop = soundFactory.stop;

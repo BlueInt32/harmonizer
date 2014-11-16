@@ -11,19 +11,33 @@
 				{
 					note: { id: 'a', name: 'A' },
 					chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
-					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 }
+					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
+					playing:false
 				},
 				{
 					note: { id: 'c', name: 'C' },
 					chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
-					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 }
+					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
+					playing: false
 				},
 				{
 					note: { id: 'g', name: 'G' },
 					chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
-					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 }
+					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
+					playing: false
 				}
 			];
+
+			factory.setPlaying = function(chordIndex)
+			{
+				
+				for (var i = 0; i < factory.chords.length; i++)
+				{
+					factory.chords[i].playing = false;
+				}
+				if(chordIndex !== -1)
+					factory.chords[chordIndex].playing = true;
+			}
 
 			factory.addAChord = function(_note, _chordType, _duration)
 			{

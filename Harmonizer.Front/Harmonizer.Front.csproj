@@ -119,6 +119,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\chord.css">
+      <DependentUpon>chord.less</DependentUpon>
+    </Content>
+    <Content Include="css\chord.min.css">
+      <DependentUpon>chord.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="js\config.js" />
     <Content Include="js\directives\wheelSelect.js" />
@@ -137,6 +143,9 @@
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="css\chord.css.map">
+      <DependentUpon>chord.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
