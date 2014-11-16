@@ -1,4 +1,4 @@
-﻿app.factory("soundFactory", ['fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log', 
+﻿angular.module('app').factory("soundFactory", ['fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log',
 
 	function (fileQualityAndExtension, notesConfig, chordTypesConfig, durations, $log)
 	{

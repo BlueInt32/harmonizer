@@ -1,4 +1,4 @@
-﻿app.factory("chordFactory", ['durations', '$log', function (durations, $log)
+﻿angular.module('app').factory("chordFactory", ['durations', '$log', function (durations, $log)
 {
 	var factory = {};
 

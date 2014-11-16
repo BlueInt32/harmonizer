@@ -1,6 +1,5 @@
-﻿// TODO : use a module getter syntax instead of global app variable https://github.com/johnpapa/angularjs-styleguide#getters
-﻿// TODO : use IIFE https://github.com/johnpapa/angularjs-styleguide#iife
-﻿app.controller('mainController', ['$scope', '$log' , 'soundFactory', 'chordFactory', 'configFactory',
+﻿﻿// TODO : use IIFE https://github.com/johnpapa/angularjs-styleguide#iife
+angular.module('app').controller('mainController', ['$scope', '$log' , 'soundFactory', 'chordFactory', 'configFactory',
 function ($scope, $log, soundFactory, chordFactory, configFactory)
 	// TODO : modification d'un chord après avoir cliqué dessus
 	// TODO : gestion du chord courant dans la lecture (style)

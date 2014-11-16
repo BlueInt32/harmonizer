@@ -1,4 +1,4 @@
-﻿app.factory("configFactory", ['notesConfig', 'chordTypesConfig', 'tempi', 'durations',
+﻿angular.module('app').factory("configFactory", ['notesConfig', 'chordTypesConfig', 'tempi', 'durations',
 function(notesConfig, chordTypesConfig, tempi, durations)
 {
 	var factory = {};

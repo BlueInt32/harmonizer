@@ -1,4 +1,4 @@
-﻿app.directive("wheelselect", [
+﻿angular.module('app').directive("wheelselect", [
 	function ()
 	{
 		var linkFn = function (scope, element, attrs)

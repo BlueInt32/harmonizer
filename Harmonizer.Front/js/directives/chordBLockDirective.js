@@ -1,4 +1,4 @@
-﻿app.directive("chordBlock", ["chordFactory",
+﻿angular.module('app').directive("chordBlock", ["chordFactory",
 	function (chordFactory)
 	{
 		var linkFn = function (scope, element, attrs)
