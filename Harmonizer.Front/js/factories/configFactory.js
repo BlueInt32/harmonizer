@@ -1,10 +1,16 @@
-﻿angular.module('app').factory("configFactory", ['notesConfig', 'chordTypesConfig', 'tempi', 'durations',
-function(notesConfig, chordTypesConfig, tempi, durations)
+﻿(function()
 {
-	var factory = {};
-	factory.notesConfig = notesConfig;
-	factory.chordTypesConfig = chordTypesConfig;
-	factory.tempi = tempi;
-	factory.durations = durations;
-	return factory;
-}]);
+	'use strict';
+	angular.module('app').factory("configFactory", [
+		'notesConfig', 'chordTypesConfig', 'tempi', 'durations',
+		function(notesConfig, chordTypesConfig, tempi, durations)
+		{
+			var factory = {};
+			factory.notesConfig = notesConfig;
+			factory.chordTypesConfig = chordTypesConfig;
+			factory.tempi = tempi;
+			factory.durations = durations;
+			return factory;
+		}
+	]);
+})();

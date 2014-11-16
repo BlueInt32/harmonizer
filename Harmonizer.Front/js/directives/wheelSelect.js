@@ -1,15 +1,19 @@
-﻿angular.module('app').directive("wheelselect", [
-	function ()
-	{
-		var linkFn = function (scope, element, attrs)
+﻿(function()
+{
+	'use strict';
+	angular.module('app').directive("wheelselect", [
+		function()
 		{
-		};
-		return {
-			restrict: 'E',
-			replace: true,
-			link: linkFn,
-			scope: { elements: '=', selected: '=' },
-			templateUrl: '/partials/wheelSelect.html'
-		};
-	}
-]);
+			var linkFn = function(scope, element, attrs)
+			{
+			};
+			return {
+				restrict: 'E',
+				replace: true,
+				link: linkFn,
+				scope: { elements: '=', selected: '=' },
+				templateUrl: '/partials/wheelSelect.html'
+			};
+		}
+	]);
+})();
