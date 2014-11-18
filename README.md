@@ -3,7 +3,12 @@ harmonizer
 
 Lightweight app for creating fast and simple harmony sequences.
 
+You can test it here : 
+[Alpha version (18/11/2014)](http://harmonizer.journeyman.fr/)
+
 [Mockup](https://moqups.com/Journeyman/LfvhebdP) (thanks to moqups.com)
+
+
 
 
 Resources : 
