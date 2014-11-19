@@ -1,11 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using BlueInt32.Mvc
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
 <head>
 	<title>Harmonizer</title>
 
-	@Styles.Render("~/less")
-
-	<link rel="icon" type="image/png" href="/Images/favicon.png" />
+	@if (Request.IsLocal)
+	{
+		<link rel="stylesheet" type="text/css" href="~/css/compiled/complete.css">
+	}
+	else
+	{
+		<link rel="stylesheet" type="text/css" href="~/css/compiled/complete.min.css">
+	}
+	<link rel="icon" type="image/png" href="~/images/favicon.png" />
 </head>
 <body ng-controller="mainController">
 	<div id="topbar"></div>
@@ -19,9 +26,26 @@
 			</ul>
 		</section>
 		@RenderBody()
+		@if (Request.IsLocal)
+		{
+			<script src="~/js/vendor/angular.js"></script>
+			<script src="~/js/vendor/howler.js"></script>
+			
+			<script src="~/js/app.js"></script>
+			<script src="~/js/config.js"></script>
+			<script src="~/js/factories/chordFactory.js"></script>
+			<script src="~/js/factories/configFactory.js"></script>
+			<script src="~/js/factories/soundFactory.js"></script>
+			<script src="~/js/directives/chordBlockDirective.js"></script>
+			<script src="~/js/directives/wheelSelect.js"></script>
+			<script src="~/js/controllers/mainController.js"></script>
+		}
+		else
+		{
+			<script src="~/js/min.js"></script>
+		}
 
-		@Scripts.Render("~/bundles/libs")
-		@Scripts.Render("~/bundles/app")
+
 </div>
 </body>
 </html>

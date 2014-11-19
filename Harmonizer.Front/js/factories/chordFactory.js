@@ -30,14 +30,13 @@
 
 			factory.setPlaying = function(chordIndex)
 			{
-				
 				for (var i = 0; i < factory.chords.length; i++)
 				{
 					factory.chords[i].playing = false;
 				}
-				if(chordIndex !== -1)
+				if (chordIndex !== -1)
 					factory.chords[chordIndex].playing = true;
-			}
+			};
 
 			factory.addAChord = function(_note, _chordType, _duration)
 			{
@@ -48,12 +47,12 @@
 					duration: _duration
 				};
 				factory.chords.push(newChord);
-			}
+			};
 
 			factory.removeAChord = function(index)
 			{
 				factory.chords.splice(index, 1);
-			}
+			};
 
 			factory.increaseChordLength = function(index)
 			{
@@ -66,7 +65,7 @@
 						return;
 					}
 				}
-			}
+			};
 
 			factory.decreaseChordLength = function(index)
 			{
@@ -79,7 +78,7 @@
 						return;
 					}
 				}
-			}
+			};
 
 			factory.moveChordLeft = function(index)
 			{
@@ -89,7 +88,7 @@
 				var temp = factory.chords[intIndex - 1];
 				factory.chords[intIndex - 1] = factory.chords[intIndex];
 				factory.chords[intIndex] = temp;
-			}
+			};
 
 			factory.moveChordRight = function(index)
 			{
@@ -101,7 +100,7 @@
 				$log.debug(temp);
 				factory.chords[intIndex + 1] = factory.chords[intIndex];
 				factory.chords[intIndex] = temp;
-			}
+			};
 			return factory;
 		}
 	]);

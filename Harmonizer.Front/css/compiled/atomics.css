@@ -1,4 +1,4 @@
-.shadow {
+﻿.shadow {
   -webkit-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
   -moz-box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
   box-shadow: 0 3px 0 #cccccc, 0 -1px #ffffff inset;
@@ -20,4 +20,17 @@
 }
 .clear {
   clear: both;
+}
+a {
+  line-height: 21px;
+  padding: 0 0 0 30px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 200;
+  text-decoration: none;
+  color: #3f3f3f;
+  opacity: .65;
+}
+a:hover {
+  opacity: 1;
 }

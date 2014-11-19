@@ -88,7 +88,7 @@
 				{
 					$log.debug("step", step);
 
-					if (factory.metronome) metronomeHowl.play(barStep == 0 ? 'tic' : 'tac');
+					if (factory.metronome) metronomeHowl.play(barStep === 0 ? 'tic' : 'tac');
 
 					if (chordsStartingSteps[chordIndex] === step) // is the current step corresponding to the start of a chord in the sequence ?
 					{
