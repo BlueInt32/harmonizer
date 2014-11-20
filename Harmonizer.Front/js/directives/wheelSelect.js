@@ -1,4 +1,4 @@
-﻿(function()
+(function()
 {
 	'use strict';
 	angular.module('app').directive("wheelselect", [
@@ -12,7 +12,7 @@
 				replace: true,
 				link: linkFn,
 				scope: { elements: '=', selected: '=' },
-				templateUrl: '/partials/wheelSelect.html'
+				templateUrl: 'partials/wheelSelect.html'
 			};
 		}
 	]);
