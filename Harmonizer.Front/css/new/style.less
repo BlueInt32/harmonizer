@@ -83,14 +83,16 @@ html
   -ms-text-size-adjust: none;
 }
 
-
-body
+.hide
 {
-  min-width: 1024px;
+    display: none;
 }
 
 #container
 {
+    min-width: 1024px;
+    .user-select (none);
+    
     &.visibility
     {
         opacity: 0.9;
@@ -115,7 +117,7 @@ body
     height: 10vh;
     width: 100%;
     
-    background: @dark_700;
+    background: @blue_grey_900;
     
     .burger
     {
@@ -155,23 +157,221 @@ body
     &.open
     {
         width: 240px;
-
     }
+    
+    .nav_content
+    {
+        display: none;
+        
+        h1
+        {
+            height: 100px;
+            
+            .font1();
+            font-size: 30px;
+            text-align: center;
+            color: @white;
+            line-height: 100px;
+            cursor: pointer;
+            background: @teal_200
+        }
+        
+        ul
+        {
+            border-bottom: 1px solid @teal_200;
+            
+            li
+            {
+                height: 60px;
+                
+                text-align: center;
+                border-top: 1px solid @teal_200;
+                
+                a
+                {
+                    display: block;
+                    .font1();
+                    font-size: 16px;
+
+                    color: @teal_200;
+                    text-decoration: none;
+                    line-height: 60px;
+                    
+                    &:hover
+                    {
+                       background: @teal_200;
+                       color: @white; 
+                    }
+                }
+
+            }
+        }
+    }
+
 }
 
 #sequencer
 {
+    .flex-display(flex);
+    .flex-wrap(wrap);
+    justify-content:center;
+    
     height:60vh;
     width: 100%;
     
-    background: @dark_500;
+    background: @blue_grey_800;
+    
+    .chordBlock
+    {   
+        margin: 2vh;
+        
+        height: 15vh;
+        width: 15vw;
+        
+        background: @teal_200;
+        .font1();
+        font-size: 15vh;
+        color: @white;
+        line-height: 15vh;
+        text-align: center;
+       
+        
+        .chordCommands
+        {
+            display: none;
+        }
+    }
 }
 
-#controls
+#options
 {
+    .flex-display(flex);
+    
+    padding: 1vh 0;
+    
     height:30vh;
     width: 100%;
     
-    background: @dark_700;
+    background: @blue_grey_900;
+    
+    section
+    {
+        .flex(1);
+        
+        input[type=button]
+        {
+            outline: none;
+            border: 0;
+            cursor: pointer;
+        }
+        
+        &.controls
+        {
+            padding: 7vh 0;
+            
+            input[type=button]
+            {
+                margin-left: 5vw;
+                
+                width: 15vh;
+                height: 15vh;
+                
+                &.play
+                {
+                    background: url('@{url}play.png') no-repeat;
+                    background-size: 15vh;
+                }
+                
+                &.stop
+                {
+                    background: url('@{url}stop.png') no-repeat;
+                    background-size: 15vh;
+                }
+            }
+        }
+        
+        &.multi_select
+        {   
+            select
+            {
+                display: block;
+                margin: 0 auto 0.25vh auto;
+
+                width: 60%;
+                height: 7vh;
+
+                text-align: center;
+                color: @teal_200;
+                .font1();
+                font-size: 2.5vh;
+                background: @blue_grey_800;
+                text-indent: 2vh;
+                cursor: pointer;
+                
+                &:hover
+                {
+                    color: @white;
+                    background: @teal_200;
+                }
+            }
+        }
+        
+        &.actions { 
+            
+            .metro_block
+            {
+                 float: left;
+                
+                padding: 11vh 0;
+                
+                .metronome
+                {
+                    padding: 0 2vh;
+
+                    height: 7vh;
+
+                    .font1();
+                    font-size: 2.5vh;
+                    line-height: 7vh;
+                    color: @teal_200;
+                    border: 1px solid @teal_200;
+                    cursor: pointer;
+                    
+                    &.checked
+                    {
+                        color: @white;
+                        background: @teal_200;
+                        border: 1px solid @blue_grey_800;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            
+            .insert 
+            {
+                float: right;
+                
+                height:29vh; 
+                width: 50%;
+                
+                .font1(); 
+                font-size: 30vh;
+                color: @teal_200; 
+                background: @blue_grey_800;
+                line-height: 30vh;
+                
+                &:hover
+                {
+                    color: @white;
+                    background: @teal_200;
+                }
+                
+            } 
+            
+        }
+    }
 }
+
+
 

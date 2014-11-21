@@ -69,3 +69,19 @@ address
 {
   font-style: normal;
 }
+
+select
+{
+    border: none;
+    border-radius: 0;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    text-indent: 0.01px;  // Need this to hide default select in FF
+    text-overflow: '';  // Need this to hide default select in FF
+    &::-ms-expand {
+        display: none;  // Need this to hide default select in IE10
+    }
+}
