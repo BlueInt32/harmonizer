@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Harmonizer.Models
+﻿namespace Harmonizer.Domain.Entities
 {
 	public class Chord
 	{
+		public int ChordId { get; set; }
+
 		public Note RootNote { get; set; }
 		public ChordType ChordType { get; set; }
 		public int Length { get; set; }
