@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HarmonizerDbContext.cs" />
-    <Compile Include="ISequenceRepository.cs" />
+    <Compile Include="HarmonizerContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="SequenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

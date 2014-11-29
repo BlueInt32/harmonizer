@@ -5,7 +5,7 @@ namespace Harmonizer.Domain.Entities
 {
 	public class Sequence
 	{
-		public int HarmoId { get; set; }
+		public int SequenceId { get; set; }
 
 		public List<Chord> Chords { get; set; }
 

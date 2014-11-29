@@ -10,7 +10,7 @@ namespace Harmonizer.Infrastructure.DataAccess
 {
 	public class SequenceRepository : ISequenceRepository, IDisposable
 	{
-		private readonly HarmonizerDbContext _db = new HarmonizerDbContext();
+		private readonly HarmonizerContext _db = new HarmonizerContext();
 		void ISequenceRepository.CreateSequence(Sequence sequence)
 		{
 			_db.Sequences.Add(sequence);

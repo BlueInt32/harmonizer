@@ -8,7 +8,7 @@ using Harmonizer.Domain.Entities;
 
 namespace Harmonizer.Infrastructure.DataAccess
 {
-	public class HarmonizerDbContext : DbContext
+	public class HarmonizerContext : DbContext
 	{
 		public DbSet<Sequence> Sequences { get; set; }
 		public DbSet<ChordType> ChordTypes { get; set; }
