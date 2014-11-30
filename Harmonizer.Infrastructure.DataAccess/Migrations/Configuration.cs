@@ -22,14 +22,29 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
 				new ChordType { Name = "Triade mineure", Description = "", Notation = "m" },
 				new ChordType { Name = "Septième de dominante", Description = "", Notation = "7" }
 				);
+			context.Notes.AddOrUpdate(
+				note => note.UsNotationFlat,
+				new Note { UsNotationFlat = "A", UsNotationSharp = "A", EuropeanNotationFlat = "La", EuropeanNotationSharp = "La" },
+				new Note { UsNotationFlat = "Bb", UsNotationSharp = "A#", EuropeanNotationFlat = "Sib", EuropeanNotationSharp = "La#" },
+				new Note { UsNotationFlat = "B", UsNotationSharp = "B", EuropeanNotationFlat = "Si", EuropeanNotationSharp = "Si" },
+				new Note { UsNotationFlat = "C", UsNotationSharp = "C", EuropeanNotationFlat = "Do", EuropeanNotationSharp = "Do" },
+				new Note { UsNotationFlat = "Db", UsNotationSharp = "C#", EuropeanNotationFlat = "Réb", EuropeanNotationSharp = "Do#" },
+				new Note { UsNotationFlat = "D", UsNotationSharp = "D", EuropeanNotationFlat = "Ré", EuropeanNotationSharp = "Ré" },
+				new Note { UsNotationFlat = "Eb", UsNotationSharp = "D#", EuropeanNotationFlat = "Mib", EuropeanNotationSharp = "Ré#" },
+				new Note { UsNotationFlat = "E", UsNotationSharp = "E", EuropeanNotationFlat = "Mi", EuropeanNotationSharp = "Mi" },
+				new Note { UsNotationFlat = "F", UsNotationSharp = "F", EuropeanNotationFlat = "Fa", EuropeanNotationSharp = "Fa" },
+				new Note { UsNotationFlat = "Gb", UsNotationSharp = "F#", EuropeanNotationFlat = "Solb", EuropeanNotationSharp = "Fa#" },
+				new Note { UsNotationFlat = "G", UsNotationSharp = "G", EuropeanNotationFlat = "Sol", EuropeanNotationSharp = "Sol" },
+				new Note { UsNotationFlat = "Ab", UsNotationSharp = "G#", EuropeanNotationFlat = "La", EuropeanNotationSharp = "Sol#" }
+				);
 
 			context.SaveChanges();
 			foreach (ChordType chordType in context.ChordTypes)
 	        {
-				foreach (Note note in Enum.GetValues(typeof(Note)))
+				foreach (Note note in context.Notes)
 		        {
 			        context.Chords.AddOrUpdate(
-						c => c.ShortName,
+						c => new {c.RootNoteId, c.Length, c.ChordTypeId },
 						CreateChord(chordType, 1, note),
 						CreateChord(chordType, 2, note),
 						CreateChord(chordType, 4, note)
@@ -45,8 +60,7 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
 		    {
 			    ChordType = cType,
 			    Length = length,
-			    RootNote = note,
-			    ShortName = string.Format("{0}{1}{2}", length, note.ToString().Replace('s', '#'), cType.Notation)
+			    RootNote = note
 		    };
 	    }
     }

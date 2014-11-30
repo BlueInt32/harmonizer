@@ -2,6 +2,10 @@
 
 namespace Harmonizer.Domain.Entities
 {
+	/// <summary>
+	/// Type of chord can be minor, major, dominant seventh, etc. Not note related in any way.
+	/// This object has typically a 'color' in musical terms.
+	/// </summary>
 	public class ChordType
 	{
 		public int ChordTypeId { get; set; }

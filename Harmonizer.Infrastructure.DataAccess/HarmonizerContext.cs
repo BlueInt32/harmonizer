@@ -11,8 +11,10 @@ namespace Harmonizer.Infrastructure.DataAccess
 	public class HarmonizerContext : DbContext
 	{
 		public DbSet<Sequence> Sequences { get; set; }
+		public DbSet<SequenceChord> SequenceChords { get; set; }
 		public DbSet<ChordType> ChordTypes { get; set; }
 		public DbSet<Chord> Chords { get; set; }
+		public DbSet<Note> Notes { get; set; }
 
 	}
 }
