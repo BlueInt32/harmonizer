@@ -1,4 +1,4 @@
-﻿(function()
+(function()
 {
 	'use strict';
 	angular.module('app').directive("chordBlock", [
@@ -21,7 +21,7 @@
 					chord: '=',
 					index: '@'
 				},
-				templateUrl: '/partials/chordBlock.html'
+				templateUrl: 'partials/chordBlock.html'
 			};
 		}
 	]);
