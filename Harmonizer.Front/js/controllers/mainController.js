@@ -1,7 +1,7 @@
 ﻿(function() {
 	'use strict';
-	angular.module('app').controller('mainController', ['$scope', '$log' , 'soundFactory', 'chordFactory', 'configFactory',
-	function ($scope, $log, soundFactory, chordFactory, configFactory)
+	angular.module('app').controller('mainController', ['$scope', '$log' , 'soundFactory', 'chordFactory', 'configFactory', 'memoryFactory',
+	function ($scope, $log, soundFactory, chordFactory, configFactory, memoryFactory)
 		// TODO : modification d'un chord après avoir cliqué dessus
 		// TODO : use named functions instead of anonymous functions https://github.com/johnpapa/angularjs-styleguide#named-vs-anonymous-functions
 		// TODO : default chord selection should be placed in chordFactory, this will lead to chord selected = modification right away
@@ -32,8 +32,18 @@
 			{
 				soundFactory.playSequence($scope.tempoChosen.value);
 			};
+			$scope.save = function()
+			{
+				$log.debug("about to send sequence to save", $scope.chords);
+				memoryFactory.save(1, function()
+				{
+					
+					$log.debug("hmm");
+				});
+			}
 
-			$scope.stop = soundFactory.stop;
+
+		$scope.stop = soundFactory.stop;
 
 			$scope.toggleMetronome = soundFactory.toggleMetronome;
 		}

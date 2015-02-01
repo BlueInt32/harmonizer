@@ -1,7 +1,7 @@
 ﻿(function()
 {
 	'use strict';
-	angular.module('app', []);
+	angular.module('app', ['ngResource']);
 
 	angular.module('app').config([
 		'$logProvider', function($logProvider)
