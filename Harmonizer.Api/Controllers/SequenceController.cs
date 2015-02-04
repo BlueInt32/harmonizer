@@ -25,16 +25,21 @@ namespace Harmonizer.Api.Controllers
 			_apiService = apiService;
 		}
 
-		public IEnumerable<Sequence> GetAllProducts()
-		{
-			return new List<Sequence>();
-		}
+		//public IEnumerable<Sequence> GetAllProducts()
+		//{
+		//	return new List<Sequence>();
+		//}
 
 		[Route]
 		public IHttpActionResult SaveSequence(SequenceViewModel model)
 		{
 			_sequenceService.SaveSequence(model.ToDomainSequence(_apiService));
 			return Ok(model);
+		}
+
+		public IHttpActionResult GetSequence(int id)
+		{
+			return Ok(_sequenceService.GetSequence(id).ToWebSequence(_apiService));
 		}
 	}
 }

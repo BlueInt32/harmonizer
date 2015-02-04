@@ -23,7 +23,7 @@ namespace Harmonizer.Api.Extensions
 				Chord chord = apiService.StaticChords.FirstOrDefault(
 					c => c.RootNote.UsNotationFlat.ToLower() == chordDescriptor.Note
 					&& c.Length == chordDescriptor.Length
-					&& c.ChordType.Id == chordDescriptor.Type);
+					&& c.ChordType.ChordTypeId == chordDescriptor.Type);
 				//sequenceChord.Chord = chord;
 				sequenceChord.ChordId = chord.ChordId;
 				sequenceChord.PositionInSequence = positionInSequence++;
@@ -31,6 +31,28 @@ namespace Harmonizer.Api.Extensions
 			}
 
 			return sequence;
+		}
+
+		public static SequenceViewModel ToWebSequence(this Sequence sequence, IApiService apiService)
+		{
+			SequenceViewModel sequenceViewModel = new SequenceViewModel();
+			sequenceViewModel.Name = sequence.Name;
+			sequenceViewModel.Description = sequence.Description;
+			sequenceViewModel.Chords = new List<ChordDescriptorViewModel>();
+			if (sequence.Chords != null)
+			{
+				foreach (var sequenceChord in sequence.Chords.OrderBy(c => c.PositionInSequence))
+				{
+					var chordDescriptor = new ChordDescriptorViewModel
+					{
+						Note = sequenceChord.Chord.RootNote.UsNotationFlat.ToLower(),
+						Length = sequenceChord.Chord.Length,
+						Type = sequenceChord.Chord.ChordTypeId
+					};
+					sequenceViewModel.Chords.Add(chordDescriptor);
+				}
+			}
+			return sequenceViewModel;
 		}
 	}
 }

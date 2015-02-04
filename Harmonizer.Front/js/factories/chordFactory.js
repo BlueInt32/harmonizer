@@ -38,8 +38,10 @@
 					factory.chords[chordIndex].playing = true;
 			};
 
-			factory.addAChord = function(_note, _chordType, _duration)
-			{
+			factory.addAChord = function(_note, _chordType, _duration){
+				$log.debug(_note);
+				$log.debug(_chordType);
+				$log.debug(_duration);
 				var newChord =
 				{
 					note: _note,

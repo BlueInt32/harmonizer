@@ -25,14 +25,14 @@ namespace Harmonizer.Infrastructure.DataAccess
 
 		void ISequenceRepository.RemoveSequence(int sequenceId)
 		{
-			Sequence sequence = _db.Sequences.Find(sequenceId);
+			Sequence sequence = _db.Sequences.Single(s => s.SequenceId == sequenceId);
 			_db.Sequences.Remove(sequence);
 			_db.SaveChanges();
 		}
 
 		Sequence ISequenceRepository.GetSequence(int sequenceId)
 		{
-			Sequence sequence = _db.Sequences.Find(sequenceId);
+			Sequence sequence = _db.Sequences.Include("Chords.Chord.ChordType").Include("Chords.Chord.RootNote").Single(s => s.SequenceId == sequenceId);
 			return sequence;
 		}
 

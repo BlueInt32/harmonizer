@@ -17,10 +17,10 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
         protected override void Seed(HarmonizerContext context)
         {
 			context.ChordTypes.AddOrUpdate(
-				ct => ct.Id,
-				new ChordType { Id="maj", Name = "Triade majeure", Description = "", Notation = "" },
-				new ChordType { Id="min", Name = "Triade mineure", Description = "", Notation = "m" },
-				new ChordType { Id= "dom7",  Name = "Septième de dominante", Description = "", Notation = "7" }
+				ct => ct.ChordTypeId,
+				new ChordType { ChordTypeId="maj", Name = "Triade majeure", Description = "", Notation = "" },
+				new ChordType { ChordTypeId="min", Name = "Triade mineure", Description = "", Notation = "m" },
+				new ChordType { ChordTypeId = "dom7", Name = "Septième de dominante", Description = "", Notation = "7" }
 				);
 			context.Notes.AddOrUpdate(
 				note => note.UsNotationFlat,

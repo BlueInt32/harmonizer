@@ -14,7 +14,7 @@ namespace Harmonizer.Domain.Entities
 		[ForeignKey("RootNoteId")]
 		public Note RootNote { get; set; }
 
-		public int ChordTypeId { get; set; }
+		public string ChordTypeId { get; set; }
 		public ChordType ChordType { get; set; }
 
 		public int Length { get; set; }

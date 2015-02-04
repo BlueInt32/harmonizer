@@ -18,6 +18,10 @@ namespace Harmonizer.Api.Services
 			_sequenceRepository = sequenceRepository;
 			_chordsRepository = chordsRepository;
 		}
+		public Sequence GetSequence(int sequenceId)
+		{
+			return _sequenceRepository.GetSequence(sequenceId);
+		}
 		public void SaveSequence(Sequence sequence)
 		{
 			_sequenceRepository.CreateSequence(sequence);
@@ -31,5 +35,6 @@ namespace Harmonizer.Api.Services
 		{
 			return _chordsRepository.GetChords();
 		}
+
 	}
 }

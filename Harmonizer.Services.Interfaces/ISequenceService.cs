@@ -9,6 +9,7 @@ namespace Harmonizer.Services.Interfaces
 {
     public interface ISequenceService
     {
+	    Sequence GetSequence(int sequenceId);
 	    void SaveSequence(Sequence sequence);
 	    List<Chord> GetStaticChords();
     }

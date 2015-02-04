@@ -37,14 +37,18 @@
 			};
 			$log.debug("about to send sequence to save", sequence);
 			memoryFactory.save(sequence, function () {
-				$log.debug("hmm");
+				$log.debug("save ok !");
 			});
 		};
-
 
 		$scope.stop = soundFactory.stop;
 
 		$scope.toggleMetronome = soundFactory.toggleMetronome;
+		$scope.load = function(){
+			var sequence = memoryFactory.get({id:1});
+			$log.debug("sequence", sequence);
+			//var User = $resource('/user/:userId', { userId: '@id' });
+		}
 	}
 	]);
 })();
