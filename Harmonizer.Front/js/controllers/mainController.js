@@ -34,10 +34,15 @@
 			};
 			$scope.save = function()
 			{
-				$log.debug("about to send sequence to save", $scope.chords);
-				memoryFactory.save(1, function()
+				var sequence = 
+					{
+						chords : chordFactory.reduceForPost($scope.chords),
+						name : "premiere sequence",
+						description : "premiere description"
+					};
+				$log.debug("about to send sequence to save", sequence );
+				memoryFactory.save(sequence, function()
 				{
-					
 					$log.debug("hmm");
 				});
 			}

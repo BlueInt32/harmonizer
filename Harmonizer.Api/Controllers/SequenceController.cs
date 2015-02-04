@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Harmonizer.Api.Extensions;
+using Harmonizer.Api.Model;
 using Harmonizer.Domain.Entities;
 using Harmonizer.Services.Interfaces;
 
@@ -15,10 +17,12 @@ namespace Harmonizer.Api.Controllers
 	public class SequenceController : ApiController
 	{
 		private readonly ISequenceService _sequenceService;
+		private readonly IApiService _apiService;
 
-		public SequenceController(ISequenceService sequenceService)
+		public SequenceController(ISequenceService sequenceService, IApiService apiService)
 		{
 			_sequenceService = sequenceService;
+			_apiService = apiService;
 		}
 
 		public IEnumerable<Sequence> GetAllProducts()
@@ -27,17 +31,10 @@ namespace Harmonizer.Api.Controllers
 		}
 
 		[Route]
-		public IHttpActionResult SaveSequence(MySuperModel model)
+		public IHttpActionResult SaveSequence(SequenceViewModel model)
 		{
-			return Ok(model.i);
-			//_sequenceService.SaveSequence(sequence);
-
-			//return Ok(sequence);
+			_sequenceService.SaveSequence(model.ToDomainSequence(_apiService));
+			return Ok(model);
 		}
-	}
-
-	public class MySuperModel
-	{
-		public int i { get; set; }
 	}
 }

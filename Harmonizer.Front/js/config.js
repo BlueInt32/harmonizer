@@ -13,8 +13,8 @@
 	]);
 	angular.module('app').value("chordTypesConfig",
 	[
-		{ id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
-		{ id: 'min', name: 'Minor Triad', abbr: 'm', sprite_start: 7800 }
+		{ id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
+		{ id: 'min', name: 'Minor Triad', notation: 'm', sprite_start: 7800 }
 	]);
 	angular.module('app').value("durations",
 	[

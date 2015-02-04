@@ -8,7 +8,8 @@ namespace Harmonizer.Domain.Entities
 	/// </summary>
 	public class ChordType
 	{
-		public int ChordTypeId { get; set; }
+		[StringLength(5)]
+		public string Id { get; set; }
 
 		[StringLength(50)]
 		public string Name { get; set; }

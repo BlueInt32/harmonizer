@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="HarmonizerContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ChordsRepository.cs" />
     <Compile Include="SequenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

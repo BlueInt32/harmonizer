@@ -10,15 +10,26 @@ namespace Harmonizer.Api.Services
 {
 	public class SequenceService : ISequenceService
 	{
-		private ISequenceRepository _sequenceRepository;
+		private readonly ISequenceRepository _sequenceRepository;
+		private readonly IChordsRepository _chordsRepository;
 
-		public SequenceService(ISequenceRepository sequenceRepository)
+		public SequenceService(ISequenceRepository sequenceRepository, IChordsRepository chordsRepository)
 		{
 			_sequenceRepository = sequenceRepository;
+			_chordsRepository = chordsRepository;
 		}
 		public void SaveSequence(Sequence sequence)
 		{
-			throw new NotImplementedException();
+			_sequenceRepository.CreateSequence(sequence);
+		}
+		/// <summary>
+		/// This method gets all the chords possible into a list.
+		/// This method was created to be used in Composition Root (only once)
+		/// </summary>
+		/// <returns></returns>
+		public List<Chord> GetStaticChords()
+		{
+			return _chordsRepository.GetChords();
 		}
 	}
 }

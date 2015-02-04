@@ -10,19 +10,19 @@
 			[
 				{
 					note: { id: 'a', name: 'A' },
-					chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
+					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing:false
 				},
 				{
 					note: { id: 'c', name: 'C' },
-					chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
+					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing: false
 				},
 				{
 					note: { id: 'g', name: 'G' },
-					chordType: { id: 'maj', name: 'Major Triad', abbr: '', sprite_start: 0 },
+					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing: false
 				}
@@ -100,6 +100,21 @@
 				$log.debug(temp);
 				factory.chords[intIndex + 1] = factory.chords[intIndex];
 				factory.chords[intIndex] = temp;
+			};
+
+			factory.reduceForPost = function(chords)
+			{
+				var reducedChords = [];
+				for (var i = 0; i < chords.length; i++)
+				{
+					reducedChords.push(
+					{
+						note:chords[i].note.id,
+						type:chords[i].chordType.id,
+						length:chords[i].duration.length,
+					});
+				}
+				return reducedChords;
 			};
 			return factory;
 		}

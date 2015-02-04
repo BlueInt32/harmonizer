@@ -7,9 +7,10 @@ using Harmonizer.Domain.Entities;
 
 namespace Harmonizer.Services.Interfaces
 {
-    public interface ISequenceService
+    public interface IApiService
     {
-	    void SaveSequence(Sequence sequence);
-	    List<Chord> GetStaticChords();
+	    void InitializeChordsToApplication();
+
+	    List<Chord> StaticChords { get; }
     }
 }
