@@ -8,15 +8,16 @@ module.exports = function (grunt)
 		jshint: {
 			all: [
 				'js/**/*.js',
-				'!**/vendor/**',
-				'!min.js'
+				'!js/**/vendor/**',
+				'!js/min.js'
 			]
 		},
 		uglify: {
 			dist: {
 				files: {
 					'js/min.js': [
-						'js/vendor/angular.js',
+                        'js/vendor/angular.js',
+                        'js/vendor/angular-resource.js',
 						'js/**/*.js',
 						'!js/min.js'
 					]
@@ -50,8 +51,8 @@ module.exports = function (grunt)
 				  {
 				  	expand: true,
 				  	cwd: 'bootstrap/less',
-				  	// Compile each LESS component excluding "bootstrap.less", 
-				  	// "mixins.less" and "variables.less" 
+				  	// Compile each LESS component excluding "bootstrap.less",
+				  	// "mixins.less" and "variables.less"
 				  	src: ['css/*.less', '_*.less'],
 				  	dest: 'css/',
 				  	ext: '.css'
