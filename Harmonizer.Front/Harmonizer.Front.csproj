@@ -110,6 +110,7 @@
     <Content Include="css\compiled\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
+    <Content Include="css\new\style.css" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="home.html" />
@@ -138,6 +139,11 @@
       <DependentUpon>howler.min.js</DependentUpon>
     </Content>
     <Content Include="css\compiled\complete.css.bundle" />
+    <Content Include="css\new\color.less" />
+    <Content Include="css\new\font.less" />
+    <Content Include="css\new\mixin.less" />
+    <Content Include="css\new\reset.less" />
+    <Content Include="css\new\style.less" />
     <None Include="Properties\PublishProfiles\Ovh.pubxml" />
     <Content Include="Samples\a_sprite.wav" />
     <Content Include="Samples\c_sprite.wav" />
