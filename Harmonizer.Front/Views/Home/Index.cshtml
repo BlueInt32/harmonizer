@@ -1,26 +1,45 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+	ViewBag.Title = "Index";
 }
-<section id="edition">
-	<div id="chord">
-		<wheelselect elements="notes" selected="noteChosen"></wheelselect>
-		<wheelselect elements="chordTypes" selected="chordTypeChosen"></wheelselect>
-		<wheelselect elements="durations" selected="durationChosen"></wheelselect>
-		<input type="button" value="Insert" ng-click="insertChord()" />
-	</div>
-	<div id="parameters">
-				
-		<wheelselect elements="tempi" selected="tempoChosen"></wheelselect>
-		Metronome: <input type="checkbox" ng-model="metronome" ng-change="toggleMetronome()" />
-	</div>
-	<div class="clear"></div>
-</section>
+
 <section id="sequencer">
 	<chord-block ng-repeat="chord in chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>
 </section>
-<section id="playback">
+
+<!--<section id="playback">
 	<input type="button" value="play" ng-click="play();" />
 	<input type="button" value="stop" ng-click="stop();" />
 	<input type="button" value="save" ng-click="save();" />
+</section>-->
+
+<section id="options">
+
+	<section class="controls">
+		<input type="button" value="" ng-click="play();" class="play" />
+		<input type="button" value="" ng-click="stop();" class="stop" />
+	</section>
+	<section class="multi_select">
+		<wheelselect elements="notes" selected="noteChosen"></wheelselect>
+		<wheelselect elements="chordTypes" selected="chordTypeChosen"></wheelselect>
+		<wheelselect elements="durations" selected="durationChosen"></wheelselect>
+		<wheelselect elements="tempi" selected="tempoChosen"></wheelselect>
+	</section>
+	<section class="actions">
+		<div class="metro_block">
+			<div class="metronome checked">Metronome</div>
+		</div>
+		<input type="checkbox" ng-model="metronome" ng-change="toggleMetronome()" class="metro_check hide" />
+		<input type="button" value="+" ng-click="insertChord()" class="insert" />
+	</section>
+</section>
+        </div>
+<section class="nav_bar">
+	<div class="nav_content">
+		<h1>X</h1>
+		<ul id="menu">
+			<li><a href="#">Save</a></li>
+			<li><a href="#">Share</a></li>
+			<li><a href="#">Load Examples</a></li>
+		</ul>
+	</div>
 </section>
