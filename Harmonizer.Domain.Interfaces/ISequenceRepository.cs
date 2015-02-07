@@ -11,7 +11,8 @@ namespace Harmonizer.Domain.Interfaces
     {
 	    void CreateSequence(Sequence sequence);
 	    void UpdateSequence(Sequence sequence);
-	    void RemoveSequence(int sequenceId);
-	    Sequence GetSequence(int sequenceId);
+	    Sequence ReadSequence(int sequenceId);
+	    void DeleteSequence(int sequenceId);
+		List<Sequence> Search(string token);
     }
 }

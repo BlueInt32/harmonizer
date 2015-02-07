@@ -33,6 +33,7 @@
 			var sequence = {
 				chords: chordFactory.reduceForPost($scope.chords),
 				name: "premiere sequence",
+				tempo:$scope.tempoChosen.value,
 				description: "premiere description"
 			};
 			$log.debug("about to send sequence to save", sequence);

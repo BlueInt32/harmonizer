@@ -9,19 +9,19 @@
 			factory.chords =
 			[
 				{
-					note: { id: 'a', name: 'A' },
+					note: { id: 'A', name: 'A' },
 					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing:false
 				},
 				{
-					note: { id: 'c', name: 'C' },
+					note: { id: 'C', name: 'C' },
 					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing: false
 				},
 				{
-					note: { id: 'g', name: 'G' },
+					note: { id: 'G', name: 'G' },
 					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing: false

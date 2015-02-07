@@ -9,6 +9,8 @@ namespace Harmonizer.Api.Model
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }
+
+		public int Tempo { get; set; }
 		public List<ChordDescriptorViewModel> Chords { get; set; }
 	}
 }

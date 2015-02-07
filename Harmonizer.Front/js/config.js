@@ -3,13 +3,13 @@
 	'use strict';
 	angular.module('app').value("notesConfig",
 	[
-		{ id: 'a', name: 'A' },
-		{ id: 'b', name: 'B' },
-		{ id: 'c', name: 'C' },
-		{ id: 'd', name: 'D' },
-		{ id: 'e', name: 'E' },
-		{ id: 'f', name: 'F' },
-		{ id: 'g', name: 'G' }
+		{ id: 'A', name: 'A' },
+		{ id: 'B', name: 'B' },
+		{ id: 'C', name: 'C' },
+		{ id: 'D', name: 'D' },
+		{ id: 'E', name: 'E' },
+		{ id: 'F', name: 'F' },
+		{ id: 'G', name: 'G' }
 	]);
 	angular.module('app').value("chordTypesConfig",
 	[

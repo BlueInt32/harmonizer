@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2015-02-07T23:53:17" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'c1522c27-783d-4320-aa3b-fa0b09c72b96' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer' -  (Package)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain' -  (Package)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities' -  (Package)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Chord' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::ChordType' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Duration' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Duration::Duration' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Duration::DurationId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Duration::Name' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Duration::SpriteDuration' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Duration::SpriteOffset' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Extensions' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Extensions::Notation' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Extensions::Notation::chord' -  (Parameter)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Note' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Note::Id' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Note::Note' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::Chords' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::Description' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::Name' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::Sequence' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::SequenceId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::Tempo' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Sequence::TempoId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::Chord' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::ChordId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::PositionInSequence' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::Sequence' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::SequenceChord' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::SequenceChordId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord::SequenceId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData::Chords' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData::ChordTypes' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData::Durations' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData::Notes' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData::StaticData' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::StaticData::Tempi' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Medium" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Tempo' -  (Class)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Tempo::Name' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Tempo::Tempo' -  (Operation)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::Harmonizer::Domain::Entities::Tempo::TempoId' -  (Property)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System' -  (Package)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections' -  (Package)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List&lt;Chord‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List&lt;ChordType‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List&lt;Duration‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List&lt;Note‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List&lt;SequenceChord‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Harmonizer.UML::System::Collections::Generic::List&lt;Tempo‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::Sequence to Harmonizer.UML::System::Collections::Generic::List&lt;SequenceChord‎&gt; (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::Sequence to Harmonizer.UML::Harmonizer::Domain::Entities::Tempo (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord to Harmonizer.UML::Harmonizer::Domain::Entities::Chord (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::SequenceChord to Harmonizer.UML::Harmonizer::Domain::Entities::Sequence (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::StaticData to Harmonizer.UML::System::Collections::Generic::List&lt;Tempo‎&gt; (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::StaticData to Harmonizer.UML::System::Collections::Generic::List&lt;Note‎&gt; (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::StaticData to Harmonizer.UML::System::Collections::Generic::List&lt;ChordType‎&gt; (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::StaticData to Harmonizer.UML::System::Collections::Generic::List&lt;Duration‎&gt; (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Harmonizer.UML::Harmonizer::Domain::Entities::StaticData to Harmonizer.UML::System::Collections::Generic::List&lt;Chord‎&gt; (Association)" />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="High" Text="(7) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="High" Text="(9) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-02-07T23:53:21" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

@@ -11,30 +11,18 @@ namespace Harmonizer.Api.Services
 	public class SequenceService : ISequenceService
 	{
 		private readonly ISequenceRepository _sequenceRepository;
-		private readonly IChordsRepository _chordsRepository;
 
-		public SequenceService(ISequenceRepository sequenceRepository, IChordsRepository chordsRepository)
+		public SequenceService(ISequenceRepository sequenceRepository)
 		{
 			_sequenceRepository = sequenceRepository;
-			_chordsRepository = chordsRepository;
 		}
 		public Sequence GetSequence(int sequenceId)
 		{
-			return _sequenceRepository.GetSequence(sequenceId);
+			return _sequenceRepository.ReadSequence(sequenceId);
 		}
 		public void SaveSequence(Sequence sequence)
 		{
 			_sequenceRepository.CreateSequence(sequence);
 		}
-		/// <summary>
-		/// This method gets all the chords possible into a list.
-		/// This method was created to be used in Composition Root (only once)
-		/// </summary>
-		/// <returns></returns>
-		public List<Chord> GetStaticChords()
-		{
-			return _chordsRepository.GetChords();
-		}
-
 	}
 }

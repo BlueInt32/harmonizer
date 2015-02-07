@@ -7,9 +7,8 @@ using Harmonizer.Domain.Entities;
 
 namespace Harmonizer.Services.Interfaces
 {
-    public interface ISequenceService
+    public interface IStaticDataService
     {
-	    Sequence GetSequence(int sequenceId);
-	    void SaveSequence(Sequence sequence);
+	    StaticData GetStaticData();
     }
 }

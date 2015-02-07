@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IChordsRepository.cs" />
+    <Compile Include="IStaticDataRepository.cs" />
     <Compile Include="ISequenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
