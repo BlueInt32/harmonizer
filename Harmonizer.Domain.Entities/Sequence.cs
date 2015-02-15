@@ -8,7 +8,7 @@ namespace Harmonizer.Domain.Entities
 	/// </summary>
 	public class Sequence
 	{
-		public int SequenceId { get; set; }
+		public int Id { get; set; }
 
 		public List<SequenceChord> Chords { get; set; }
 

@@ -21,12 +21,12 @@ namespace Harmonizer.Api.Extensions
 			{
 				SequenceChord sequenceChord = new SequenceChord();
 
-				Chord chord = staticDataService.GetStaticData().Chords.FirstOrDefault(
+				Chord chord = staticDataService.GetChords().FirstOrDefault(
 					c => c.RootNote.Id == chordDescriptor.Note
 					&& c.DurationId == chordDescriptor.Length
-					&& c.ChordType.ChordTypeId == chordDescriptor.Type);
+					&& c.ChordType.Id == chordDescriptor.Type);
 				//sequenceChord.Chord = chord;
-				sequenceChord.ChordId = chord.ChordId;
+				sequenceChord.ChordId = chord.Id;
 				sequenceChord.PositionInSequence = positionInSequence++;
 				sequence.Chords.Add(sequenceChord);
 			}

@@ -1,5 +1,5 @@
 ﻿<div class="chordBlock duration_{{chord.duration.length}}" ng-class="{'playing':chord.playing}">
-	{{chord.note.name}}{{chord.chordType.notation}}
+	{{chord.note}}{{chord.chordType.notation}}
 
 	<div class="chordCommands">
 		<input type="button" value="-" ng-click="decreaseChordLength(index);" />

@@ -16,5 +16,9 @@ namespace Harmonizer.Domain.Entities
 	{
 		[Key, StringLength(2)]
 		public string Id { get; set; }
+		[StringLength(2)]
+		public string Name { get; set; }
+
+		public bool IsDefault { get; set; }
 	}
 }

@@ -21,7 +21,7 @@
 					chord: '=',
 					index: '@'
 				},
-				templateUrl: 'partials/chordBlock.html'
+				templateUrl: 'js/chords/chordBlock.html'
 			};
 		}
 	]);

@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="09b6dd69-5277-4d77-a450-7a74efb1fdfa" name="Harmonizer.Domain" linkedPackageId="1034ad7b-2dd0-47d2-8f93-0b21f07352b3" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="d830f166-95b7-4e9e-9e20-fb6ca7c4f1ec">
-      <profileInstance Id="9895c6ef-37fd-4f3b-afe6-899dad15968f" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="3ca3e6c9-8387-4a96-aca2-c74d4694994f">
-      <profileInstance Id="70cdbd8b-ea44-474e-8c19-d4eab92b2568" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="c770bc49-7255-4667-9004-aa9fcace44d3">
-      <profileInstance Id="f6a3056c-62ba-4f3f-b686-52e9ad0d2405" name="CSharpProfile">
-        <elementDefinition Id="9838caf5-2f4b-4418-8600-38f4b350ff4a" />
-      </profileInstance>
-      <elementDefinition Id="4c88430b-8987-4e83-870b-bbfc7a17204a" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="b8df2384-fe94-4932-b235-21d870f2c9e1" name="Chord" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -2811,5 +2791,25 @@
   </packagedElements>
   <package Id="1034ad7b-2dd0-47d2-8f93-0b21f07352b3" name="Harmonizer.UML">
     <elementDefinition Id="ef40d2a7-2999-4dc3-b9dd-2ee021cd0646" />
+    <profileInstances>
+      <packageHasProfileInstances Id="d830f166-95b7-4e9e-9e20-fb6ca7c4f1ec">
+        <profileInstance Id="9895c6ef-37fd-4f3b-afe6-899dad15968f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="3ca3e6c9-8387-4a96-aca2-c74d4694994f">
+        <profileInstance Id="70cdbd8b-ea44-474e-8c19-d4eab92b2568" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="c770bc49-7255-4667-9004-aa9fcace44d3">
+        <profileInstance Id="f6a3056c-62ba-4f3f-b686-52e9ad0d2405" name="CSharpProfile">
+          <elementDefinition Id="9838caf5-2f4b-4418-8600-38f4b350ff4a" />
+        </profileInstance>
+        <elementDefinition Id="4c88430b-8987-4e83-870b-bbfc7a17204a" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

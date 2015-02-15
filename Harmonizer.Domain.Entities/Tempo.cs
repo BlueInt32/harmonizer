@@ -6,9 +6,11 @@ namespace Harmonizer.Domain.Entities
 	public class Tempo
 	{
 		[DatabaseGenerated(DatabaseGeneratedOption.None)]
-		public int TempoId { get; set; }
+		public int Id { get; set; }
 
 		[StringLength(20)]
 		public string Name { get; set; }
+
+		public bool IsDefault { get; set; }
 	}
 }

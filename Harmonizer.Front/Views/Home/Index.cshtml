@@ -1,45 +1,81 @@
-﻿@{
-	ViewBag.Title = "Index";
-}
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+	<title>Harmonizer</title>
+	<!--
+		<link rel="stylesheet" type="text/css" href="/css/compiled/atomics.css">
+		<link rel="stylesheet" type="text/css" href="/css/compiled/chord.css">
+		<link rel="stylesheet" type="text/css" href="/css/compiled/commands.css">
+		<link rel="stylesheet" type="text/css" href="/css/compiled/home.css">
+	-->
+	<link rel="stylesheet" type="text/css" href="~/css/style.css">
+	<link rel="icon" type="image/png" href="~/images/favicon.png" />
+</head>
+<body>
+	<div id="topbar"></div>
+	<div id="container">
+		<ng-view></ng-view>
+		@if (Request.IsLocal)
+		{
+			@*Angulars*@
+			<script src="~/js/vendor/angular.js"></script>
+			<script src="~/js/vendor/angular-resource.js"></script>
+			<script src="~/js/vendor/angular-route.js"></script>
+			<script src="~/js/vendor/howler.js"></script>
 
-<section id="sequencer">
-	<chord-block ng-repeat="chord in chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>
-</section>
+			<script src="~/js/app.js"></script>
+			<script src="~/js/config.js"></script>
+			<script src="~/js/homepage/homeController.js"></script>
+			<script src="~/js/sideMenu/sideMenuController.js"></script>
+			<script src="~/js/chords/chordFactory.js"></script>
+			<script src="~/js/sound/soundFactory.js"></script>
+			@*Resources *@
+			<script src="~/js/data/sequenceResource.js"></script>
+			<script src="~/js/data/staticDataService.js"></script>
 
-<!--<section id="playback">
-	<input type="button" value="play" ng-click="play();" />
-	<input type="button" value="stop" ng-click="stop();" />
-	<input type="button" value="save" ng-click="save();" />
-</section>-->
+			<script src="~/js/chords/chordBlockDirective.js"></script>
+			<script src="~/js/control/wheelSelect.js"></script>
 
-<section id="options">
+			<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+			<script>
 
-	<section class="controls">
-		<input type="button" value="" ng-click="play();" class="play" />
-		<input type="button" value="" ng-click="stop();" class="stop" />
-	</section>
-	<section class="multi_select">
-		<wheelselect elements="notes" selected="noteChosen"></wheelselect>
-		<wheelselect elements="chordTypes" selected="chordTypeChosen"></wheelselect>
-		<wheelselect elements="durations" selected="durationChosen"></wheelselect>
-		<wheelselect elements="tempi" selected="tempoChosen"></wheelselect>
-	</section>
-	<section class="actions">
-		<div class="metro_block">
-			<div class="metronome checked">Metronome</div>
-		</div>
-		<input type="checkbox" ng-model="metronome" ng-change="toggleMetronome()" class="metro_check hide" />
-		<input type="button" value="+" ng-click="insertChord()" class="insert" />
-	</section>
-</section>
-        </div>
-<section class="nav_bar">
-	<div class="nav_content">
-		<h1>X</h1>
-		<ul id="menu">
-			<li><a href="#" ng-click="save();">Save</a></li>
-			<li><a href="#">Share</a></li>
-			<li><a href="#" ng-click="load();">Load n°1</a></li>
-		</ul>
+				function burgerMenu() {
+					$('.burger').on('click', function () {
+						$('.nav_bar').addClass('open');
+						setTimeout(function () { $('.nav_content').fadeIn(200); }, 200);
+						$('#container').addClass('visibility');
+					});
+
+					$('.nav_content h1').on('click', function () {
+						$('.nav_bar').removeClass('open');
+						$('.nav_content').hide();
+						$('#container').removeClass('visibility');
+					});
+				}
+
+				function metronome() {
+					$('.metronome').click(function () {
+						if ($(this).hasClass('checked')) {
+							$(this).removeClass('checked');
+							$(".metro_check").prop("checked", false);
+						}
+						else {
+							$(this).addClass('checked');
+							$(".metro_check").prop("checked", true);
+						}
+					});
+				}
+
+				$(function () {
+					burgerMenu();
+					metronome();
+				});
+			</script>
+		}
+		else
+		{
+			<script src="~/js/min.js"></script>
+		}
 	</div>
-</section>
+</body>
+</html>

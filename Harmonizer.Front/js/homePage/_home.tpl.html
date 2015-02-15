@@ -1,0 +1,40 @@
+﻿<div ng-controller="sideMenuController as sideMenu">
+	<section id="header">
+		      <div class="burger" ng-click="sideMenu.openMenu();"></div>
+		      <h1>Harmonizer</h1>
+	      </section>
+	<section class="nav_bar" ng-class="{open:sideMenu.isOpen}">
+		<div class="nav_content" ng-show="sideMenu.isOpen">
+			<h1 ng-click="sideMenu.closeMenu();">X</h1>
+			<ul id="menu">
+				<li><a href="#/" ng-click="home.save();">Save</a></li>
+				<li><a href="#">Share</a></li>
+				<li><a href="#" ng-click="home.load();">Load n°1</a></li>
+			</ul>
+		</div>
+	</section>
+</div>
+<section id="sequencer">
+	<chord-block ng-repeat="chord in home.chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>
+</section>
+
+<section id="options">
+
+	<section class="controls">
+		<input type="button" value="" ng-click="home.play();" class="play" />
+		<input type="button" value="" ng-click="home.stop();" class="stop" />
+	</section>
+	<section class="multi_select">
+		<wheelselect elements="home.notes" selected="home.noteChosen"></wheelselect>
+		<wheelselect elements="home.chordTypes" selected="home.chordTypeChosen"></wheelselect>
+		<wheelselect elements="home.durations" selected="home.durationChosen"></wheelselect>
+		<wheelselect elements="home.tempi" selected="home.tempoChosen"></wheelselect>
+	</section>
+	<section class="actions">
+		<div class="metro_block">
+			<div class="metronome checked">Metronome</div>
+		</div>
+		<input type="checkbox" ng-model="home.metronome" ng-change="home.toggleMetronome()" class="metro_check hide" />
+		<input type="button" value="+" ng-click="home.insertChord()" class="insert" />
+	</section>
+</section>

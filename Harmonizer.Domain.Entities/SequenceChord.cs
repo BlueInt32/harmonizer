@@ -11,7 +11,7 @@ namespace Harmonizer.Domain.Entities
 	/// </summary>
 	public class SequenceChord
 	{
-		public int SequenceChordId { get; set; }
+		public int Id { get; set; }
 		public int PositionInSequence { get; set; }
 
 		public int ChordId { get; set; }

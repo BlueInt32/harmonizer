@@ -19,7 +19,7 @@ namespace DataAccessTests
 			Sequence s = new Sequence { Name = "SequenceTest_SaveAndGetSequence", Description = "So good !", TempoId = 70 };
 			_sequenceRepository.CreateSequence(s);
 
-			int sequenceId = s.SequenceId;
+			int sequenceId = s.Id;
 			Assert.IsTrue(sequenceId > 0);
 			Sequence sRead = _sequenceRepository.ReadSequence(sequenceId);
 
@@ -34,7 +34,7 @@ namespace DataAccessTests
 		{
 			Sequence s = new Sequence { Name = "SequenceTest_DeleteSequencetest", Description = "So good !", TempoId = 70 };
 			_sequenceRepository.CreateSequence(s);
-			int sequenceId = s.SequenceId;
+			int sequenceId = s.Id;
 
 			_sequenceRepository.DeleteSequence(sequenceId);
 			
@@ -64,7 +64,7 @@ namespace DataAccessTests
 			var sequences = _sequenceRepository.Search("SequenceTest_");
 			foreach (Sequence sequence in sequences)
 			{
-				_sequenceRepository.DeleteSequence(sequence.SequenceId);
+				_sequenceRepository.DeleteSequence(sequence.Id);
 			}
 
 		}

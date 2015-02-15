@@ -9,19 +9,19 @@
 			factory.chords =
 			[
 				{
-					note: { id: 'A', name: 'A' },
+					note: 'a' ,
 					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing:false
 				},
 				{
-					note: { id: 'C', name: 'C' },
+					note: 'c' ,
 					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing: false
 				},
 				{
-					note: { id: 'G', name: 'G' },
+					note: 'g',
 					chordType: { id: 'maj', name: 'Major Triad', notation: '', sprite_start: 0 },
 					duration: { id: 'halfNote', name: 'Half Note (2)', length: 2, sprite_offset: 1800, sprite_excerpt_duration: 2400 },
 					playing: false
@@ -39,9 +39,9 @@
 			};
 
 			factory.addAChord = function(_note, _chordType, _duration){
-				$log.debug(_note);
-				$log.debug(_chordType);
-				$log.debug(_duration);
+				//$log.debug(_note);
+				//$log.debug(_chordType);
+				//$log.debug(_duration);
 				var newChord =
 				{
 					note: _note,
@@ -95,11 +95,11 @@
 			factory.moveChordRight = function(index)
 			{
 				var intIndex = parseInt(index);
-				$log.debug("move right", index);
+				//$log.debug("move right", index);
 				if (intIndex === factory.chords.length - 1)
 					return;
 				var temp = factory.chords[intIndex + 1];
-				$log.debug(temp);
+				//$log.debug(temp);
 				factory.chords[intIndex + 1] = factory.chords[intIndex];
 				factory.chords[intIndex] = temp;
 			};
@@ -107,11 +107,10 @@
 			factory.reduceForPost = function(chords)
 			{
 				var reducedChords = [];
-				for (var i = 0; i < chords.length; i++)
-				{
+				for (var i = 0; i < chords.length; i++){
 					reducedChords.push(
 					{
-						note:chords[i].note.id,
+						note:chords[i].note,
 						type:chords[i].chordType.id,
 						length:chords[i].duration.length,
 					});

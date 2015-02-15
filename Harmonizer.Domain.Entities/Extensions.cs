@@ -10,7 +10,7 @@ namespace Harmonizer.Domain.Entities
 	{
 		public static string Notation(this Chord chord)
 		{
-			return string.Format("{0}{1}{2}", chord.Duration.DurationId, chord.RootNote.ToString().Replace('s', '#'), chord.ChordType.Notation);
+			return string.Format("{0}{1}{2}", chord.Duration.Id, chord.RootNote.ToString().Replace('s', '#'), chord.ChordType.Notation);
 		}
 	}
 }

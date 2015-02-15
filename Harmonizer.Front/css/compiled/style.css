@@ -180,9 +180,6 @@ html {
 .nav_bar.open {
   width: 240px;
 }
-.nav_bar .nav_content {
-  display: none;
-}
 .nav_bar .nav_content h1 {
   height: 100px;
   font-family: 'roboto-regular';
@@ -235,6 +232,7 @@ html {
   background: #80cbc4;
   font-family: 'roboto-regular';
   font-size: 15vh;
+  text-transform: uppercase;
   color: #ffffff;
   line-height: 15vh;
   text-align: center;

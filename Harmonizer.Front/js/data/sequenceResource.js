@@ -1,7 +1,7 @@
 ﻿(function()
 {
 	'use strict';
-	angular.module('app').factory("memoryFactory", [
+	angular.module('app').factory("sequenceResource", [
 		'durations', '$log', '$resource',
 		function(durations, $log, $resource)
 		{

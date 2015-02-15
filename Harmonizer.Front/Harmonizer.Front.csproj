@@ -110,19 +110,25 @@
     <Content Include="css\compiled\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
-    <Content Include="css\new\style.css" />
+    <Content Include="css\compiled\style.css" />
+    <Content Include="css\compiled\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="css\style.css" />
+    <Content Include="fonts\wheelSelect.js" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
-    <Content Include="home.html" />
     <Content Include="images\favicon.png" />
     <Content Include="js\config.js" />
-    <Content Include="js\directives\wheelSelect.js" />
-    <Content Include="js\factories\memoryFactory.js" />
-    <Content Include="js\factories\chordFactory.js" />
-    <Content Include="js\factories\configFactory.js" />
-    <Content Include="js\factories\soundFactory.js" />
-    <Content Include="js\min.js" />
+    <Content Include="js\control\wheelSelect.js" />
+    <Content Include="js\data\sequenceResource.js" />
+    <Content Include="js\chords\chordFactory.js" />
+    <Content Include="js\data\staticDataService.js" />
+    <Content Include="js\homePage\_home.tpl.html" />
+    <Content Include="js\sideMenu\sideMenuController.js" />
+    <Content Include="js\sound\soundFactory.js" />
     <Content Include="js\vendor\angular-resource.js" />
+    <Content Include="js\vendor\angular-route.js" />
     <Content Include="js\vendor\howler.js" />
     <Content Include="js\vendor\howler.min.js">
       <DependentUpon>howler.js</DependentUpon>
@@ -130,28 +136,23 @@
     <Content Include="karma.conf.js" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
-    <Content Include="css\chord.less" />
-    <Content Include="css\home.less" />
-    <Content Include="css\commands.less" />
-    <Content Include="css\_utils.less" />
-    <Content Include="css\atomics.less" />
     <Content Include="js\vendor\howler.min.js.map">
       <DependentUpon>howler.min.js</DependentUpon>
     </Content>
     <Content Include="css\compiled\complete.css.bundle" />
-    <Content Include="css\new\color.less" />
-    <Content Include="css\new\font.less" />
-    <Content Include="css\new\mixin.less" />
-    <Content Include="css\new\reset.less" />
-    <Content Include="css\new\style.less" />
+    <Content Include="css\color.less" />
+    <Content Include="css\font.less" />
+    <Content Include="css\mixin.less" />
+    <Content Include="css\reset.less" />
+    <Content Include="css\style.less" />
     <None Include="Properties\PublishProfiles\Ovh.pubxml" />
     <Content Include="Samples\a_sprite.wav" />
     <Content Include="Samples\c_sprite.wav" />
     <Content Include="Samples\g_sprite.wav" />
     <Content Include="Samples\metronome.wav" />
+    <Content Include="tests.html" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
@@ -163,11 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\app.js" />
-    <Content Include="js\controllers\mainController.js" />
-    <Content Include="js\directives\chordBlockDirective.js" />
+    <Content Include="js\homePage\homeController.js" />
+    <Content Include="js\chords\chordBlockDirective.js" />
     <Content Include="js\vendor\angular.js" />
-    <Content Include="partials\wheelSelect.html" />
-    <Content Include="partials\chordBlock.html" />
+    <Content Include="js\control\wheelSelect.html" />
+    <Content Include="js\chords\chordBlock.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -182,6 +183,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="js\factories\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

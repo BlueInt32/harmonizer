@@ -9,7 +9,7 @@ namespace Harmonizer.Domain.Entities
 	public class ChordType
 	{
 		[StringLength(5)]
-		public string ChordTypeId { get; set; }
+		public string Id { get; set; }
 
 		[StringLength(50)]
 		public string Name { get; set; }
@@ -19,5 +19,10 @@ namespace Harmonizer.Domain.Entities
 
 		[StringLength(255)]
 		public string Description { get; set; }
+
+		public bool IsDefault { get; set; }
+
+		public int SpriteOffset { get; set; }
+
 	}
 }

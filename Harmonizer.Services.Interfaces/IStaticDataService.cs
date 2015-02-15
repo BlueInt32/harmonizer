@@ -10,5 +10,6 @@ namespace Harmonizer.Services.Interfaces
     public interface IStaticDataService
     {
 	    StaticData GetStaticData();
+	    List<Chord> GetChords();
     }
 }

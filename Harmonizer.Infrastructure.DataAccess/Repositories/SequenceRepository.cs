@@ -25,7 +25,7 @@ namespace Harmonizer.Infrastructure.DataAccess
 
 		public void DeleteSequence(int sequenceId)
 		{
-			Sequence sequence = _db.Sequences.Single(s => s.SequenceId == sequenceId);
+			Sequence sequence = _db.Sequences.Single(s => s.Id == sequenceId);
 			_db.Sequences.Remove(sequence);
 			_db.SaveChanges();
 		}
@@ -38,7 +38,7 @@ namespace Harmonizer.Infrastructure.DataAccess
 
 		public Sequence ReadSequence(int sequenceId)
 		{
-			Sequence sequence = _db.Sequences.Include("Chords.Chord.ChordType").Include("Chords.Chord.RootNote").SingleOrDefault(s => s.SequenceId == sequenceId);
+			Sequence sequence = _db.Sequences.Include("Chords.Chord.ChordType").Include("Chords.Chord.RootNote").SingleOrDefault(s => s.Id == sequenceId);
 			return sequence;
 		}
 

@@ -8,7 +8,7 @@ namespace Harmonizer.Domain.Entities
 	/// </summary>
 	public class Chord
 	{
-		public int ChordId { get; set; }
+		public int Id { get; set; }
 
 		public string RootNoteId { get; set; }
 		[ForeignKey("RootNoteId")]
@@ -19,5 +19,7 @@ namespace Harmonizer.Domain.Entities
 
 		public int DurationId { get; set; }
 		public Duration Duration { get; set; }
+
+		public bool IsDefault { get; set; }
 	}
 }

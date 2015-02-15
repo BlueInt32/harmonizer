@@ -25,11 +25,6 @@ namespace Harmonizer.Api.Controllers
 			_staticDataService = staticDataService;
 		}
 
-		//public IEnumerable<Sequence> GetAllProducts()
-		//{
-		//	return new List<Sequence>();
-		//}
-
 		[Route]
 		public IHttpActionResult SaveSequence(SequenceViewModel model)
 		{

@@ -15,15 +15,17 @@
 	// - chordTypesConfig says where a chord types starts in a spritesheet (in ms), 
 	// - durations gives for each duration (given the chordTypesConfig offset) where the durations are situated
 
-	angular.module('app').factory("soundFactory", [
-		'fileQualityAndExtension', 'notesConfig', 'chordTypesConfig', 'durations', '$log', 'chordFactory', '$interval',
-		function (fileQualityAndExtension, notesConfig, chordTypesConfig, durations, $log, chordFactory, $interval)
+	angular.module('app').factory("soundFactory",  [
+		'fileQualityAndExtension', 'staticDataService', '$log', 'chordFactory', '$interval','$q',
+		function (fileQualityAndExtension, staticDataService, $log, chordFactory, $interval, $q)
 		{
 			// TODO : gerer le chevauchement des accords : quand un accord joue, les autres doivent stopper en fadeout
-			var factory = {};
+			var factory = {}, notesConfig, chordTypesConfig, durations;
+			//$log.debug("soundFactory init");
 
 			//#region Privates
-			var howls = [];
+			var howls = [],
+				playingTempo;
 			var metronomeHowl = new Howl(
 			{
 				urls: ['/samples/metronome.wav'],
@@ -40,21 +42,25 @@
 			// #endregion
 
 
-			factory.initializeHowls = function()
-			{
-				
+			factory.initializeHowls = function(staticData){
+				//$log.debug('staticData', staticData);
+				notesConfig = staticData.data.notes;
+				chordTypesConfig = staticData.data.chordTypes;
+				durations = staticData.data.durations;
+				var defer = $q.defer();
 				for (var i = 0; i < notesConfig.length; i++) // Building howls for each note (12 notes)
 				{
 					var currentSprite = {};
 					var currentOffset = 0;
 					for (var j = 0; j < chordTypesConfig.length; j++) // For each chord Type (major triad, minor, major seventh, dominant, etc...
 					{
-						currentOffset = chordTypesConfig[j].sprite_start;
+						currentOffset = chordTypesConfig[j].spriteOffset;
 						for (var k = 0; k < durations.length; k++) // For each duration possible (1 step, 2 steps, 4 steps)
 						{
-							var spriteName = chordTypesConfig[j].id + "_" + durations[k].length;
-							var spriteStartTiming = currentOffset + durations[k].sprite_offset;
-							var spriteDuration = durations[k].sprite_excerpt_duration - 10; // we substract 10ms to duration because of glitches in sound sprite
+							var spriteName = chordTypesConfig[j].id + "_" + durations[k].id;
+							var spriteStartTiming = currentOffset + durations[k].spriteOffset;
+							var spriteDuration = durations[k].spriteDuration - 10; // we substract 10ms to duration because of glitches in sound sprite
+
 							currentSprite[spriteName] = [spriteStartTiming, spriteDuration];
 						}
 					}
@@ -67,11 +73,13 @@
 					});
 				}
 				$log.debug("Howls loaded ", howls);
+				defer.resolve(staticData);
+				return defer.promise;
 			};
 
-			factory.playSequence = function(tempo)
-			{
-				var interval = 60000 / tempo;
+			factory.playSequence = function(tempo){
+				playingTempo = tempo;
+				var interval = 60000 / playingTempo;
 				var step = 1; // step is the tempo count, starts @ 1 because step 0 is made outside of setInterval
 				var barStep = 1; // barStep is just the bar index, in order for the metronome to say tic instead of tac. For now this is supposed to always be equal to step/4
 				var chordIndex = 1; 
@@ -81,12 +89,11 @@
 				if (factory.metronome) metronomeHowl.play('tic');
 				factory.playOneChordInSequence(0);
 				// set timer for next steps
-				$log.debug("step", 0);
-				$log.debug("------------------");
+				//$log.debug("step", 0);
+				//$log.debug("------------------");
 				
 				factory.timer = $interval(function ()
 				{
-					$log.debug("step", step);
 
 					if (factory.metronome) metronomeHowl.play(barStep === 0 ? 'tic' : 'tac');
 
@@ -103,7 +110,7 @@
 					}
 					step++;
 					barStep = (barStep + 1) % 4;
-					$log.debug("------------------");
+					//$log.debug("------------------");
 				}, interval);
 			};
 
@@ -125,7 +132,7 @@
 			factory.playOneChordInSequence = function (chordIndex)
 			{
 				factory.playASound(
-					chordFactory.chords[chordIndex].note.id,
+					chordFactory.chords[chordIndex].note,
 					chordFactory.chords[chordIndex].chordType.id,
 					chordFactory.chords[chordIndex].duration.length
 				);
@@ -135,8 +142,13 @@
 
 			factory.playASound = function (noteId, chordTypeId, durationLength)
 			{
-				$log.debug("Play ", noteId, chordTypeId + "_" + durationLength);
+				var interval = durationLength * 60000 / playingTempo;
+				$log.debug(playingTempo);
+				$log.debug(interval);
+				$log.debug(durationLength);
+				//$log.debug("Play ", noteId, chordTypeId + "_" + durationLength);
 				howls[noteId].play(chordTypeId + "_" + durationLength);
+				howls[noteId].fade(1, 0, interval);
 			};
 			
 			factory.stop = function()
@@ -150,7 +162,7 @@
 				factory.metronome = !factory.metronome;
 			};
 
-			factory.initializeHowls();
+			//factory.initializeHowls();
 			return factory;
 		}
 	]);

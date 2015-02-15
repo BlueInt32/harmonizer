@@ -13,6 +13,7 @@ namespace Harmonizer.Api.Services
 	{
 		private readonly IStaticDataRepository _staticDataRepository;
 		private StaticData _staticData;
+		private List<Chord> _chords;
 
 		public StaticDataService(IStaticDataRepository staticDataRepository)
 		{
@@ -25,14 +26,23 @@ namespace Harmonizer.Api.Services
 			{
 				_staticData = new StaticData
 				{
-					Chords = _staticDataRepository.GetChords(),
 					ChordTypes = _staticDataRepository.GetChordTypes(),
 					Durations = _staticDataRepository.GetDurations(),
 					Notes = _staticDataRepository.GetNotes(),
 					Tempi = _staticDataRepository.GetTempi()
 				};
+				_staticData.DefaultChordType = _staticData.ChordTypes.FirstOrDefault(c => c.IsDefault);
+				_staticData.DefaultDuration = _staticData.Durations.FirstOrDefault(c => c.IsDefault);
+				_staticData.DefaultNote = _staticData.Notes.FirstOrDefault(c => c.IsDefault);
+				_staticData.DefaultTempo = _staticData.Tempi.FirstOrDefault(c => c.IsDefault);
+
 			}
 			return _staticData;
+		}
+
+		public List<Chord> GetChords()
+		{
+			return _chords ?? (_chords = _staticDataRepository.GetChords());
 		}
 	}
 }
