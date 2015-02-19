@@ -2,27 +2,28 @@
 	'use strict';
 	angular.module('app').controller('homeController', 
 		['$log', 'soundFactory', 'chordFactory', 'sequenceResource', 'resolvedStaticData', '$routeParams',
-	function ($log, soundFactory, chordFactory, sequenceResource, resolvedStaticData, $routeParams, simpleObj){
+	function ($log, soundFactory, chordFactory, sequenceResource, resolvedStaticData, $routeParams){
 		// TODO : modification d'un chord après avoir cliqué dessus
 		// TODO : use named functions instead of anonymous functions https://github.com/johnpapa/angularjs-styleguide#named-vs-anonymous-functions
 		var self = this;
+
 		var seqId = $routeParams.seqId;
 		if (typeof seqId !== 'undefined'){
-			$log.debug("seqId", seqId);
+			$log.debug("sequence ID route param : ", seqId);
 			sequenceResource.get({id:seqId}, function (data) {
-				$log.debug("load", data);
+				$log.debug("xhr sequence loaded : ", data);
 			});
 		}
 		
-		self.notes = resolvedStaticData.data.notes;
-		self.chordTypes = resolvedStaticData.data.chordTypes;
-		self.durations = resolvedStaticData.data.durations;
-		self.tempi = resolvedStaticData.data.tempi;
+		this.notes = resolvedStaticData.notes;
+		this.chordTypes = resolvedStaticData.chordTypes;
+		this.durations = resolvedStaticData.durations;
+		this.tempi = resolvedStaticData.tempi;
 
-		self.noteChosen = resolvedStaticData.data.defaultNote;
-		self.chordTypeChosen = resolvedStaticData.data.defaultChordType;
-		self.durationChosen = resolvedStaticData.data.defaultDuration;
-		self.tempoChosen = resolvedStaticData.data.defaultTempo;
+		this.noteChosen = resolvedStaticData.defaultNote;
+		this.chordTypeChosen = resolvedStaticData.defaultChordType;
+		this.durationChosen = resolvedStaticData.defaultDuration;
+		this.tempoChosen = resolvedStaticData.defaultTempo;
 		
 		this.metronome = soundFactory.metronome;
 		
@@ -32,7 +33,7 @@
 		this.insertChord = function (){
 			chordFactory.addAChord(this.noteChosen, this.chordTypeChosen, this.durationChosen);
 			this.chords = chordFactory.chords;
-			soundFactory.playASound(this.noteChosen.id, this.chordTypeChosen.id, this.durationChosen.id);
+			soundFactory.playASound(this.noteChosen.id, this.chordTypeChosen.id, this.durationChosen.id, this.tempoChosen.id);
 		};
 
 		this.play = function () {
@@ -47,7 +48,7 @@
 				description: "premiere description"
 			};
 			sequenceResource.save(sequence, function (data) {
-				$log.debug(data);
+				//$log.debug(data);
 			});
 		};
 
@@ -56,7 +57,7 @@
 		this.toggleMetronome = soundFactory.toggleMetronome;
 		this.load = function(){
 			var sequence = sequenceResource.get({id:$routeParams.seqId});
-			$log.debug("sequence", sequence);
+			//$log.debug("sequence", sequence);
 			//var User = $resource('/user/:userId', { userId: '@id' });
 		}
 	}

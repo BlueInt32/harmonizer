@@ -1,45 +1,22 @@
 ﻿(function(){
 	'use strict';
-	angular.module('app').service('staticDataService', ['$log', '$http', function($log, $http){
+	angular.module('app').service('staticDataService', ['$log', '$http','$q', function($log, $http, $q){
 		
-		var notesConfig,
-			chordsTypesConfig,
-			tempiConfig,
-			durationsConfig,
-			staticDataPromise = $http({ method: 'GET', url: 'http://localhost:59400/api/staticdata/', cache: true });
-
 		var getStaticData = function(){
-				return staticDataPromise.then(function(staticData){	
-					notesConfig = staticData.data.notes;
-					chordsTypesConfig = staticData.data.chordTypes;
-					durationsConfig = staticData.data.durations;
-					tempiConfig = staticData.data.tempi;
-					return staticData;
-				},
-				function(){
-					$log.error("Erreur !");
-				});
-			},
-			getNotesConfig = function(){
-				return notesConfig;
-			},
-			getChordTypesConfig = function(){
-				return chordsTypesConfig;
-			},
-			getDurationsConfig = function(){
-				return durationsConfig;
-			},
-			getTempiConfig = function(){
-				return tempiConfig;
-			};
+			var defer = $q.defer();
 
+			$http({ method: 'GET', url: 'http://localhost:59400/api/staticdata/', cache: true })
+			.success(function(staticData){
+				defer.resolve(staticData);
+				$log.debug("staticDataService received data !", staticData);
+			}).error(function(data, status, headers, config){
+				defer.reject("oops ! " + status);
+			});
+			return defer.promise;
+		}
 
 		return { 
-			getStaticData: getStaticData,
-			getNotesConfig : getNotesConfig,
-			getChordTypesConfig : getChordTypesConfig,
-			getDurationsConfig : getDurationsConfig, 
-			getTempiConfig : getTempiConfig
+			getStaticData: getStaticData
 		};
 	}]);
 })();

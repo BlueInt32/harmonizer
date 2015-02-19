@@ -124,9 +124,11 @@
     <Content Include="js\data\sequenceResource.js" />
     <Content Include="js\chords\chordFactory.js" />
     <Content Include="js\data\staticDataService.js" />
+    <Content Include="js\homePage\homeController.test.js" />
     <Content Include="js\homePage\_home.tpl.html" />
     <Content Include="js\sideMenu\sideMenuController.js" />
     <Content Include="js\sound\soundFactory.js" />
+    <Content Include="js\vendor\angular-mocks.js" />
     <Content Include="js\vendor\angular-resource.js" />
     <Content Include="js\vendor\angular-route.js" />
     <Content Include="js\vendor\howler.js" />
@@ -183,7 +185,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="js\factories\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

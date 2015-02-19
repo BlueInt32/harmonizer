@@ -21,7 +21,6 @@
 		{
 			// TODO : gerer le chevauchement des accords : quand un accord joue, les autres doivent stopper en fadeout
 			var factory = {}, notesConfig, chordTypesConfig, durations;
-			//$log.debug("soundFactory init");
 
 			//#region Privates
 			var howls = [],
@@ -43,10 +42,9 @@
 
 
 			factory.initializeHowls = function(staticData){
-				//$log.debug('staticData', staticData);
-				notesConfig = staticData.data.notes;
-				chordTypesConfig = staticData.data.chordTypes;
-				durations = staticData.data.durations;
+				notesConfig = staticData.notes;
+				chordTypesConfig = staticData.chordTypes;
+				durations = staticData.durations;
 				var defer = $q.defer();
 				for (var i = 0; i < notesConfig.length; i++) // Building howls for each note (12 notes)
 				{
@@ -94,9 +92,8 @@
 				
 				factory.timer = $interval(function ()
 				{
-
 					if (factory.metronome) metronomeHowl.play(barStep === 0 ? 'tic' : 'tac');
-
+					$log.debug(chordsStartingSteps[chordIndex]);
 					if (chordsStartingSteps[chordIndex] === step) // is the current step corresponding to the start of a chord in the sequence ?
 					{
 						factory.playOneChordInSequence(chordIndex);
@@ -110,6 +107,7 @@
 					}
 					step++;
 					barStep = (barStep + 1) % 4;
+					//$log.debug('step', step);
 					//$log.debug("------------------");
 				}, interval);
 			};
@@ -125,30 +123,38 @@
 				for (var l = 0; l < chordFactory.chords.length; l++)
 				{
 					chordsStartingSteps.push(totalSequenceLength);
-					totalSequenceLength += chordFactory.chords[l].duration.length;
+					totalSequenceLength += chordFactory.chords[l].duration;
 				}
 			};
 
 			factory.playOneChordInSequence = function (chordIndex)
 			{
+				$log.debug('chordFactory.chords[chordIndex]', chordFactory.chords[chordIndex]);
 				factory.playASound(
 					chordFactory.chords[chordIndex].note,
-					chordFactory.chords[chordIndex].chordType.id,
-					chordFactory.chords[chordIndex].duration.length
+					chordFactory.chords[chordIndex].chordType,
+					chordFactory.chords[chordIndex].duration,
+					playingTempo
 				);
 
 				chordFactory.setPlaying(chordIndex);
 			};
 
-			factory.playASound = function (noteId, chordTypeId, durationLength)
+			factory.playASound = function (noteId, chordTypeId, durationLength, localTempo)
 			{
-				var interval = durationLength * 60000 / playingTempo;
-				$log.debug(playingTempo);
-				$log.debug(interval);
-				$log.debug(durationLength);
-				//$log.debug("Play ", noteId, chordTypeId + "_" + durationLength);
+				var interval = durationLength * 60000 / localTempo;
+				$log.debug('interval', interval);
+				howls[noteId].volume(1);
 				howls[noteId].play(chordTypeId + "_" + durationLength);
-				howls[noteId].fade(1, 0, interval);
+				// at about 90% of the durationLength, we fade out the sound during 20% of it
+				setTimeout(function(){
+					$log.debug("fadeIn");
+					howls[noteId].fadeOut(0, interval * 0.14, function(){
+						
+						howls[noteId].stop();
+						$log.debug("fadeIn ends");
+					});
+				}, interval * 0.85);
 			};
 			
 			factory.stop = function()
