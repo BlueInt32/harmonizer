@@ -16,3 +16,4 @@ Resources :
 - Dynamically add directives in AngularJS -> [JSFiddle](http://jsfiddle.net/ftfish/KyEr3/)
 - Nice JS/CSS3 circular select -> [Codrops](http://tympanus.net/Development/SelectInspiration/index8.html)
 - Modern web audio javascript Library : [Howler.js](http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library)
+- [3D flip for chords](http://css3playground.com/3d-flip-cards/)
