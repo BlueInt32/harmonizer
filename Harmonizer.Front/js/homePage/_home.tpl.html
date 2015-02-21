@@ -15,7 +15,7 @@
 	</section>
 </div>
 <section id="sequencer">
-	<chord-block ng-repeat="chord in home.chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>
+	<chord-block ng-repeat="chord in home.chordFactory.chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>
 </section>
 
 <section id="options">
@@ -25,10 +25,10 @@
 		<input type="button" value="" ng-click="home.stop();" class="stop" />
 	</section>
 	<section class="multi_select">
-		<wheelselect elements="home.notes" selected="home.noteChosen"></wheelselect>
-		<wheelselect elements="home.chordTypes" selected="home.chordTypeChosen"></wheelselect>
-		<wheelselect elements="home.durations" selected="home.durationChosen"></wheelselect>
-		<wheelselect elements="home.tempi" selected="home.tempoChosen"></wheelselect>
+		<wheelselect elements="home.notes" selected="home.noteSelectedId"></wheelselect>
+		<wheelselect elements="home.chordTypes" selected="home.chordTypeSelectedId"></wheelselect>
+		<wheelselect elements="home.durations" selected="home.durationSelectedId"></wheelselect>
+		<wheelselect elements="home.tempi" selected="home.tempoSelectedId"></wheelselect>
 	</section>
 	<section class="actions">
 		<div class="metro_block">

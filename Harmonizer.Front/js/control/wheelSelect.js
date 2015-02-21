@@ -1,8 +1,8 @@
 (function()
 {
 	'use strict';
-	angular.module('app').directive("wheelselect", [
-		function()
+	angular.module('app').directive("wheelselect", ['$log',
+		function($log)
 		{
 			var linkFn = function(scope, element, attrs)
 			{

@@ -41,7 +41,7 @@
 			// #endregion
 
 
-			factory.initializeHowls = function(staticData){
+			factory.inititalize = function(staticData){
 				notesConfig = staticData.notes;
 				chordTypesConfig = staticData.chordTypes;
 				durations = staticData.durations;
@@ -76,6 +76,7 @@
 			};
 
 			factory.playSequence = function(tempo){
+				//$log.debug('tempo', tempo);
 				playingTempo = tempo;
 				var interval = 60000 / playingTempo;
 				var step = 1; // step is the tempo count, starts @ 1 because step 0 is made outside of setInterval
@@ -93,7 +94,7 @@
 				factory.timer = $interval(function ()
 				{
 					if (factory.metronome) metronomeHowl.play(barStep === 0 ? 'tic' : 'tac');
-					$log.debug(chordsStartingSteps[chordIndex]);
+					//$log.debug(chordsStartingSteps[chordIndex]);
 					if (chordsStartingSteps[chordIndex] === step) // is the current step corresponding to the start of a chord in the sequence ?
 					{
 						factory.playOneChordInSequence(chordIndex);
@@ -123,38 +124,43 @@
 				for (var l = 0; l < chordFactory.chords.length; l++)
 				{
 					chordsStartingSteps.push(totalSequenceLength);
-					totalSequenceLength += chordFactory.chords[l].duration;
+					totalSequenceLength += chordFactory.chords[l].durationId;
 				}
 			};
 
 			factory.playOneChordInSequence = function (chordIndex)
 			{
-				$log.debug('chordFactory.chords[chordIndex]', chordFactory.chords[chordIndex]);
+				$log.debug(chordFactory.chords[chordIndex].noteId,
+					chordFactory.chords[chordIndex].chordTypeId,
+					chordFactory.chords[chordIndex].durationId);
 				factory.playASound(
-					chordFactory.chords[chordIndex].note,
-					chordFactory.chords[chordIndex].chordType,
-					chordFactory.chords[chordIndex].duration,
+					chordFactory.chords[chordIndex].noteId,
+					chordFactory.chords[chordIndex].chordTypeId,
+					chordFactory.chords[chordIndex].durationId,
 					playingTempo
 				);
 
 				chordFactory.setPlaying(chordIndex);
 			};
 
-			factory.playASound = function (noteId, chordTypeId, durationLength, localTempo)
+			factory.playASound = function (noteId, chordTypeId, durationId, localTempo)
 			{
-				var interval = durationLength * 60000 / localTempo;
-				$log.debug('interval', interval);
+				$log.debug(noteId);
+				var duration = durationId * 60000 / localTempo, // chord length in ms
+					fadeOutStart = 0.85, // percent of the sound length when the fadeOut starts
+					fadeOutLength = 0.14; // duration of the fadeOut in percent of the whole duration
+
+				$log.debug('-> ', duration, 'ms');
 				howls[noteId].volume(1);
-				howls[noteId].play(chordTypeId + "_" + durationLength);
-				// at about 90% of the durationLength, we fade out the sound during 20% of it
+				howls[noteId].play(chordTypeId + "_" + durationId);
+
+				// at about fadeOutStart% of the durationLength, we fade out the sound during fadeOutLength% of it
 				setTimeout(function(){
-					$log.debug("fadeIn");
-					howls[noteId].fadeOut(0, interval * 0.14, function(){
-						
-						howls[noteId].stop();
-						$log.debug("fadeIn ends");
+					howls[noteId].fadeOut(0, duration * fadeOutLength, function(){
+						howls[noteId].stop(); // we need to stop the howl, because fadeOut pauses the sound when ended 
+						// (which leads to weird behaviours)
 					});
-				}, interval * 0.85);
+				}, duration * fadeOutStart);
 			};
 			
 			factory.stop = function()
@@ -168,7 +174,6 @@
 				factory.metronome = !factory.metronome;
 			};
 
-			//factory.initializeHowls();
 			return factory;
 		}
 	]);

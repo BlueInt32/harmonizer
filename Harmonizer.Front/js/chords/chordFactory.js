@@ -1,12 +1,24 @@
 ﻿(function () {
 	'use strict';
 	angular.module('app').factory("chordFactory", [
-		'durations', '$log', function (durations, $log) {
+		'durations', '$log', '$q', function (durations, $log, $q) {
 			var chords = [
-				{ note: 'a', chordType: 'maj', duration: 2, playing: false },
-				{ note: 'c', chordType: 'maj', duration: 2, playing: false },
-				{ note: 'g', chordType: 'maj', duration: 2, playing: false }
+				{ noteId: 'a', chordTypeId: 'maj', durationId: 2, playing: false },
+				{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false },
+				{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false }
 			];
+
+			var durations;
+
+			var initialize = function(staticData){
+				
+				var defer = $q.defer();
+
+				durations = staticData.durations;
+				$log.debug('durations', durations);
+				defer.resolve(staticData);
+				return defer.promise;
+			};
 
 			var setPlaying = function (chordIndex) {
 				for (var i = 0; i < chords.length; i++) {
@@ -16,11 +28,11 @@
 					chords[chordIndex].playing = true;
 			};
 
-			var addAChord = function (note, chordType, duration) {
+			var addAChord = function (noteId, chordTypeId, durationId) {
 				var newChord = {
-					note: note.id,
-					chordType: chordType.id,
-					duration: duration.id,
+					noteId: noteId,
+					chordTypeId: chordTypeId,
+					durationId: durationId,
 					playing: false
 				};
 				$log.debug("just added ", newChord);
@@ -32,20 +44,20 @@
 			};
 
 			var increaseChordLength = function (index) {
-				var currentLength = chords[index].duration.length;
+				var clickedChordLength = chords[index].durationId;
 				for (var i = 0; i < durations.length; i++) {
-					if (currentLength === durations[i].length && i !== durations.length - 1) {
-						chords[index].duration.length = durations[i + 1].length;
+					if (clickedChordLength === durations[i].id && i !== durations.id - 1) {
+						chords[index].durationId = durations[i + 1].id;
 						return;
 					}
 				}
 			};
 
 			var decreaseChordLength = function (index) {
-				var currentLength = chords[index].duration.length;
-				for (var i = 1; i < durations.length; i++) {
-					if (currentLength === durations[i].length) {
-						chords[index].duration.length = durations[i - 1].length;
+				var clickedChordLength = chords[index].durationId;
+				for (var i = 0; i < durations.length; i++) {
+					if (clickedChordLength === durations[i].id){
+						chords[index].durationId = durations[i - 1].id;
 						return;
 					}
 				}
@@ -76,13 +88,14 @@
 					{
 						note: chords[i].note,
 						type: chords[i].chordType.id,
-						length: chords[i].duration.length,
+						length: chords[i].duration.id,
 					});
 				}
 				return reducedChords;
 			};
 
 			return {
+				initialize : initialize,
 				chords: chords,
 				setPlaying: setPlaying,
 				addAChord: addAChord,

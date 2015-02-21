@@ -31,10 +31,10 @@ namespace Harmonizer.Api.Services
 					Notes = _staticDataRepository.GetNotes(),
 					Tempi = _staticDataRepository.GetTempi()
 				};
-				_staticData.DefaultChordType = _staticData.ChordTypes.FirstOrDefault(c => c.IsDefault);
-				_staticData.DefaultDuration = _staticData.Durations.FirstOrDefault(c => c.IsDefault);
-				_staticData.DefaultNote = _staticData.Notes.FirstOrDefault(c => c.IsDefault);
-				_staticData.DefaultTempo = _staticData.Tempi.FirstOrDefault(c => c.IsDefault);
+				_staticData.DefaultChordTypeId = _staticData.ChordTypes.Where(c => c.IsDefault).Select(c => c.Id).FirstOrDefault();
+				_staticData.DefaultDurationId = _staticData.Durations.Where(c => c.IsDefault).Select(c => c.Id).FirstOrDefault();
+				_staticData.DefaultNoteId = _staticData.Notes.Where(c => c.IsDefault).Select(c => c.Id).FirstOrDefault();
+				_staticData.DefaultTempoId = _staticData.Tempi.Where(c => c.IsDefault).Select(c => c.Id).FirstOrDefault();
 
 			}
 			return _staticData;

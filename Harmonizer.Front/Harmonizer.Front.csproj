@@ -128,6 +128,7 @@
     <Content Include="js\homePage\_home.tpl.html" />
     <Content Include="js\sideMenu\sideMenuController.js" />
     <Content Include="js\sound\soundFactory.js" />
+    <Content Include="js\utils\lodashFactory.js" />
     <Content Include="js\vendor\angular-mocks.js" />
     <Content Include="js\vendor\angular-resource.js" />
     <Content Include="js\vendor\angular-route.js" />
@@ -135,6 +136,7 @@
     <Content Include="js\vendor\howler.min.js">
       <DependentUpon>howler.js</DependentUpon>
     </Content>
+    <Content Include="js\vendor\lodash.min.js" />
     <Content Include="karma.conf.js" />
     <Content Include="package.json" />
     <Content Include="packages.config" />

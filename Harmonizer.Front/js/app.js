@@ -17,9 +17,12 @@
 					controllerAs:'home',
 					templateUrl: 'js/homePage/_home.tpl.html',
 					resolve: {
-						resolvedStaticData: function (staticDataService, soundFactory){
+						resolvedStaticData: function (staticDataService, soundFactory, chordFactory){
 							return staticDataService.getStaticData().then(function(staticData){
-								return soundFactory.initializeHowls(staticData);
+								return soundFactory.inititalize(staticData).then(function(){
+									//console.log(chordFactory);
+									return chordFactory.initialize(staticData);
+								});
 							});
 						}
 					}

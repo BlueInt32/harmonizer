@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 	'use strict';
 	angular.module('app').controller('homeController', 
 		['$log', 'soundFactory', 'chordFactory', 'sequenceResource', 'resolvedStaticData', '$routeParams',
@@ -6,6 +6,7 @@
 		// TODO : modification d'un chord après avoir cliqué dessus
 		// TODO : use named functions instead of anonymous functions https://github.com/johnpapa/angularjs-styleguide#named-vs-anonymous-functions
 		var self = this;
+		this.chordFactory = {};
 
 		var seqId = $routeParams.seqId;
 		if (typeof seqId !== 'undefined'){
@@ -20,31 +21,32 @@
 		this.durations = resolvedStaticData.durations;
 		this.tempi = resolvedStaticData.tempi;
 
-		this.noteChosen = resolvedStaticData.defaultNote;
-		this.chordTypeChosen = resolvedStaticData.defaultChordType;
-		this.durationChosen = resolvedStaticData.defaultDuration;
-		this.tempoChosen = resolvedStaticData.defaultTempo;
+		this.noteSelectedId = resolvedStaticData.defaultNoteId;
+		this.chordTypeSelectedId = resolvedStaticData.defaultChordTypeId;
+		this.durationSelectedId = resolvedStaticData.defaultDurationId;
+		this.tempoSelectedId = resolvedStaticData.defaultTempoId;
 		
 		this.metronome = soundFactory.metronome;
 		
 		//this.$log = $log;
-		this.chords = chordFactory.chords;
-
+		this.chordFactory.chords = chordFactory.chords;
+		$log.debug('chordFactory.chords', chordFactory.chords);
 		this.insertChord = function (){
-			chordFactory.addAChord(this.noteChosen, this.chordTypeChosen, this.durationChosen);
-			this.chords = chordFactory.chords;
-			soundFactory.playASound(this.noteChosen.id, this.chordTypeChosen.id, this.durationChosen.id, this.tempoChosen.id);
+			chordFactory.addAChord(this.noteSelectedId, this.chordTypeSelectedId, this.durationSelectedId);
+			
+			self.chordFactory.chords = chordFactory.chords;
+			soundFactory.playASound(this.noteSelectedId, this.chordTypeSelectedId, this.durationSelectedId, this.tempoSelectedId);
 		};
 
 		this.play = function () {
-			soundFactory.playSequence(self.tempoChosen.id);
+			soundFactory.playSequence(self.tempoSelectedId);
 		};
 		this.save = function (){
 			
 			var sequence = {
-				chords: chordFactory.reduceForPost(this.chords),
+				chords: chordFactory.chords,
 				name: "premiere sequence",
-				tempo:self.tempoChosen.id,
+				tempo:self.tempoSelected.id,
 				description: "premiere description"
 			};
 			sequenceResource.save(sequence, function (data) {
