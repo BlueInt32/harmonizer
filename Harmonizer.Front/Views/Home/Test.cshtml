@@ -1,0 +1,49 @@
+﻿@model dynamic
+
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cow tests</title>
+	<link rel="stylesheet" media="all" href="~/node_modules/mocha/mocha.css">
+	
+	@*Angulars*@
+	<script src="~/js/vendor/angular.js"></script>
+	<script src="~/js/vendor/angular-resource.js"></script>
+	<script src="~/js/vendor/angular-route.js"></script>
+	<script src="~/js/vendor/howler.js"></script>
+	<script src="~/js/vendor/lodash.min.js"></script>
+  <script src="~/node_modules/mocha/mocha.js"></script>
+  <script src="~/node_modules/chai/chai.js"></script>
+
+	@*Utils*@
+
+	@* App *@
+	<script src="~/js/app.js"></script>
+	<script src="~/js/config.js"></script>
+	<script src="~/js/homepage/homeController.js"></script>
+	<script src="~/js/sideMenu/sideMenuController.js"></script>
+	<script src="~/js/utils/lodashFactory.js"></script>
+	<script src="~/js/chords/chordFactory.js"></script>
+	<script src="~/js/sound/soundFactory.js"></script>
+	<script src="~/js/data/sequenceResource.js"></script>
+	<script src="~/js/data/staticDataService.js"></script>
+
+	<script src="~/js/chords/chordBlockDirective.js"></script>
+	<script src="~/js/control/wheelSelect.js"></script>
+	
+  <script> mocha.setup('bdd');</script>
+	<script src="~/js/homepage/homeController.test.js"></script>
+  
+    
+</head>
+<body>
+  <div id="mocha"><p><a href=".">Index</a></p></div>
+  <div id="messages"></div>
+	<div id="fixtures"></div>
+	<script>mocha.run();mocha.checkLeaks();</script>
+</body>
+</html>

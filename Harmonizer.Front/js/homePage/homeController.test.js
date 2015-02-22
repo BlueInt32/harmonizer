@@ -1,25 +1,30 @@
 ﻿
-describe('homeController', function () {
-	beforeEach(module('app'));
+//describe('homeController', function () {
+//	beforeEach(module('app'));
 
-	var $controller;
+//	var $controller;
 
-	beforeEach(inject(function (_$controller_) {
-		// The injector unwraps the underscores (_) from around the parameter names when matching
-		$controller = _$controller_;
-	}));
+//	beforeEach(inject(function (_$controller_) {
+//		// The injector unwraps the underscores (_) from around the parameter names when matching
+//		$controller = _$controller_;
+//	}));
 
-	describe('$scope.grade', function () {
-		it('show', function (){
-			var resolvedStaticData = getStaticDataForTests();
-			var controller = $controller('homeController', { resolvedStaticData: resolvedStaticData  });
-			console.log("youpi");
-			expect(controller.chords.length).toEqual(3);
+//	describe('$scope.grade', function () {
+//		it('show', function (){
+//			var resolvedStaticData = getStaticDataForTests();
+//			var controller = $controller('homeController', { resolvedStaticData: resolvedStaticData  });
+//			console.log("youpi");
+//			expect(controller.chords.length).toEqual(3);
 
-		});
-	});
+//		});
+//	});
+//});
+
+describe("A test suite", function() {
+   beforeEach(function() { });
+   afterEach(function() { });
+   it('should fail', function() { expect(true).to.be.false; });
 });
-
 
 var getStaticDataForTests =
 function(){

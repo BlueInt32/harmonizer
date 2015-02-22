@@ -147,7 +147,7 @@
 			{
 				$log.debug(noteId);
 				var duration = durationId * 60000 / localTempo, // chord length in ms
-					fadeOutStart = 0.85, // percent of the sound length when the fadeOut starts
+					fadeOutStart = 0.95, // percent of the sound length when the fadeOut starts
 					fadeOutLength = 0.14; // duration of the fadeOut in percent of the whole duration
 
 				$log.debug('-> ', duration, 'ms');

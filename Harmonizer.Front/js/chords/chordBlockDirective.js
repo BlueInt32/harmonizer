@@ -22,8 +22,15 @@
 				scope: {
 					chord: '=',
 					index: '@'
+					//flipped: false
 				},
-				templateUrl: 'js/chords/chordBlock.html'
+				templateUrl: 'js/chords/chordBlock.html',
+				controller: function($scope, $log){
+					$scope.flip = function(){
+						$log.debug('hey');
+						$scope.flipped = !$scope.flipped;
+					}
+				}
 			};
 		}
 	]);

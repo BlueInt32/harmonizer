@@ -1,11 +1,11 @@
 ﻿(function () {
 	'use strict';
 	angular.module('app').factory("chordFactory", [
-		'durations', '$log', '$q', function (durations, $log, $q) {
+		'durations', '$log', '$q', 'staticDataService', function (durations, $log, $q, staticDataService) {
 			var chords = [
-				{ noteId: 'a', chordTypeId: 'maj', durationId: 2, playing: false },
-				{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false },
-				{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false }
+				{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
+				{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'C' },
+				{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'G' }
 			];
 
 			var durations;
@@ -28,11 +28,13 @@
 					chords[chordIndex].playing = true;
 			};
 
-			var addAChord = function (noteId, chordTypeId, durationId) {
+			var addAChord = function (noteId, chordTypeId, durationId){
+				var chordNotation = staticDataService.createChordNotation(noteId, chordTypeId);
 				var newChord = {
 					noteId: noteId,
 					chordTypeId: chordTypeId,
 					durationId: durationId,
+					chordNotation: chordNotation,
 					playing: false
 				};
 				$log.debug("just added ", newChord);

@@ -1,11 +1,15 @@
-﻿<div class="chordBlock duration_{{chord.durationId}}" ng-class="{'playing':chord.playing}">
-	{{chord.noteId}}{{chord.chordType.notation}}
-
-	<div class="chordCommands">
-		<input type="button" value="-" ng-click="decreaseChordLength(index);" />
-		<input type="button" value="+" ng-click="increaseChordLength(index);" />
-		<input type="button" value="X" ng-click="removeAChord(index);" />
-		<input type="button" value="<-" ng-click="moveChordLeft(index);" />
-		<input type="button" value="->" ng-click="moveChordRight(index);" />
-	</div>
+﻿<div class="chordBlock flip-container duration_{{chord.durationId}}" ng-class="{'flipped':flipped}" ng-click="flip();">
+    <div class="flipper">
+        <div class="front " ng-class="{'playing':chord.playing}">
+            {{chord.chordNotation}}
+            <span>{{chord.durationId}}</span>
+        </div>
+        <div class="back chordCommands">
+            <input type="button" value="-" ng-click="decreaseChordLength(index);" />
+            <input type="button" value="+" ng-click="increaseChordLength(index);" />
+            <input type="button" value="X" ng-click="removeAChord(index);" />
+            <input type="button" value="<-" ng-click="moveChordLeft(index);" />
+            <input type="button" value="->" ng-click="moveChordRight(index);" />
+        </div>
+    </div>
 </div>

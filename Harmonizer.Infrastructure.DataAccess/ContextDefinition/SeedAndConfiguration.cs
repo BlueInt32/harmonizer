@@ -54,9 +54,9 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
 				);
 			context.Durations.AddOrUpdate(
 				duration => duration.Name,
-				new Duration { Name = "Quarter Note (1)", Id = 1, SpriteOffset = 0, SpriteDuration = 1800 },
-				new Duration { Name = "Half Note (2)", Id = 2, SpriteOffset = 1800, SpriteDuration = 2400, IsDefault = true },
-				new Duration { Name = "Whole Note (4)", Id = 3, SpriteOffset = 4200, SpriteDuration = 3600 }
+				new Duration {Id = 1, Name = "Quarter Note (1)", SpriteOffset = 0, SpriteDuration = 1800 },
+				new Duration {Id = 2, Name = "Half Note (2)", SpriteOffset = 1800, SpriteDuration = 2400, IsDefault = true },
+				new Duration {Id = 4, Name = "Whole Note (4)", SpriteOffset = 4200, SpriteDuration = 3600 }
 				);
 			context.SaveChanges();
 

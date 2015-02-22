@@ -154,11 +154,14 @@
     <Content Include="Samples\c_sprite.wav" />
     <Content Include="Samples\g_sprite.wav" />
     <Content Include="Samples\metronome.wav" />
+    <Content Include="test.html" />
     <Content Include="tests.html" />
+    <Content Include="test\test.js" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

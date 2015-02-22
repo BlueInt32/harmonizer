@@ -18,16 +18,21 @@
 			return defer.promise;
 		}
 
-		var getNote = function(noteId){
-			var found = _.find(staticData.notes, function(note){
+		var createChordNotation = function(noteId, chordTypeId){
+			var foundNote = _.result(_.find(staticData.notes, function(note){
 				return note.id === noteId;
-			});
-			$log.debug('found', found);
+			}), 'name');
+			var chordNotation = _.result(_.find(staticData.chordTypes, function(chordType){
+				return chordType.id === chordTypeId;
+			}), 'notation');
+
+			$log.debug('found ', foundNote, chordNotation);
+			return foundNote + chordNotation;
 		}
 
 		return { 
 			getStaticData: getStaticData,
-			getNote: getNote
+			createChordNotation: createChordNotation
 
 		};
 	}]);
