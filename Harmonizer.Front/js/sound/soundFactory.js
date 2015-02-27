@@ -48,19 +48,17 @@
 				var defer = $q.defer();
 				for (var i = 0; i < notesConfig.length; i++) // Building howls for each note (12 notes)
 				{
+					$log.debug('building howl for ', notesConfig[i].id);
 					var currentSprite = {};
 					var currentOffset = 0;
 					for (var j = 0; j < chordTypesConfig.length; j++) // For each chord Type (major triad, minor, major seventh, dominant, etc...
 					{
 						currentOffset = chordTypesConfig[j].spriteOffset;
-						for (var k = 0; k < durations.length; k++) // For each duration possible (1 step, 2 steps, 4 steps)
-						{
-							var spriteName = chordTypesConfig[j].id + "_" + durations[k].id;
-							var spriteStartTiming = currentOffset + durations[k].spriteOffset;
-							var spriteDuration = durations[k].spriteDuration - 10; // we substract 10ms to duration because of glitches in sound sprite
-
+						$log.debug('type', j, 'offset ', currentOffset);
+							var spriteName = chordTypesConfig[j].id,
+								spriteStartTiming = currentOffset,
+								spriteDuration = 3590; // we substract 10ms to duration because of glitches in sound sprite
 							currentSprite[spriteName] = [spriteStartTiming, spriteDuration];
-						}
 					}
 
 					var noteSoundUrl = '/samples/' + notesConfig[i].id + '_sprite' + fileQualityAndExtension;
@@ -130,9 +128,6 @@
 
 			factory.playOneChordInSequence = function (chordIndex)
 			{
-				$log.debug(chordFactory.chords[chordIndex].noteId,
-					chordFactory.chords[chordIndex].chordTypeId,
-					chordFactory.chords[chordIndex].durationId);
 				factory.playASound(
 					chordFactory.chords[chordIndex].noteId,
 					chordFactory.chords[chordIndex].chordTypeId,
@@ -152,7 +147,7 @@
 
 				$log.debug('-> ', duration, 'ms');
 				howls[noteId].volume(1);
-				howls[noteId].play(chordTypeId + "_" + durationId);
+				howls[noteId].play(chordTypeId);
 
 				// at about fadeOutStart% of the durationLength, we fade out the sound during fadeOutLength% of it
 				setTimeout(function(){

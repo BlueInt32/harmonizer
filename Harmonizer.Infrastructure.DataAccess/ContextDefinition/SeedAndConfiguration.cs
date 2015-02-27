@@ -29,8 +29,9 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
 			context.ChordTypes.AddOrUpdate(
 				ct => ct.Id,
 				new ChordType { Id = "maj", Name = "Major Triad", Description = "", Notation = "", IsDefault = true, SpriteOffset=0 },
-				new ChordType { Id = "min", Name = "Minor Triad", Description = "", Notation = "m", SpriteOffset=7800 },
-				new ChordType { Id = "dom7", Name = "Dominant Seventh", Description = "", Notation = "7" }
+				new ChordType { Id = "min", Name = "Minor Triad", Description = "", Notation = "m", SpriteOffset=3600 },
+				new ChordType { Id = "dom7", Name = "Dominant Seventh", Description = "", Notation = "7", SpriteOffset = 7200 },
+				new ChordType { Id = "maj7", Name = "Major Seventh", Description = "", Notation = "M7", SpriteOffset = 10800 }
 				);
 			context.Notes.AddOrUpdate(
 				note => note.Id,
@@ -54,9 +55,9 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
 				);
 			context.Durations.AddOrUpdate(
 				duration => duration.Name,
-				new Duration {Id = 1, Name = "Quarter Note (1)", SpriteOffset = 0, SpriteDuration = 1800 },
-				new Duration {Id = 2, Name = "Half Note (2)", SpriteOffset = 1800, SpriteDuration = 2400, IsDefault = true },
-				new Duration {Id = 4, Name = "Whole Note (4)", SpriteOffset = 4200, SpriteDuration = 3600 }
+				new Duration {Id = 1, Name = "Quarter Note (1)"},
+				new Duration {Id = 2, Name = "Half Note (2)", IsDefault = true },
+				new Duration {Id = 4, Name = "Whole Note (4)" }
 				);
 			context.SaveChanges();
 

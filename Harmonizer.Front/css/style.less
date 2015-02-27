@@ -182,7 +182,7 @@ html {
 		}
 	}
 }
-
+@baseChordWidth: 200px;
 #sequencer {
 	display: flex;
 	flex-flow: row wrap;
@@ -192,7 +192,7 @@ html {
 
 	.chordBlock {
 		height: 15vh;
-		width: 125px;
+		width: @baseChordWidth;
 		perspective: 1000;
 		.font1();
 		font-size: 15vh;
@@ -212,7 +212,7 @@ html {
 			transform-origin: 50% 50%;
 
 			.front, .back {
-				width: 125px;
+				width: @baseChordWidth;
 				background: @teal_200;
 				height: 15vh;
 				border: 5px solid @blue_grey_800;
@@ -240,18 +240,18 @@ html {
 		}
 
 		&.duration_2 {
-			width: 250px;
+			width: 2*@baseChordWidth;
 
 			.front, .back {
-				width: 250px;
+				width: 2*@baseChordWidth;
 			}
 		}
 
 		&.duration_4 {
-			width: 500px;
+			width: 4*@baseChordWidth;
 
 			.front, .back {
-				width: 500px;
+				width: 4*@baseChordWidth;
 			}
 		}
 	}
