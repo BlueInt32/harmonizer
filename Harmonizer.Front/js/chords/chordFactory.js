@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 	angular.module('app').factory("chordFactory", [
-		'durations', '$log', '$q', 'staticDataService', function (durations, $log, $q, staticDataService) {
+		'$log', '$q', 'staticDataService', function ($log, $q, staticDataService) {
 			var chords = [
 				{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
 				{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'C' },
