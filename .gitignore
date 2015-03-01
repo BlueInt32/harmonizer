@@ -72,3 +72,5 @@ Publish
 node_modules
 Resources
 Harmonizer.Front/Samples/*.wav
+*.asd
+Harmonizer.Front/css/*.css
