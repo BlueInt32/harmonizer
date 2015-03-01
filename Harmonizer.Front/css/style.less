@@ -201,6 +201,7 @@ html {
 		line-height: 15vh;
 		text-align: center;
 		justify-content: space-around;
+		
 		&.flipped .flipper {
 			transform: rotateY(180deg);
 		}
@@ -233,10 +234,22 @@ html {
 
 		span {
 			font-size: 20px;
+
 		}
 
 		.chordCommands {
-			//display: none;
+			a {
+				
+				float:left;
+				width:16.66%;
+				height:100%;
+
+				font-size:0.4em;
+				text-decoration:none;
+				color:white;
+
+				border:1px solid @blue_grey_800;
+			}
 		}
 
 		&.duration_2 {
