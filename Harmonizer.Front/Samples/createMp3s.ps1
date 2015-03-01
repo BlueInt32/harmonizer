@@ -10,8 +10,6 @@ $fileDirectory = Get-ChildItem $directory\* -filter "*.wav"
 
 write-host "Listing..." $directory
 
-$arg2 = " -codec:a libmp3lame -qscale:a 2 "
-
 foreach($file in Get-ChildItem $fileDirectory)
 {
 	# Get-ScriptDirectory + $file.Name
@@ -25,7 +23,7 @@ foreach($file in Get-ChildItem $fileDirectory)
 	$outputFile = $file -replace ".wav$", ".mp3"
 	#write-host $outputFile
 	$program = "../../Resources/ffmpeg/bin/ffmpeg.exe"
-	$cmd = @("-i", $file, "-y", "-codec:a", "libmp3lame", "-qscale:a", "2", $outputFile)
+	$cmd = @("-i", $file, "-y", "-codec:a", "libmp3lame", "-qscale:a", "4", $outputFile)
 	& $program $cmd
 	#write-host $cmd
     #$file
