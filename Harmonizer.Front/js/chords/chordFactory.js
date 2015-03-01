@@ -4,6 +4,7 @@
 		'$log', '$q', 'staticDataService', function ($log, $q, staticDataService) {
 			var chords = [
 				{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
+				{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
 				{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'C' },
 				{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'G' }
 			];

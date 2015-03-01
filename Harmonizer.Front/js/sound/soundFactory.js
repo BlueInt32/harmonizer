@@ -18,19 +18,22 @@
 		'fileQualityAndExtension', 'staticDataService', '$log', 'chordFactory', '$interval', '$q',
 		function (fileQualityAndExtension, staticDataService, $log, chordFactory, $interval, $q) {
 			// TODO : gerer le chevauchement des accords : quand un accord joue, les autres doivent stopper en fadeout
-			var factory = {}, 
-				notesConfig, 
-				chordTypesConfig, 
+			var factory = {},
+				notesConfig,
+				chordTypesConfig,
 				durations,
 				howls = [],
 				playingTempo,
 				timer = null,
 				chordsStartingSteps = [],
-				totalSequenceLength = 0;
+				totalSequenceLength = 0,
+				noteIdPlaying = null,
+				chordIndex = 1,
+				isActiveFadeOut = false; // this is used when 2 chords are played from the same howl, beta test
 			var metronomeHowl = new Howl(
 			{
 				urls: ['/samples/metronome.mp3'],
-				sprite: { tic: [0, 300], tac: [699, 300] }
+				sprite: { tic: [600, 300], tac: [1200, 300] }
 				//onend: chordPlayEndCB
 			});
 
@@ -77,7 +80,7 @@
 				var interval = 60000 / playingTempo;
 				var step = 1; // step is the tempo count, starts @ 1 because step 0 is made outside of setInterval
 				var barStep = 1; // barStep is just the bar index, in order for the metronome to say tic instead of tac. For now this is supposed to always be equal to step/4
-				var chordIndex = 1;
+				chordIndex = 1;
 				computeChordMap();
 
 				// start playing first step (setInterval forces us to make first step by hand)
@@ -120,8 +123,8 @@
 					totalSequenceLength += chordFactory.chords[l].durationId;
 				}
 			};
-
-			var playOneChordInSequence = function (chordIndex) {
+			var playOneChordInSequence = function (chordIndex){
+				computeIsCurrentChordDoubled(chordIndex);
 				playASound(
 					chordFactory.chords[chordIndex].noteId,
 					chordFactory.chords[chordIndex].chordTypeId,
@@ -131,24 +134,35 @@
 
 				chordFactory.setPlaying(chordIndex);
 			};
+			var computeIsCurrentChordDoubled = function(chordIndex){
+				var currentChordNote = chordFactory.chords[chordIndex] ? chordFactory.chords[chordIndex].noteId : '';
+				var nextChordNote = chordFactory.chords[chordIndex + 1] ? chordFactory.chords[chordIndex + 1].noteId : '';
+				isActiveFadeOut = currentChordNote !== nextChordNote;
+			}
 
 			var playASound = function (noteId, chordTypeId, durationId, localTempo) {
-				$log.debug(noteId);
+				
+				//$log.debug(noteId);
 				var duration = durationId * 60000 / localTempo, // chord length in ms
 					fadeOutStart = 0.95, // percent of the sound length when the fadeOut starts
 					fadeOutLength = 0.14; // duration of the fadeOut in percent of the whole duration
 
-				$log.debug('-> ', duration, 'ms');
+				//$log.debug('-> ', duration, 'ms');
 				howls[noteId].volume(1);
 				howls[noteId].play(chordTypeId);
+				noteIdPlaying = noteId;
 
 				// at about fadeOutStart% of the durationLength, we fade out the sound during fadeOutLength% of it
-				setTimeout(function () {
-					howls[noteId].fadeOut(0, duration * fadeOutLength, function () {
-						howls[noteId].stop(); // we need to stop the howl, because fadeOut pauses the sound when ended 
-						// (which leads to weird behaviours)
-					});
-				}, duration * fadeOutStart);
+				$log.debug('isActiveFadeOut', isActiveFadeOut);
+				if (isActiveFadeOut){
+					setTimeout(function(){
+
+						howls[noteId].fadeOut(0, duration * fadeOutLength, function(){
+							howls[noteId].stop(); // we need to stop the howl, because fadeOut pauses the sound when ended 
+							// (which leads to weird behaviours)
+						});
+					}, duration * fadeOutStart);
+				}
 			};
 
 			var stop = function () {
@@ -195,7 +209,7 @@
 				playSequence: playSequence,
 				//computeChordMap: computeChordMap,
 				playOneChordInSequence: playOneChordInSequence,
-				playASound : playASound,
+				playASound: playASound,
 				stop: stop,
 				toggleMetronome: toggleMetronome,
 				getTheRightFileName: getTheRightFileName
