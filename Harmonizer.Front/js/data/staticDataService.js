@@ -11,7 +11,7 @@
 			.success(function(data){
 				defer.resolve(data);
 				staticData = data;
-				$log.debug("staticDataService received data !", data);
+				//$log.debug("staticDataService received data !", data);
 			}).error(function(data, status, headers, config){
 				defer.reject("oops ! " + status);
 			});

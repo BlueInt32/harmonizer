@@ -1,35 +1,24 @@
-﻿(function () {
+(function () {
 	'use strict';
-	angular.module('app').factory("chordFactory", [
+	angular.module('app').service("chordService", [
 		'$log', '$q', 'staticDataService', function ($log, $q, staticDataService) {
-			var chords = [
-				{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
-				{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
-				{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'C' },
-				{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'G' }
-			];
+			//var chords = [
+			//	//{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
+			//	//{ noteId: 'a', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'A' },
+			//	//{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'C' },
+			//	//{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'G' }
+			//];
 
-			var durations;
 
-			var initialize = function(staticData){
-				
-				var defer = $q.defer();
-
-				durations = staticData.durations;
-				$log.debug('durations', durations);
-				defer.resolve(staticData);
-				return defer.promise;
-			};
-
-			var setPlaying = function (chordIndex) {
+			this.setPlaying = function (chords, chordIndex) {
 				for (var i = 0; i < chords.length; i++) {
 					chords[i].playing = false;
 				}
-				if (chordIndex !== -1)
+				if (chords.length && chordIndex !== -1)
 					chords[chordIndex].playing = true;
 			};
 
-			var addAChord = function (noteId, chordTypeId, durationId){
+			this.addAChord = function (chords, noteId, chordTypeId, durationId){
 				var chordNotation = staticDataService.createChordNotation(noteId, chordTypeId);
 				var newChord = {
 					noteId: noteId,
@@ -38,15 +27,14 @@
 					chordNotation: chordNotation,
 					playing: false
 				};
-				$log.debug("just added ", newChord);
 				chords.push(newChord);
 			};
 
-			var removeAChord = function (index) {
+			this.removeAChord = function (chords, index) {
 				chords.splice(index, 1);
 			};
 
-			var increaseChordLength = function (index) {
+			this.increaseChordLength = function (chords, durations, index) {
 				var clickedChordLength = chords[index].durationId;
 				for (var i = 0; i < durations.length; i++) {
 					if (clickedChordLength === durations[i].id && i !== durations.id - 1) {
@@ -56,7 +44,7 @@
 				}
 			};
 
-			var decreaseChordLength = function (index) {
+			this.decreaseChordLength = function (chords, durations, index) {
 				var clickedChordLength = chords[index].durationId;
 				for (var i = 0; i < durations.length; i++) {
 					if (clickedChordLength === durations[i].id){
@@ -66,7 +54,7 @@
 				}
 			};
 
-			var moveChordLeft = function (index) {
+			this.moveChordLeft = function (chords, index) {
 				var intIndex = parseInt(index);
 				if (intIndex === 0)
 					return;
@@ -75,7 +63,7 @@
 				chords[intIndex] = temp;
 			};
 
-			var moveChordRight = function (index) {
+			this.moveChordRight = function (chords, index) {
 				var intIndex = parseInt(index);
 				if (intIndex === chords.length - 1)
 					return;
@@ -84,7 +72,7 @@
 				chords[intIndex] = temp;
 			};
 
-			var reduceForPost = function (chords) {
+			this.reduceForPost = function (chords) {
 				var reducedChords = [];
 				for (var i = 0; i < chords.length; i++) {
 					reducedChords.push(
@@ -95,19 +83,6 @@
 					});
 				}
 				return reducedChords;
-			};
-
-			return {
-				initialize : initialize,
-				chords: chords,
-				setPlaying: setPlaying,
-				addAChord: addAChord,
-				removeAChord: removeAChord,
-				increaseChordLength: increaseChordLength,
-				decreaseChordLength: decreaseChordLength,
-				moveChordLeft: moveChordLeft,
-				moveChordRight: moveChordRight,
-				reduceForPost: reduceForPost
 			};
 		}
 	]);

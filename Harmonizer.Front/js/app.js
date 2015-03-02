@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	angular.module('app', ['ngResource', 'ngRoute']);
+	angular.module('app', ['ngResource', 'ngRoute', 'ngAnimate']);
 
 	angular.module('app').config([
 		'$logProvider', function ($logProvider) {
@@ -17,12 +17,9 @@
 					controllerAs:'home',
 					templateUrl: 'js/homePage/_home.tpl.html',
 					resolve: {
-						resolvedStaticData: function (staticDataService, soundFactory, chordFactory){
+						resolvedStaticData: function (staticDataService, soundFactory, chordService){
 							return staticDataService.getStaticData().then(function(staticData){
-								return soundFactory.inititalize(staticData).then(function(){
-									//console.log(chordFactory);
-									return chordFactory.initialize(staticData);
-								});
+								return soundFactory.inititalize(staticData);
 							});
 						}
 					}
@@ -31,6 +28,13 @@
 					controller: 'homeController',
 					controllerAs:'home',
 					templateUrl: 'js/homePage/_home.tpl.html',
+					resolve: {
+						resolvedStaticData: function (staticDataService, soundFactory, chordService){
+							return staticDataService.getStaticData().then(function(staticData){
+								return soundFactory.inititalize(staticData);
+							});
+						}
+					}
 				});
 		}
 	]);

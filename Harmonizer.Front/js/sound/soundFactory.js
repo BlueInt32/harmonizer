@@ -15,8 +15,8 @@
 	// - durations gives for each duration (given the chordTypesConfig offset) where the durations are situated
 
 	angular.module('app').factory("soundFactory", [
-		'fileQualityAndExtension', 'staticDataService', '$log', 'chordFactory', '$interval', '$q',
-		function (fileQualityAndExtension, staticDataService, $log, chordFactory, $interval, $q) {
+		'fileQualityAndExtension', 'staticDataService', '$log', 'chordService', '$interval', '$q',
+		function (fileQualityAndExtension, staticDataService, $log, chordService, $interval, $q) {
 			// TODO : gerer le chevauchement des accords : quand un accord joue, les autres doivent stopper en fadeout
 			var factory = {},
 				notesConfig,
@@ -29,7 +29,7 @@
 				totalSequenceLength = 0,
 				noteIdPlaying = null,
 				chordIndex = 1,
-				isActiveFadeOut = false; // this is used when 2 chords are played from the same howl, beta test
+				isDoubledSprite = false; // this is used when 2 chords are played from the same howl, beta test
 			var metronomeHowl = new Howl(
 			{
 				urls: ['/samples/metronome.mp3'],
@@ -69,23 +69,24 @@
 						sprite: currentSprite
 					});
 				}
-				$log.debug("Howls loaded ", howls);
+				//$log.debug("Howls loaded ", howls);
 				defer.resolve(staticData);
 				return defer.promise;
 			};
 
-			var playSequence = function (tempo) {
-				//$log.debug('tempo', tempo);
+			var playSequence = function (chords, tempo){
+				if (!chords.length)
+					return;
 				playingTempo = tempo;
 				var interval = 60000 / playingTempo;
 				var step = 1; // step is the tempo count, starts @ 1 because step 0 is made outside of setInterval
 				var barStep = 1; // barStep is just the bar index, in order for the metronome to say tic instead of tac. For now this is supposed to always be equal to step/4
 				chordIndex = 1;
-				computeChordMap();
+				computeChordMap(chords);
 
 				// start playing first step (setInterval forces us to make first step by hand)
 				if (metronome) metronomeHowl.play('tic');
-				playOneChordInSequence(0);
+				playOneChordInSequence(chords, 0);
 				// set timer for next steps
 				//$log.debug("step", 0);
 				//$log.debug("------------------");
@@ -95,13 +96,13 @@
 					//$log.debug(chordsStartingSteps[chordIndex]);
 					if (chordsStartingSteps[chordIndex] === step) // is the current step corresponding to the start of a chord in the sequence ?
 					{
-						playOneChordInSequence(chordIndex);
+						playOneChordInSequence(chords, chordIndex);
 						chordIndex++;
 					}
 
 					if (step >= totalSequenceLength) // has sequence ended ?
 					{
-						stop();
+						stop(chords);
 						return;
 					}
 					step++;
@@ -115,29 +116,29 @@
 			// for instance for Sequence Cm(length:1), G(length:2), Am(length:4), Cm(length 4)
 			// chordsStartingSteps will be [0, 1, 3, 7]
 			// like Cm starts @ step 0, G starts @ step 1, Am starts @ step 3 (1 + 2), Cm starts @ 7 (1 + 2 + 4)
-			var computeChordMap = function () {
+			var computeChordMap = function (chords) {
 				totalSequenceLength = 0;
 				chordsStartingSteps = [];
-				for (var l = 0; l < chordFactory.chords.length; l++) {
+				for (var l = 0; l < chords.length; l++) {
 					chordsStartingSteps.push(totalSequenceLength);
-					totalSequenceLength += chordFactory.chords[l].durationId;
+					totalSequenceLength += chords[l].durationId;
 				}
 			};
-			var playOneChordInSequence = function (chordIndex){
+			var playOneChordInSequence = function (chords, chordIndex){
 				computeIsCurrentChordDoubled(chordIndex);
 				playASound(
-					chordFactory.chords[chordIndex].noteId,
-					chordFactory.chords[chordIndex].chordTypeId,
-					chordFactory.chords[chordIndex].durationId,
+					chords[chordIndex].noteId,
+					chords[chordIndex].chordTypeId,
+					chords[chordIndex].durationId,
 					playingTempo
 				);
 
-				chordFactory.setPlaying(chordIndex);
+				chordService.setPlaying(chords, chordIndex);
 			};
-			var computeIsCurrentChordDoubled = function(chordIndex){
-				var currentChordNote = chordFactory.chords[chordIndex] ? chordFactory.chords[chordIndex].noteId : '';
-				var nextChordNote = chordFactory.chords[chordIndex + 1] ? chordFactory.chords[chordIndex + 1].noteId : '';
-				isActiveFadeOut = currentChordNote !== nextChordNote;
+			var computeIsCurrentChordDoubled = function(chords, chordIndex){
+				var currentChordNote = chords[chordIndex] ? chords[chordIndex].noteId : '';
+				var nextChordNote = chords[chordIndex + 1] ? chords[chordIndex + 1].noteId : '';
+				isDoubledSprite = currentChordNote === nextChordNote;
 			}
 
 			var playASound = function (noteId, chordTypeId, durationId, localTempo) {
@@ -145,7 +146,7 @@
 				//$log.debug(noteId);
 				var duration = durationId * 60000 / localTempo, // chord length in ms
 					fadeOutStart = 0.95, // percent of the sound length when the fadeOut starts
-					fadeOutLength = 0.14; // duration of the fadeOut in percent of the whole duration
+					fadeOutLength = isDoubledSprite ? 0.04 : 0.14; // duration of the fadeOut in percent of the whole duration
 
 				//$log.debug('-> ', duration, 'ms');
 				howls[noteId].volume(1);
@@ -153,20 +154,23 @@
 				noteIdPlaying = noteId;
 
 				// at about fadeOutStart% of the durationLength, we fade out the sound during fadeOutLength% of it
-				$log.debug('isActiveFadeOut', isActiveFadeOut);
-				if (isActiveFadeOut){
-					setTimeout(function(){
+				//$log.debug('isActiveFadeOut', isActiveFadeOut);
+				//if (isDoubledSprite){
+				if (!isDoubledSprite){
+					
+				}
+				setTimeout(function(){
 
 						howls[noteId].fadeOut(0, duration * fadeOutLength, function(){
 							howls[noteId].stop(); // we need to stop the howl, because fadeOut pauses the sound when ended 
 							// (which leads to weird behaviours)
-						});
+						}, 0);
 					}, duration * fadeOutStart);
-				}
+				//}
 			};
 
-			var stop = function () {
-				chordFactory.setPlaying(-1);
+			var stop = function (chords) {
+				chordService.setPlaying(chords, -1);
 				$interval.cancel(timer);
 			};
 
@@ -207,7 +211,6 @@
 			return {
 				inititalize: inititalize,
 				playSequence: playSequence,
-				//computeChordMap: computeChordMap,
 				playOneChordInSequence: playOneChordInSequence,
 				playASound: playASound,
 				stop: stop,

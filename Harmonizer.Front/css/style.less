@@ -182,14 +182,32 @@ html {
 		}
 	}
 }
+
 @baseChordWidth: 200px;
+
 #sequencer {
 	display: flex;
 	flex-flow: row wrap;
 	height: 60vh;
 	width: 100%;
 	background: @blue_grey_800;
-	cursor:default;
+	cursor: default;
+
+	.chordBlock.ng-enter,
+	.chordBlock.ng-leave {
+		-webkit-transition: 0.3s linear all;
+		transition: 0.3s linear opacity;
+	}
+
+	.chordBlock.ng-enter,
+	.chordBlock.ng-leave.ng-leave-active {
+		opacity: 0;
+	}
+
+	.chordBlock.ng-leave,
+	.chordBlock.ng-enter.ng-enter-active {
+		opacity: 1;
+	}
 
 	.chordBlock {
 		height: 15vh;
@@ -201,7 +219,8 @@ html {
 		line-height: 15vh;
 		text-align: center;
 		justify-content: space-around;
-		
+		transition: 0.2s  ease width;
+		//&.ng-enter.
 		&.flipped .flipper {
 			transform: rotateY(180deg);
 		}
@@ -234,21 +253,17 @@ html {
 
 		span {
 			font-size: 20px;
-
 		}
 
 		.chordCommands {
 			a {
-				
-				float:left;
-				width:16.66%;
-				height:100%;
-
-				font-size:0.4em;
-				text-decoration:none;
-				color:white;
-
-				border:1px solid @blue_grey_800;
+				float: left;
+				width: 16.66%;
+				height: 100%;
+				font-size: 0.4em;
+				text-decoration: none;
+				color: white;
+				border: 1px solid @blue_grey_800;
 			}
 		}
 

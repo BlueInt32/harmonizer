@@ -122,13 +122,14 @@
     <Content Include="js\config.js" />
     <Content Include="js\control\wheelSelect.js" />
     <Content Include="js\data\sequenceResource.js" />
-    <Content Include="js\chords\chordFactory.js" />
+    <Content Include="js\chords\chordService.js" />
     <Content Include="js\data\staticDataService.js" />
     <Content Include="js\homePage\homeController.test.js" />
     <Content Include="js\homePage\_home.tpl.html" />
     <Content Include="js\sideMenu\sideMenuController.js" />
     <Content Include="js\sound\soundFactory.js" />
     <Content Include="js\utils\lodashFactory.js" />
+    <Content Include="js\vendor\angular-animate.js" />
     <Content Include="js\vendor\angular-mocks.js" />
     <Content Include="js\vendor\angular-resource.js" />
     <Content Include="js\vendor\angular-route.js" />

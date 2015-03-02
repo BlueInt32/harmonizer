@@ -2,17 +2,17 @@
 {
 	'use strict';
 	angular.module('app').directive("chordBlock", [
-		"chordFactory",'$log',
-		function(chordFactory, $log)
+		"chordService",'$log',
+		function(chordService, $log)
 		{
 			var linkFn = function(scope, element, attrs)
 			{
-
-				scope.decreaseChordLength = chordFactory.decreaseChordLength;
-				scope.increaseChordLength = chordFactory.increaseChordLength;
-				scope.removeAChord = chordFactory.removeAChord;
-				scope.moveChordLeft = chordFactory.moveChordLeft;
-				scope.moveChordRight = chordFactory.moveChordRight;
+				$log.debug('chordDirective durations', scope.durations);
+				scope.decreaseChordLength = chordService.decreaseChordLength;
+				scope.increaseChordLength = chordService.increaseChordLength;
+				scope.removeAChord = chordService.removeAChord;
+				scope.moveChordLeft = chordService.moveChordLeft;
+				scope.moveChordRight = chordService.moveChordRight;
 				//scope.chordDetail = chord
 			};
 			return {
@@ -21,13 +21,14 @@
 				link: linkFn,
 				scope: {
 					chord: '=',
-					index: '@'
+					index: '@',
+					durations: '=',
+					chords: '='
 					//flipped: false
 				},
 				templateUrl: 'js/chords/chordBlock.html',
 				controller: function($scope, $log){
 					$scope.flip = function(){
-						$log.debug('hey');
 						$scope.flipped = !$scope.flipped;
 					}
 				}

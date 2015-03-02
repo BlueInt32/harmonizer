@@ -1,16 +1,16 @@
-﻿<div class="chordBlock flip-container duration_{{chord.durationId}}" ng-class="{'flipped':flipped}" ng-click="flip();">
-    <div class="flipper">
-        <div class="front " ng-class="{'playing':chord.playing}">
-            {{chord.chordNotation}}
-            <span>{{chord.durationId}}</span>
-        </div>
-        <div class="back chordCommands">
-	        <a href="" ng-click="decreaseChordLength(index);">-</a> 
-            <a href="" ng-click="increaseChordLength(index);">+</a> 
-            <a href="" ng-click="removeAChord(index);">X</a>
-            <a href="" ng-click="moveChordLeft(index);">&lt;-</a>
-            <a href="" ng-click="moveChordRight(index);">-&gt;</a>
-            <a href=""></a>
-        </div>
-    </div>
+﻿<div class="chordBlock flip-container duration_{{chord.durationId}}" ng-class="{'flipped':flipped}">
+	<div class="flipper">
+		<div class="front " ng-class="{'playing':chord.playing}" ng-click="flip();">
+			{{chord.chordNotation}}
+			<span>{{chord.durationId}}</span>
+		</div>
+		<div class="back chordCommands">
+			<a href="" ng-click="decreaseChordLength(chords, durations, index);">-</a> 
+			<a href="" ng-click="increaseChordLength(chords, durations, index);">+</a> 
+			<a href="" ng-click="removeAChord(chords, index);">X</a>
+			<a href="" ng-click="moveChordLeft(chords, index);">&lt;-</a>
+			<a href="" ng-click="moveChordRight(chords, index);">-&gt;</a>
+			<a href="" ng-click="flip();"></a>
+		</div>
+	</div>
 </div>

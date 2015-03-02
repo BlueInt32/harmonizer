@@ -15,7 +15,14 @@
 	</section>
 </div>
 <section id="sequencer">
-	<chord-block ng-repeat="chord in home.chordFactory.chords" chord="chord" increaselength="increaseAChord" index="{{$index}}"></chord-block>
+	<chord-block 
+		ng-repeat="chord in home.chords" 
+		chord="chord" 
+		increaselength="increaseAChord" 
+		index="{{$index}}"
+		durations="home.durations"
+		chords="home.chords">
+	</chord-block>
 </section>
 
 <section id="options">
