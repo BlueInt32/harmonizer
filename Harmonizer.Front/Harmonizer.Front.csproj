@@ -115,6 +115,7 @@
       <DependentUpon>style.css</DependentUpon>
     </Content>
     <Content Include="css\style.css" />
+    <Content Include="FillMyDb.aspx" />
     <Content Include="fonts\wheelSelect.js" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
@@ -134,16 +135,10 @@
     <Content Include="js\vendor\angular-resource.js" />
     <Content Include="js\vendor\angular-route.js" />
     <Content Include="js\vendor\howler.js" />
-    <Content Include="js\vendor\howler.min.js">
-      <DependentUpon>howler.js</DependentUpon>
-    </Content>
     <Content Include="js\vendor\lodash.min.js" />
     <Content Include="karma.conf.js" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
-    <Content Include="js\vendor\howler.min.js.map">
-      <DependentUpon>howler.min.js</DependentUpon>
-    </Content>
     <Content Include="css\compiled\complete.css.bundle" />
     <Content Include="css\color.less" />
     <Content Include="css\font.less" />
@@ -185,6 +180,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="FillMyDb.aspx.cs">
+      <DependentUpon>FillMyDb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FillMyDb.aspx.designer.cs">
+      <DependentUpon>FillMyDb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

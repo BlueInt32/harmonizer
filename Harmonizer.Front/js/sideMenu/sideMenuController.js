@@ -5,9 +5,9 @@
 		this.isOpen = false;
 		this.openMenu = function(){
 			self.isOpen = true;
-		}
+		};
 		this.closeMenu = function(){
 			self.isOpen = false;
-		}
+		};
 	}]);
 })();

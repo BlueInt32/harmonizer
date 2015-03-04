@@ -8,15 +8,15 @@
 			var defer = $q.defer();
 
 			$http({ method: 'GET', url: 'http://localhost:59400/api/staticdata/', cache: true })
-			.success(function(data){
-				defer.resolve(data);
-				staticData = data;
-				//$log.debug("staticDataService received data !", data);
-			}).error(function(data, status, headers, config){
-				defer.reject("oops ! " + status);
-			});
+				.success(function(data){
+					defer.resolve(data);
+					staticData = data;
+					//$log.debug("staticDataService received data !", data);
+				}).error(function(data, status, headers, config){
+					defer.reject("oops ! " + status);
+				});
 			return defer.promise;
-		}
+		};
 
 		var createChordNotation = function(noteId, chordTypeId){
 			var foundNote = _.result(_.find(staticData.notes, function(note){
@@ -28,7 +28,7 @@
 
 			$log.debug('found ', foundNote, chordNotation);
 			return foundNote + chordNotation;
-		}
+		};
 
 		return { 
 			getStaticData: getStaticData,

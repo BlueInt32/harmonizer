@@ -17,11 +17,12 @@
 					controllerAs:'home',
 					templateUrl: 'js/homePage/_home.tpl.html',
 					resolve: {
-						resolvedStaticData: function (staticDataService, soundFactory, chordService){
+						resolvedStaticData: ['staticDataService', 'soundFactory', 
+							function (staticDataService, soundFactory){
 							return staticDataService.getStaticData().then(function(staticData){
 								return soundFactory.inititalize(staticData);
 							});
-						}
+						}]
 					}
 				})
 				.when('/load/:seqId', {
@@ -29,11 +30,12 @@
 					controllerAs:'home',
 					templateUrl: 'js/homePage/_home.tpl.html',
 					resolve: {
-						resolvedStaticData: function (staticDataService, soundFactory, chordService){
+						resolvedStaticData: ['staticDataService', 'soundFactory', 
+							function (staticDataService, soundFactory){
 							return staticDataService.getStaticData().then(function(staticData){
 								return soundFactory.inititalize(staticData);
 							});
-						}
+						}]
 					}
 				});
 		}

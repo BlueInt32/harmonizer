@@ -16,24 +16,14 @@ module.exports = function (grunt)
 			dist: {
 				files: {
 					'js/min.js': [
-                        'js/vendor/angular.js',
-                        'js/vendor/angular-resource.js',
 						'js/**/*.js',
-						'!js/min.js'
+						'!js/vendor/*.js',
+						'!js/min/*.js',
+						'!js/**/*.test.js'
 					]
 				}
 			}
 		},
-		//less: {
-		//	development: {
-		//		options: {
-		//			compress: true
-		//		},
-		//		files: {
-		//			"css/compiled.css": ["css/*.less", "!css/_utils.less"]
-		//		}
-		//	}
-		//},
 		less: {
 			// Compile all targeted LESS files individually
 			components: {

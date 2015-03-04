@@ -1,15 +1,9 @@
 (function () {
 	'use strict';
 	angular.module('app').service("chordService", [
-		'$log', '$q', 'staticDataService', function ($log, $q, staticDataService) {
-			//var chords = [
-			//	//{ noteId: 'a', chordTypeId: 'min', durationId: 2, playing: false, chordNotation:'Am' },
-			//	//{ noteId: 'a', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'A' },
-			//	//{ noteId: 'c', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'C' },
-			//	//{ noteId: 'g', chordTypeId: 'maj', durationId: 2, playing: false, chordNotation:'G' }
-			//];
-
-
+		'$log', '$q', 'staticDataService', 
+		function ($log, $q, staticDataService) {
+			
 			this.setPlaying = function (chords, chordIndex) {
 				for (var i = 0; i < chords.length; i++) {
 					chords[i].playing = false;

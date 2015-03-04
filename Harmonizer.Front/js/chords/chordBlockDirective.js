@@ -27,11 +27,11 @@
 					//flipped: false
 				},
 				templateUrl: 'js/chords/chordBlock.html',
-				controller: function($scope, $log){
+				controller: ['$scope', '$log', function($scope, $log){
 					$scope.flip = function(){
 						$scope.flipped = !$scope.flipped;
-					}
-				}
+					};
+				}]
 			};
 		}
 	]);

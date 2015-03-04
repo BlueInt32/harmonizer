@@ -21,7 +21,7 @@
 		this.notes = resolvedStaticData.notes;
 		this.chordTypes = resolvedStaticData.chordTypes;
 		this.durations = resolvedStaticData.durations;
-		$log.debug('home controller stop this.durations', this.durations);
+		//$log.debug('home controller stop this.durations', this.durations);
 
 		this.tempi = resolvedStaticData.tempi;
 

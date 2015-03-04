@@ -139,7 +139,7 @@
 				var currentChordNote = chords[chordIndex] ? chords[chordIndex].noteId : '';
 				var nextChordNote = chords[chordIndex + 1] ? chords[chordIndex + 1].noteId : '';
 				isDoubledSprite = currentChordNote === nextChordNote;
-			}
+			};
 
 			var playASound = function (noteId, chordTypeId, durationId, localTempo) {
 				
@@ -178,8 +178,8 @@
 				metronome = !metronome;
 			};
 
-			var getTheRightFileName = function (noteId) {
-				switch (noteId) {
+			var getTheRightFileName = function(noteId){
+				switch (noteId){
 
 
 					case "as":
@@ -203,10 +203,11 @@
 					case "f":
 					case "g":
 					case "gb":
+						return noteId;
 					default:
 						return noteId;
 				}
-			}
+			};
 
 			return {
 				inititalize: inititalize,

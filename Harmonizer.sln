@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmonizer.Api", "Harmonizer.Api\Harmonizer.Api.csproj", "{1849D3A5-2427-45C7-97E2-2FCFD5DF27FA}"
 EndProject
@@ -33,6 +33,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmonizer.Services.Interfaces", "Harmonizer.Services.Interfaces\Harmonizer.Services.Interfaces.csproj", "{0E075889-1497-42F5-B0C3-E74287EE7174}"
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Harmonizer.UML", "Harmonizer.UML\Harmonizer.UML.modelproj", "{A7D256E8-9681-43D3-AD84-C92943EA7EFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{6FC32269-9486-4986-A530-4038111D0C58}"
+	ProjectSection(SolutionItems) = preProject
+		Utils\saveAll.sql = Utils\saveAll.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

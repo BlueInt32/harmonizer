@@ -15,7 +15,8 @@
 	<div id="topbar"></div>
 	<div id="container">
 		<ng-view></ng-view>
-		@if (Request.IsLocal)
+		@*//@if (Request.IsLocal)*@
+		@if (false)
 		{
 			@*Angulars*@
 			<script src="~/js/vendor/angular.js"></script>
@@ -79,6 +80,12 @@
 		}
 		else
 		{
+			<script src="~/js/min/angular.min.js"></script>
+			<script src="~/js/min/angular-resource.min.js"></script>
+			<script src="~/js/min/angular-route.min.js"></script>
+			<script src="~/js/min/angular-animate.min.js"></script>
+			<script src="~/js/min/howler.min.js"></script>
+			<script src="~/js/min/lodash.min.js"></script>
 			<script src="~/js/min.js"></script>
 		}
 	</div>
