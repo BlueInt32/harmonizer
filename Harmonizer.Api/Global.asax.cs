@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Harmonizer.Api.App_Start;
 using Harmonizer.Api.Services;
 using Harmonizer.Domain.Interfaces;
 using Harmonizer.Infrastructure.DataAccess;
@@ -10,8 +9,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
-using SimpleInjector;
-using SimpleInjector.Integration.WebApi;
 
 namespace Harmonizer.Api
 {
@@ -19,9 +16,7 @@ namespace Harmonizer.Api
     {
         protected void Application_Start()
 		{
-
-	        SimpleInjectorWebApiInitializer.Initialize();
-
+			UnityConfig.RegisterComponents(); 
 			GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

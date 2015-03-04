@@ -36,6 +36,7 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Harmonizer.UML", "Harmonize
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{6FC32269-9486-4986-A530-4038111D0C58}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		Utils\saveAll.sql = Utils\saveAll.sql
 	EndProjectSection
 EndProject
