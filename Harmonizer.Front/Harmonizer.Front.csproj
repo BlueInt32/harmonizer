@@ -88,28 +88,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\compiled\atomics.css" />
-    <Content Include="css\compiled\atomics.min.css">
-      <DependentUpon>atomics.css</DependentUpon>
-    </Content>
-    <Content Include="css\compiled\chord.css" />
-    <Content Include="css\compiled\chord.min.css">
-      <DependentUpon>chord.css</DependentUpon>
-    </Content>
-    <Content Include="css\compiled\commands.css" />
-    <Content Include="css\compiled\commands.min.css">
-      <DependentUpon>commands.css</DependentUpon>
-    </Content>
-    <Content Include="css\compiled\complete.css">
-      <DependentUpon>complete.css.bundle</DependentUpon>
-    </Content>
-    <Content Include="css\compiled\complete.min.css">
-      <DependentUpon>complete.css</DependentUpon>
-    </Content>
-    <Content Include="css\compiled\home.css" />
-    <Content Include="css\compiled\home.min.css">
-      <DependentUpon>home.css</DependentUpon>
-    </Content>
     <Content Include="css\compiled\style.css" />
     <Content Include="css\compiled\style.min.css">
       <DependentUpon>style.css</DependentUpon>
@@ -139,19 +117,26 @@
     <Content Include="karma.conf.js" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
-    <Content Include="css\compiled\complete.css.bundle" />
     <Content Include="css\color.less" />
     <Content Include="css\font.less" />
     <Content Include="css\mixin.less" />
     <Content Include="css\reset.less" />
     <Content Include="css\style.less" />
+    <None Include="Properties\PublishProfiles\1&amp;1.pubxml" />
     <None Include="Properties\PublishProfiles\Ovh.pubxml" />
-    <Content Include="Samples\a_sprite.wav" />
-    <Content Include="Samples\c_sprite.wav" />
-    <Content Include="Samples\g_sprite.wav" />
-    <Content Include="Samples\metronome.wav" />
-    <Content Include="test.html" />
-    <Content Include="tests.html" />
+    <Content Include="Samples\ab_sprite.mp3" />
+    <Content Include="Samples\a_sprite.mp3" />
+    <Content Include="Samples\bb_sprite.mp3" />
+    <Content Include="Samples\b_sprite.mp3" />
+    <Content Include="Samples\c_sprite.mp3" />
+    <Content Include="Samples\db_sprite.mp3" />
+    <Content Include="Samples\d_sprite.mp3" />
+    <Content Include="Samples\eb_sprite.mp3" />
+    <Content Include="Samples\e_sprite.mp3" />
+    <Content Include="Samples\f_sprite.mp3" />
+    <Content Include="Samples\gb_sprite.mp3" />
+    <Content Include="Samples\g_sprite.mp3" />
+    <Content Include="Samples\metronome.mp3" />
     <Content Include="test\test.js" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

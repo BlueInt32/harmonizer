@@ -2,10 +2,10 @@
 {
 	'use strict';
 	angular.module('app').factory("sequenceResource", [
-		'$log', '$resource',
-		function($log, $resource)
+		'$log', '$resource', 'apiurl', 
+		function($log, $resource, apiurl)
 		{
-			return $resource('http://localhost:59400/api/sequence/:id');
+			return $resource(apiurl + '/api/sequence/:id');
 		}
 	]);
 })();

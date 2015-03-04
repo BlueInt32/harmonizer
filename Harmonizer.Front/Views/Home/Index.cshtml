@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Configuration
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
 <head>
 	<title>Harmonizer</title>
@@ -15,8 +16,7 @@
 	<div id="topbar"></div>
 	<div id="container">
 		<ng-view></ng-view>
-		@*//@if (Request.IsLocal)*@
-		@if (false)
+		@if (Request.IsLocal)
 		{
 			@*Angulars*@
 			<script src="~/js/vendor/angular.js"></script>
@@ -43,6 +43,10 @@
 			<script src="~/js/control/wheelSelect.js"></script>
 
 			<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+			<script>
+				angular.module('app').value("apiurl", "@ConfigurationManager.AppSettings["apiUrl"]");
+
+			</script>
 			<script>
 
 				function burgerMenu() {

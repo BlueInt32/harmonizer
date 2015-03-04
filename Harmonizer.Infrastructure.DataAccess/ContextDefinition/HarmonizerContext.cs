@@ -10,6 +10,10 @@ namespace Harmonizer.Infrastructure.DataAccess
 {
 	public class HarmonizerContext : DbContext
 	{
+		static HarmonizerContext()
+		{
+			var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+		}
 		public DbSet<Sequence> Sequences { get; set; }
 		public DbSet<SequenceChord> SequenceChords { get; set; }
 		public DbSet<ChordType> ChordTypes { get; set; }

@@ -1,13 +1,15 @@
 ﻿(function(){
 	'use strict';
-	angular.module('app').service('staticDataService', ['$log', '$http','$q', '_', function($log, $http, $q, _){
+	angular.module('app').service('staticDataService', 
+		['$log', '$http','$q', '_', 'apiurl', 
+		function($log, $http, $q, _, apiurl){
 
 		var staticData;
 
 		var getStaticData = function(){
 			var defer = $q.defer();
 
-			$http({ method: 'GET', url: 'http://localhost:59400/api/staticdata/', cache: true })
+			$http({ method: 'GET', url: apiurl + '/api/staticdata/', cache: true })
 				.success(function(data){
 					defer.resolve(data);
 					staticData = data;
