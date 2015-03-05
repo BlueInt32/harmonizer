@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\1&amp;1.pubxml" />
+    <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

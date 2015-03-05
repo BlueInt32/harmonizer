@@ -28,8 +28,9 @@ namespace Harmonizer.Api.Controllers
 		[Route]
 		public IHttpActionResult SaveSequence(SequenceViewModel model)
 		{
-			_sequenceService.SaveSequence(model.ToDomainSequence(_staticDataService));
-			return Ok(model);
+			Sequence sequence = model.ToDomainSequence(_staticDataService);
+			_sequenceService.SaveSequence(sequence);
+			return Ok(sequence.ToWebSequence(_staticDataService));
 		}
 
 		public IHttpActionResult GetSequence(int id)

@@ -7,7 +7,6 @@
 		{
 			var linkFn = function(scope, element, attrs)
 			{
-				$log.debug('chordDirective durations', scope.durations);
 				scope.decreaseChordLength = chordService.decreaseChordLength;
 				scope.increaseChordLength = chordService.increaseChordLength;
 				scope.removeAChord = chordService.removeAChord;

@@ -1,21 +1,12 @@
 (function () {
 	'use strict';
 	angular.module('app').controller('homeController', 
-		['$log', 'soundFactory', 'chordService', 'sequenceResource', 'resolvedStaticData', '$routeParams', '_',
-	function ($log, soundFactory, chordService, sequenceResource, resolvedStaticData, $routeParams, _){
+		['$log', 'soundFactory', 'chordService', 'sequenceResource', 'resolvedStaticData', '$routeParams', '_', '$location', 
+	function ($log, soundFactory, chordService, sequenceResource, resolvedStaticData, $routeParams, _, $location){
 		// TODO : modification d'un chord après avoir cliqué dessus
 		// TODO : use named functions instead of anonymous functions https://github.com/johnpapa/angularjs-styleguide#named-vs-anonymous-functions
 		var self = this;
 		this.chordService = {};
-
-		var seqId = $routeParams.seqId;
-		if (typeof seqId !== 'undefined'){
-			$log.debug("sequence ID route param : ", seqId);
-			sequenceResource.get({id:seqId}, function (sequence) {
-				self.chords = sequence.chords;
-				$log.debug('chords get', chords);
-			});
-		}
 
 		this.chords = [];
 		this.notes = resolvedStaticData.notes;
@@ -31,6 +22,14 @@
 		this.tempoSelectedId = resolvedStaticData.defaultTempoId;
 		
 		this.metronome = soundFactory.metronome;
+
+		var seqId = $routeParams.seqId;
+		if (typeof seqId !== 'undefined'){
+			$log.debug("sequence ID route param : ", seqId);
+			sequenceResource.get({id:seqId}, function (sequence) {
+				self.chords = sequence.chords;
+			});
+		}
 		
 		//this.$log = $log;
 		//this.chords = chords;
@@ -54,11 +53,13 @@
 			$log.debug(self.tempoSelectedId);
 			var sequence = {
 				name: "premiere sequence",
-				tempo:self.tempoSelectedId,
-				description: "premiere description"
-			};
+				tempo: self.tempoSelectedId,
+				description: "premiere description",
+				chords: this.chords
+		};
 			sequenceResource.save(sequence, function (data) {
-				//$log.debug(data);
+				$log.debug(data);
+				$location.path('/load/'+ data.id);
 			});
 		};
 	}

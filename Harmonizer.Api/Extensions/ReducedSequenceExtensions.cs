@@ -21,11 +21,7 @@ namespace Harmonizer.Api.Extensions
 			{
 				SequenceChord sequenceChord = new SequenceChord();
 
-				Chord chord = staticDataService.GetChords().FirstOrDefault(
-					c => c.RootNote.Id == chordDescriptor.NoteId
-					&& c.DurationId == chordDescriptor.DurationId
-					&& c.ChordType.Id == chordDescriptor.ChordTypeId);
-				//sequenceChord.Chord = chord;
+				Chord chord = FindChord(staticDataService, chordDescriptor);
 				sequenceChord.ChordId = chord.Id;
 				sequenceChord.PositionInSequence = positionInSequence++;
 				sequence.Chords.Add(sequenceChord);
@@ -37,6 +33,7 @@ namespace Harmonizer.Api.Extensions
 		public static SequenceViewModel ToWebSequence(this Sequence sequence, IStaticDataService apiService)
 		{
 			SequenceViewModel sequenceViewModel = new SequenceViewModel();
+			sequenceViewModel.Id = sequence.Id;
 			sequenceViewModel.Name = sequence.Name;
 			sequenceViewModel.Description = sequence.Description;
 			sequenceViewModel.Chords = new List<ChordDescriptorViewModel>();
@@ -44,18 +41,30 @@ namespace Harmonizer.Api.Extensions
 			{
 				foreach (var sequenceChord in sequence.Chords.OrderBy(c => c.PositionInSequence))
 				{
+					Chord chord = FindChord(apiService, sequenceChord.ChordId);
 					var chordDescriptor = new ChordDescriptorViewModel
 					{
-						NoteId = sequenceChord.Chord.RootNote.Id,
-						DurationId = sequenceChord.Chord.DurationId,
-						ChordTypeId = sequenceChord.Chord.ChordTypeId,
-						Playing = false,
-						ChordNotation = string.Format("{0}{1}", sequenceChord.Chord.RootNote.Name, sequenceChord.Chord.ChordType.Notation)
+						NoteId = chord.RootNote.Id,
+						DurationId = chord.DurationId,
+						ChordTypeId = chord.ChordTypeId,
+						ChordNotation = string.Format("{0}{1}", chord.RootNote.Name, chord.ChordType.Notation)
 					};
 					sequenceViewModel.Chords.Add(chordDescriptor);
 				}
 			}
 			return sequenceViewModel;
+		}
+
+		private static Chord FindChord(IStaticDataService staticDataService, ChordDescriptorViewModel chordDescriptor)
+		{
+			return staticDataService.GetChords().FirstOrDefault(
+					c => c.RootNote.Id == chordDescriptor.NoteId
+					&& c.DurationId == chordDescriptor.DurationId
+					&& c.ChordType.Id == chordDescriptor.ChordTypeId);
+		}
+		private static Chord FindChord(IStaticDataService staticDataService, int chordId)
+		{
+			return staticDataService.GetChords().FirstOrDefault(c => c.Id == chordId);
 		}
 	}
 }

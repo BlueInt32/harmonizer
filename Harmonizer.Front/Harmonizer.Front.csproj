@@ -94,10 +94,14 @@
     </Content>
     <Content Include="css\style.css" />
     <Content Include="FillMyDb.aspx" />
+    <Content Include="fonts\roboto-regular.svg" />
     <Content Include="fonts\wheelSelect.js" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="images\favicon.png" />
+    <Content Include="images\hamburger.svg" />
+    <Content Include="images\play.png" />
+    <Content Include="images\stop.png" />
     <Content Include="js\config.js" />
     <Content Include="js\control\wheelSelect.js" />
     <Content Include="js\data\sequenceResource.js" />
@@ -122,7 +126,10 @@
     <Content Include="css\mixin.less" />
     <Content Include="css\reset.less" />
     <Content Include="css\style.less" />
-    <None Include="Properties\PublishProfiles\1&amp;1.pubxml" />
+    <Content Include="fonts\roboto-regular.eot" />
+    <Content Include="fonts\roboto-regular.ttf" />
+    <Content Include="fonts\roboto-regular.woff" />
+    <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
     <None Include="Properties\PublishProfiles\Ovh.pubxml" />
     <Content Include="Samples\ab_sprite.mp3" />
     <Content Include="Samples\a_sprite.mp3" />
