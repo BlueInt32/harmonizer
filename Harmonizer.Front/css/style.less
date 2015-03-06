@@ -183,6 +183,41 @@ html {
 	}
 }
 
+
+.loader {
+	background: @blue_grey_900;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	.loadingMessage {
+		.font1();
+		color: @white;
+		text-align: center;
+	}
+	.loadingError{
+		.font1();
+		color: red;
+		text-align: center;
+	}
+
+	&.ng-hide {
+		opacity: 0;
+	}
+
+	&.ng-hide-add.ng-hide-add-active,
+	&.ng-hide-remove.ng-hide-remove-active {
+		-webkit-transition: all linear 0.5s;
+		transition: all linear 0.5s;
+	}
+}
+
 @baseChordWidth: 200px;
 
 #sequencer {
@@ -219,7 +254,7 @@ html {
 		line-height: 15vh;
 		text-align: center;
 		justify-content: space-around;
-		transition: 0.2s  ease width;
+		transition: 0.2s ease width;
 		//&.ng-enter.
 		&.flipped .flipper {
 			transform: rotateY(180deg);

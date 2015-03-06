@@ -98,6 +98,7 @@
     <Content Include="fonts\wheelSelect.js" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
+    <Content Include="images\ajax-loader.gif" />
     <Content Include="images\favicon.png" />
     <Content Include="images\hamburger.svg" />
     <Content Include="images\play.png" />
