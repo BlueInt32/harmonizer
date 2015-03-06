@@ -7,8 +7,8 @@
 			$logProvider.debugEnabled(true);
 		}
 	]);
-	angular.module('app').run(['$rootScope', function ($rootScope) {
-
+	angular.module('app').run(['$rootScope', function ($rootScope){
+		$rootScope.apiError = false;
 		$rootScope.$on('$routeChangeStart', function () {
 			$rootScope.stateIsLoading = true;
 		});
