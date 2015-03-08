@@ -13,6 +13,7 @@
 			};
 
 			this.addAChord = function (chords, noteId, chordTypeId, durationId){
+
 				var chordNotation = staticDataService.createChordNotation(noteId, chordTypeId);
 				var newChord = {
 					noteId: noteId,

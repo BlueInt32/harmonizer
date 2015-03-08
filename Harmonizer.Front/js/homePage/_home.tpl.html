@@ -16,7 +16,7 @@
 </div>
 <section id="sequencer">
 	<chord-block 
-		ng-repeat="chord in home.chords" 
+		ng-repeat="chord in home.model.chords" 
 		chord="chord" 
 		increase-length="home.increaseChordLength($index)"
 		decrease-length="home.decreaseChordLength($index)"
@@ -34,17 +34,17 @@
 		<input type="button" value="" ng-click="home.stop();" class="stop" />
 	</section>
 	<section class="multi_select">
-		<wheelselect elements="home.notes" selected="home.noteSelectedId"></wheelselect>
-		<wheelselect elements="home.chordTypes" selected="home.chordTypeSelectedId"></wheelselect>
-		<wheelselect elements="home.durations" selected="home.durationSelectedId"></wheelselect>
-		<wheelselect elements="home.tempi" selected="home.tempoSelectedId"></wheelselect>
+		<wheelselect elements="home.model.notes" selected="home.model.selected.noteId"></wheelselect>
+		<wheelselect elements="home.model.chordTypes" selected="home.model.selected.chordTypeId"></wheelselect>
+		<wheelselect elements="home.model.durations" selected="home.model.selected.durationId"></wheelselect>
+		<wheelselect elements="home.model.tempi" selected="home.model.selected.tempoId"></wheelselect>
 	</section>
 	<section class="actions">
 		<div class="metro_block">
 			<div id="metronome">
-			  <div id="base"><div id="arm" ng-class="{on:home.metronome, off:!home.metronome}"></div></div>
+			  <div id="base"><div id="arm" ng-class="{on:home.model.metronome, off:!home.model.metronome}"></div></div>
 			</div>
-			<div class="metronome checked" ng-click="home.metronome = !home.metronome" >Metronome</div>
+			<div class="metronome checked" ng-click="home.model.metronome = !home.model.metronome" >Metronome</div>
 		</div>
 		<input type="checkbox" ng-model="home.metronome" ng-change="home.toggleMetronome()" class="metro_check hide" />
 		<input type="button" value="+" ng-click="home.insertChord()" class="insert" />
