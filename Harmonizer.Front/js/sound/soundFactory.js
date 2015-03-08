@@ -37,9 +37,6 @@
 				//onend: chordPlayEndCB
 			});
 
-			// #region Publics
-			var metronome = true;
-			// #endregion
 
 
 			var inititalize = function (staticData) {
@@ -74,7 +71,7 @@
 				return defer.promise;
 			};
 
-			var playSequence = function (chords, tempo){
+			var playSequence = function (chords, tempo, metronome){
 				if (!chords.length)
 					return;
 				playingTempo = tempo;
@@ -173,11 +170,7 @@
 				chordService.setPlaying(chords, -1);
 				$interval.cancel(timer);
 			};
-
-			var toggleMetronome = function () {
-				metronome = !metronome;
-			};
-
+			
 			var getTheRightFileName = function(noteId){
 				switch (noteId){
 
@@ -215,7 +208,6 @@
 				playOneChordInSequence: playOneChordInSequence,
 				playASound: playASound,
 				stop: stop,
-				toggleMetronome: toggleMetronome,
 				getTheRightFileName: getTheRightFileName
 			};
 		}

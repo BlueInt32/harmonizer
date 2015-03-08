@@ -33,12 +33,6 @@
 					controllerAs: 'home',
 					templateUrl: 'js/homePage/_home.tpl.html',
 					resolve: {
-						delay: function ($q, $timeout) {
-							console.log("resolve started");
-							var delay = $q.defer();
-							$timeout(delay.resolve, 1500);
-							return delay.promise;
-						},
 						resolvedStaticData: ['staticDataService', 'soundFactory',
 							function (staticDataService, soundFactory) {
 								return staticDataService.getStaticData().then(function (staticData) {

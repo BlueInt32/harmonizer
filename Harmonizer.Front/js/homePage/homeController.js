@@ -12,7 +12,6 @@
 		this.notes = resolvedStaticData.notes;
 		this.chordTypes = resolvedStaticData.chordTypes;
 		this.durations = resolvedStaticData.durations;
-		//$log.debug('home controller stop this.durations', this.durations);
 
 		this.tempi = resolvedStaticData.tempi;
 
@@ -20,8 +19,18 @@
 		this.chordTypeSelectedId = resolvedStaticData.defaultChordTypeId;
 		this.durationSelectedId = resolvedStaticData.defaultDurationId;
 		this.tempoSelectedId = resolvedStaticData.defaultTempoId;
-		
+
+		this.setChordSelected = function(index){ chordService.setChordSelected(self.chords, index); };
+		this.increaseChordLength = function(index){ chordService.increaseChordLength(self.chords, self.durations, index); };
+		this.decreaseChordLength = function(index){ chordService.decreaseChordLength(self.chords, self.durations, index); };
+		this.removeAChord = function(index){ chordService.removeAChord(self.chords, index); };
+		this.moveChordLeft = function(index){ chordService.moveChordLeft(self.chords, index); };
+		this.moveChordRight = function(index){ chordService.moveChordRight(self.chords, index); };
+
+
+
 		this.metronome = soundFactory.metronome;
+		this.toggleMetronome = soundFactory.toggleMetronome;
 
 		var seqId = $routeParams.seqId;
 		if (typeof seqId !== 'undefined'){
@@ -31,8 +40,6 @@
 			});
 		}
 		
-		//this.$log = $log;
-		//this.chords = chords;
 		this.insertChord = function (){
 			chordService.addAChord(this.chords, this.noteSelectedId, this.chordTypeSelectedId, this.durationSelectedId);
 			soundFactory.playASound(this.noteSelectedId, this.chordTypeSelectedId, this.durationSelectedId, this.tempoSelectedId);
@@ -40,14 +47,13 @@
 		};
 
 		this.play = function () {
-			soundFactory.playSequence(this.chords, this.tempoSelectedId);
+			soundFactory.playSequence(this.chords, this.tempoSelectedId, this.metronome);
 		};
 
 		this.stop = function(){
 			soundFactory.stop(this.chords);
 		};
 
-		this.toggleMetronome = soundFactory.toggleMetronome;
 
 		this.save = function (){
 			$log.debug(self.tempoSelectedId);
@@ -56,7 +62,7 @@
 				tempo: self.tempoSelectedId,
 				description: "premiere description",
 				chords: this.chords
-		};
+			};
 			sequenceResource.save(sequence, function (data) {
 				$log.debug(data);
 				$location.path('/load/'+ data.id);

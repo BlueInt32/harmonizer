@@ -201,8 +201,9 @@ html {
 		color: @white;
 		text-align: center;
 	}
-	.loadingError{
-		display:none;
+
+	.loadingError {
+		display: none;
 		.font1();
 		color: red;
 		text-align: center;
@@ -219,7 +220,7 @@ html {
 	}
 }
 
-@baseChordWidth: 200px;
+@baseChordWidth: 25vw;
 
 #sequencer {
 	display: flex;
@@ -229,49 +230,35 @@ html {
 	background: @blue_grey_800;
 	cursor: default;
 
-	.chordBlock.ng-enter,
-	.chordBlock.ng-leave {
-		-webkit-transition: 0.3s linear all;
-		transition: 0.3s linear opacity;
-	}
-
-	.chordBlock.ng-enter,
-	.chordBlock.ng-leave.ng-leave-active {
-		opacity: 0;
-	}
-
-	.chordBlock.ng-leave,
-	.chordBlock.ng-enter.ng-enter-active {
-		opacity: 1;
-	}
+	
 
 	.chordBlock {
-		height: 15vh;
+		height: 16vh;
 		width: @baseChordWidth;
 		perspective: 1000;
 		.font1();
-		font-size: 15vh;
 		color: @white;
-		line-height: 15vh;
+		line-height: 16vh;
 		text-align: center;
 		justify-content: space-around;
-		transition: 0.2s ease width;
-		//&.ng-enter.
-		&.flipped .flipper {
-			transform: rotateY(180deg);
+
+		&.flipped {
+			.flipper {
+				transform: rotateY(180deg);
+			}
 		}
 
 		.flipper {
-			transition: 0.2s;
-			transform-style: preserve-3d;
 			position: relative;
 			transform-origin: 50% 50%;
+			transition: 0.2s;
+			transform-style: preserve-3d;
 
 			.front, .back {
 				width: @baseChordWidth;
-				background: @teal_200;
-				height: 15vh;
-				border: 5px solid @blue_grey_800;
+				background: @teal_300;
+				height: 16vh;
+				//border: 5px solid @blue_grey_800;
 				backface-visibility: hidden;
 				position: absolute;
 				top: 0;
@@ -279,28 +266,62 @@ html {
 			}
 
 			.front {
+				border: 5px solid #37474f;
 				z-index: 2;
+				font-size: 16vh;
+
 			}
 			/* back, initially hidden pane */
 			.back {
 				transform: rotateY(180deg);
+
+				.flex-display(flex);
+				height: 16vh;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-content: stretch;
+				align-items: stretch;
+				
+				a {
+					flex-grow:1;
+					background: @teal_200;
+					text-decoration: none;
+					color: white;
+					border:1px solid @teal_300;
+					&:hover{
+						background:@teal_100;
+					}
+				}
+				.chordType{
+					width:33%;
+					a{
+						height: 16vh;
+						line-height: 16vh;
+						font-size: 12vh;
+						display:block;
+					}
+				}
+				
+				.chordCommands{
+					width:67%;
+					display:flex;
+					flex-wrap: wrap;
+
+					a{
+						height: 8vh;
+						line-height: 8vh;
+						font-size: 6vh;
+						width:33%;
+						
+					}
+				}
+
 			}
 		}
 
 		span {
 			font-size: 20px;
-		}
-
-		.chordCommands {
-			a {
-				float: left;
-				width: 16.66%;
-				height: 100%;
-				font-size: 0.4em;
-				text-decoration: none;
-				color: white;
-				border: 1px solid @blue_grey_800;
-			}
 		}
 
 		&.duration_2 {
@@ -317,6 +338,21 @@ html {
 			.front, .back {
 				width: 4*@baseChordWidth;
 			}
+		}
+		&.ng-enter,
+		&.ng-leave {
+			-webkit-transition: 0.3s linear all;
+			transition: 0.3s linear opacity;
+		}
+
+		&.ng-enter,
+		&.ng-leave.ng-leave-active {
+			opacity: 0;
+		}
+
+		&.ng-leave,
+		&.ng-enter.ng-enter-active {
+			opacity: 1;
 		}
 	}
 }
@@ -419,6 +455,103 @@ html {
 					background: @teal_200;
 				}
 			}
+		}
+	}
+}
+
+#metronome {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 36px;
+
+	#base {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 35px;
+		border-bottom: 34px solid @teal_200;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		height: 0;
+		position: relative;
+
+		#arm {
+			position: absolute;
+			left: 6px;
+			bottom: -28px;
+			transform-origin: bottom center;
+			width: 5px;
+			height: 38px;
+			border: 1px solid #263238;
+			background-color: @teal_200;
+
+			&.on {
+				.animation(armmove 0.8s infinite);
+				.animationTiming(ease-in-out);
+			}
+
+			&.off {
+				transform: rotate(-30deg);
+				transition: transform linear 0.5s;
+			}
+		}
+	}
+
+
+
+	@keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+
+	@-webkit-keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+
+	@-moz-keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+
+	@-o-keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
 		}
 	}
 }

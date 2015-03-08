@@ -18,10 +18,12 @@
 	<chord-block 
 		ng-repeat="chord in home.chords" 
 		chord="chord" 
-		increaselength="increaseAChord" 
-		index="{{$index}}"
-		durations="home.durations"
-		chords="home.chords">
+		increase-length="home.increaseChordLength($index)"
+		decrease-length="home.decreaseChordLength($index)"
+		move-left="home.moveChordLeft($index)"
+		move-right="home.moveChordRight($index)"
+		set-selected="home.setChordSelected($index)"
+		remove="home.removeAChord($index)">
 	</chord-block>
 </section>
 
@@ -39,7 +41,10 @@
 	</section>
 	<section class="actions">
 		<div class="metro_block">
-			<div class="metronome checked">Metronome</div>
+			<div id="metronome">
+			  <div id="base"><div id="arm" ng-class="{on:home.metronome, off:!home.metronome}"></div></div>
+			</div>
+			<div class="metronome checked" ng-click="home.metronome = !home.metronome" >Metronome</div>
 		</div>
 		<input type="checkbox" ng-model="home.metronome" ng-change="home.toggleMetronome()" class="metro_check hide" />
 		<input type="button" value="+" ng-click="home.insertChord()" class="insert" />

@@ -4,13 +4,18 @@
 			{{chord.chordNotation}}
 			<span>{{chord.durationId}}</span>
 		</div>
-		<div class="back chordCommands">
-			<a href="" ng-click="decreaseChordLength(chords, durations, index);">-</a> 
-			<a href="" ng-click="increaseChordLength(chords, durations, index);">+</a> 
-			<a href="" ng-click="removeAChord(chords, index);">X</a>
-			<a href="" ng-click="moveChordLeft(chords, index);">&lt;-</a>
-			<a href="" ng-click="moveChordRight(chords, index);">-&gt;</a>
-			<a href="" ng-click="flip();"></a>
+		<div class="back ">
+			<div class="chordType">
+				<a href="" ng-click="setSelected();">{{chord.chordNotation}}<i class="icon-icon"></i></a>
+			</div>
+			<div class="chordCommands">
+				<a href="" ng-click="decreaseLength();"><i class="icon-minus"></i></a>
+				<a href="" ng-click="increaseLength();"><i class="icon-plus"></i></a>
+				<a href="" ng-click="remove();"><i class="icon-cancel"></i></a>
+				<a href="" ng-click="moveLeft();"><i class="icon-left"></i></a>
+				<a href="" ng-click="moveRight();"><i class="icon-right"></i></a>
+				<a href="" ng-click="flip();"><i class="icon-ok"></i></a>
+			</div>
 		</div>
 	</div>
 </div>

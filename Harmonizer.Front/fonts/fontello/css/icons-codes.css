@@ -1,0 +1,10 @@
+
+.icon-cog:before { content: '\e800'; } /* '' */
+.icon-plus:before { content: '\e801'; } /* '' */
+.icon-minus:before { content: '\e802'; } /* '' */
+.icon-cancel:before { content: '\e803'; } /* '' */
+.icon-left:before { content: '\e804'; } /* '' */
+.icon-right:before { content: '\e805'; } /* '' */
+.icon-floppy:before { content: '\e806'; } /* '' */
+.icon-ok:before { content: '\e807'; } /* '' */
+.icon-undo:before { content: '\e808'; } /* '' */

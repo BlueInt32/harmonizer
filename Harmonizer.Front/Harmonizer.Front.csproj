@@ -94,6 +94,17 @@
     </Content>
     <Content Include="css\style.css" />
     <Content Include="FillMyDb.aspx" />
+    <Content Include="fonts\fontello\config.json" />
+    <Content Include="fonts\fontello\css\animation.css" />
+    <Content Include="fonts\fontello\css\icons-codes.css" />
+    <Content Include="fonts\fontello\css\icons-embedded.css" />
+    <Content Include="fonts\fontello\css\icons-ie7-codes.css" />
+    <Content Include="fonts\fontello\css\icons-ie7.css" />
+    <Content Include="fonts\fontello\css\icons.css" />
+    <Content Include="fonts\fontello\demo.html" />
+    <Content Include="fonts\fontello\font\icons.svg" />
+    <Content Include="fonts\fontello\LICENSE.txt" />
+    <Content Include="fonts\fontello\README.txt" />
     <Content Include="fonts\roboto-regular.svg" />
     <Content Include="fonts\wheelSelect.js" />
     <Content Include="Global.asax" />
@@ -130,6 +141,9 @@
     <Content Include="fonts\roboto-regular.eot" />
     <Content Include="fonts\roboto-regular.ttf" />
     <Content Include="fonts\roboto-regular.woff" />
+    <Content Include="fonts\fontello\font\icons.eot" />
+    <Content Include="fonts\fontello\font\icons.ttf" />
+    <Content Include="fonts\fontello\font\icons.woff" />
     <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
     <None Include="Properties\PublishProfiles\Ovh.pubxml" />
     <Content Include="Samples\ab_sprite.mp3" />
