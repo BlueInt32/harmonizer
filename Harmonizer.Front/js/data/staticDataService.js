@@ -32,18 +32,21 @@
 				return foundNote + chordNotation;
 			};
 
-			var buildStaticData = function (staticDataFromServer) {
+			var buildStaticData = function (staticDataFromServer){
 				var formattedData = {
 					notes: staticDataFromServer.notes,
 					chordTypes: staticDataFromServer.chordTypes,
 					durations: staticDataFromServer.durations,
 					tempi: staticDataFromServer.tempi,
-					selected: {
+					chordEditor: {
 						noteId: staticDataFromServer.defaultNoteId,
 						chordTypeId: staticDataFromServer.defaultChordTypeId,
 						durationId: staticDataFromServer.defaultDurationId,
-						tempoId: staticDataFromServer.defaultTempoId
-					}
+					},
+					configuration: {
+						tempoId: staticDataFromServer.defaultTempoId,
+						metronome: false
+			}
 				};
 				return formattedData;
 			};

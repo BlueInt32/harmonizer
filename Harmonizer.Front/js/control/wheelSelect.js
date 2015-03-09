@@ -10,6 +10,12 @@
 			return {
 				restrict: 'E',
 				replace: true,
+				controller: function(){
+					this.oh = function(){
+						$log.debug("yo");
+					};
+				},
+				controllerAs:'wheelController',
 				link: linkFn,
 				scope: { elements: '=', selected: '=' },
 				templateUrl: 'js/control/wheelSelect.html'

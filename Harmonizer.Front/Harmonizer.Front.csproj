@@ -116,7 +116,7 @@
     <Content Include="images\stop.png" />
     <Content Include="js\config.js" />
     <Content Include="js\control\wheelSelect.js" />
-    <Content Include="js\data\sequenceResource.js" />
+    <Content Include="js\data\sequenceFactory.js" />
     <Content Include="js\chords\chordService.js" />
     <Content Include="js\data\staticDataService.js" />
     <Content Include="js\homePage\homeController.test.js" />

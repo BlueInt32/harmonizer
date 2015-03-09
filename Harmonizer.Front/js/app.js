@@ -18,6 +18,7 @@
 			$rootScope.stateIsLoading = false;
 		});
 		$rootScope.$on('$routeChangeError', function (){
+			console.log("error in route loading");
 			$rootScope.stateIsLoading = true;
 			$rootScope.apiError = true;
 		});

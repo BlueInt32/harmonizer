@@ -12,6 +12,7 @@ namespace Harmonizer.Api.Extensions
 		public static Sequence ToDomainSequence(this SequenceViewModel sequenceViewModel, IStaticDataService staticDataService)
 		{
 			Sequence sequence = new Sequence();
+			sequence.Id = sequenceViewModel.Id;
 			sequence.Name = sequenceViewModel.Name;
 			sequence.Description = sequenceViewModel.Description;
 			sequence.Chords = new List<SequenceChord>();
@@ -22,8 +23,10 @@ namespace Harmonizer.Api.Extensions
 				SequenceChord sequenceChord = new SequenceChord();
 
 				Chord chord = FindChord(staticDataService, chordDescriptor);
+				sequenceChord.Id = chordDescriptor.SequenceChordId;
 				sequenceChord.ChordId = chord.Id;
 				sequenceChord.PositionInSequence = positionInSequence++;
+				sequenceChord.SequenceId = sequenceViewModel.Id;
 				sequence.Chords.Add(sequenceChord);
 			}
 
@@ -44,6 +47,7 @@ namespace Harmonizer.Api.Extensions
 					Chord chord = FindChord(apiService, sequenceChord.ChordId);
 					var chordDescriptor = new ChordDescriptorViewModel
 					{
+						SequenceChordId = sequenceChord.Id,
 						NoteId = chord.RootNote.Id,
 						DurationId = chord.DurationId,
 						ChordTypeId = chord.ChordTypeId,

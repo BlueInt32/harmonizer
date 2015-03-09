@@ -9,6 +9,7 @@ namespace Harmonizer.Domain.Interfaces
 {
     public interface ISequenceRepository
     {
+	    void SaveSequence(Sequence sequence);
 	    void CreateSequence(Sequence sequence);
 	    void UpdateSequence(Sequence sequence);
 	    Sequence ReadSequence(int sequenceId);

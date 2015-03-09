@@ -22,7 +22,7 @@ namespace Harmonizer.Api.Services
 		}
 		public void SaveSequence(Sequence sequence)
 		{
-			_sequenceRepository.CreateSequence(sequence);
+			_sequenceRepository.SaveSequence(sequence);
 		}
 	}
 }

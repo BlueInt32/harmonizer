@@ -34,10 +34,10 @@
 		<input type="button" value="" ng-click="home.stop();" class="stop" />
 	</section>
 	<section class="multi_select">
-		<wheelselect elements="home.model.notes" selected="home.model.selected.noteId"></wheelselect>
-		<wheelselect elements="home.model.chordTypes" selected="home.model.selected.chordTypeId"></wheelselect>
-		<wheelselect elements="home.model.durations" selected="home.model.selected.durationId"></wheelselect>
-		<wheelselect elements="home.model.tempi" selected="home.model.selected.tempoId"></wheelselect>
+		<wheelselect elements="home.model.notes" selected="home.model.chordEditor.noteId"></wheelselect>
+		<wheelselect elements="home.model.chordTypes" selected="home.model.chordEditor.chordTypeId"></wheelselect>
+		<wheelselect elements="home.model.durations" selected="home.model.chordEditor.durationId"></wheelselect>
+		<wheelselect elements="home.model.tempi" selected="home.model.configuration.tempoId"></wheelselect>
 	</section>
 	<section class="actions">
 		<div class="metro_block">

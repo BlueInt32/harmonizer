@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="ContextDefinition\HarmonizerContext.cs" />
     <Compile Include="ContextDefinition\SeedAndConfiguration.cs" />
+    <Compile Include="Extensions\EntityFrameworkExtensions.cs" />
     <Compile Include="Repositories\SequenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\StaticDataRepository.cs" />

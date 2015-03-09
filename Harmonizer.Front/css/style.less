@@ -203,7 +203,6 @@ html {
 	}
 
 	.loadingError {
-		display: none;
 		.font1();
 		color: red;
 		text-align: center;
@@ -220,7 +219,9 @@ html {
 	}
 }
 
-@baseChordWidth: 25vw;
+@baseChordWidth: 24.5vw;
+@baseChordHeight:150px;
+@chordBorderWidth: 5px;
 
 #sequencer {
 	display: flex;
@@ -233,7 +234,7 @@ html {
 	
 
 	.chordBlock {
-		height: 16vh;
+		height: @baseChordHeight;
 		width: @baseChordWidth;
 		perspective: 1000;
 		.font1();
@@ -257,8 +258,8 @@ html {
 			.front, .back {
 				width: @baseChordWidth;
 				background: @teal_300;
-				height: 16vh;
-				//border: 5px solid @blue_grey_800;
+				height: @baseChordHeight;
+				border: 5px solid #37474f;
 				backface-visibility: hidden;
 				position: absolute;
 				top: 0;
@@ -266,17 +267,14 @@ html {
 			}
 
 			.front {
-				border: 5px solid #37474f;
 				z-index: 2;
-				font-size: 16vh;
-
+				font-size: @baseChordHeight * 0.7;
+				line-height: @baseChordHeight;
 			}
-			/* back, initially hidden pane */
 			.back {
 				transform: rotateY(180deg);
 
 				.flex-display(flex);
-				height: 16vh;
 				flex-direction: row;
 				flex-wrap: wrap;
 				justify-content: center;
@@ -296,9 +294,9 @@ html {
 				.chordType{
 					width:33%;
 					a{
-						height: 16vh;
-						line-height: 16vh;
-						font-size: 12vh;
+						height: @baseChordHeight - 2*@chordBorderWidth;
+						line-height: @baseChordHeight;
+						font-size: @baseChordHeight * 0.33;
 						display:block;
 					}
 				}
@@ -309,8 +307,8 @@ html {
 					flex-wrap: wrap;
 
 					a{
-						height: 8vh;
-						line-height: 8vh;
+						height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
+						line-height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
 						font-size: 6vh;
 						width:33%;
 						
