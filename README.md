@@ -17,3 +17,4 @@ Resources :
 - Modern web audio javascript Library : [Howler.js](http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library)
 - [3D flip](http://davidwalsh.name/demo/css-flip.php)
 - [Home made cute metronome css animation](http://codepen.io/anon/pen/GgXpZo?editors=110)
+- [How To update one-many relationships](http://www.entityframeworktutorial.net/EntityFramework4.3/update-one-to-many-entity-using-dbcontext.aspx)
