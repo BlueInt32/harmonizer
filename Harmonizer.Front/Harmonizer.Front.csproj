@@ -106,7 +106,6 @@
     <Content Include="fonts\fontello\LICENSE.txt" />
     <Content Include="fonts\fontello\README.txt" />
     <Content Include="fonts\roboto-regular.svg" />
-    <Content Include="fonts\wheelSelect.js" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="images\ajax-loader.gif" />
@@ -115,7 +114,7 @@
     <Content Include="images\play.png" />
     <Content Include="images\stop.png" />
     <Content Include="js\config.js" />
-    <Content Include="js\control\wheelSelect.js" />
+    <Content Include="js\control\configSelect.js" />
     <Content Include="js\data\sequenceFactory.js" />
     <Content Include="js\chords\chordService.js" />
     <Content Include="js\data\staticDataService.js" />
@@ -177,7 +176,7 @@
     <Content Include="js\homePage\homeController.js" />
     <Content Include="js\chords\chordBlockDirective.js" />
     <Content Include="js\vendor\angular.js" />
-    <Content Include="js\control\wheelSelect.html" />
+    <Content Include="js\control\configSelect.html" />
     <Content Include="js\chords\chordBlock.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

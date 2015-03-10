@@ -1,0 +1,3 @@
+<select ng-model="selected" ng-options="el.id as el.name for el in elements" ng-change="change({newValue:selected})">
+	<option>{{el}}</option>
+</select>

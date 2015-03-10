@@ -231,17 +231,16 @@ html {
 	background: @blue_grey_800;
 	cursor: default;
 
-	
-
 	.chordBlock {
 		height: @baseChordHeight;
 		width: @baseChordWidth;
 		perspective: 1000;
 		.font1();
-		color: @white;
-		line-height: 16vh;
+		color: white;
+		line-height: @baseChordHeight;
 		text-align: center;
 		justify-content: space-around;
+
 
 		&.flipped {
 			.flipper {
@@ -271,50 +270,51 @@ html {
 				font-size: @baseChordHeight * 0.7;
 				line-height: @baseChordHeight;
 			}
+
 			.back {
 				transform: rotateY(180deg);
-
 				.flex-display(flex);
 				flex-direction: row;
 				flex-wrap: wrap;
 				justify-content: center;
 				align-content: stretch;
 				align-items: stretch;
-				
+
 				a {
-					flex-grow:1;
+					flex-grow: 1;
 					background: @teal_200;
 					text-decoration: none;
+					border: 1px solid @teal_300;
 					color: white;
-					border:1px solid @teal_300;
-					&:hover{
-						background:@teal_100;
+
+					&:hover {
+						background: @teal_100;
 					}
 				}
-				.chordType{
-					width:33%;
-					a{
+
+				.chordType {
+					width: 33%;
+
+					a {
 						height: @baseChordHeight - 2*@chordBorderWidth;
 						line-height: @baseChordHeight;
 						font-size: @baseChordHeight * 0.33;
-						display:block;
+						display: block;
 					}
 				}
-				
-				.chordCommands{
-					width:67%;
-					display:flex;
+
+				.chordCommands {
+					width: 67%;
+					display: flex;
 					flex-wrap: wrap;
 
-					a{
+					a {
 						height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
 						line-height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
 						font-size: 6vh;
-						width:33%;
-						
+						width: 33%;
 					}
 				}
-
 			}
 		}
 
@@ -322,6 +322,7 @@ html {
 			font-size: 20px;
 		}
 
+		/*#region durations styles */
 		&.duration_2 {
 			width: 2*@baseChordWidth;
 
@@ -337,6 +338,9 @@ html {
 				width: 4*@baseChordWidth;
 			}
 		}
+		/*#endregion */
+
+		/*#region animations */
 		&.ng-enter,
 		&.ng-leave {
 			-webkit-transition: 0.3s linear all;
@@ -351,6 +355,10 @@ html {
 		&.ng-leave,
 		&.ng-enter.ng-enter-active {
 			opacity: 1;
+		}
+		/*#endregion */
+		&.isSelected {
+			.flipper .back .chordType a {color: @teal_100;background:@white}
 		}
 	}
 }

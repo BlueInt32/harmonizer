@@ -1,12 +1,13 @@
-﻿<div class="chordBlock flip-container duration_{{chord.durationId}}" ng-class="{'flipped':flipped}">
+﻿<div class="chordBlock flip-container duration_{{chord.durationId}}" ng-class="{'flipped':flipped, 'isSelected':isSelected}">
+
 	<div class="flipper">
-		<div class="front " ng-class="{'playing':chord.playing}" ng-click="flip();">
-			{{chord.chordNotation}}
+		<div class="front " ng-class="{'playing':chord.playing}" ng-click="chordBlockController.flip('opening');">
+			{{chord.notation}}	
 			<span>{{chord.durationId}}</span>
 		</div>
 		<div class="back ">
 			<div class="chordType">
-				<a href="" ng-click="setSelected();">{{chord.chordNotation}}<i class="icon-icon"></i></a>
+				<a href="" ng-click="setSelected({newIndex:index});">{{chord.notation}}<i class="icon-icon"></i></a>
 			</div>
 			<div class="chordCommands">
 				<a href="" ng-click="decreaseLength();"><i class="icon-minus"></i></a>
@@ -14,7 +15,7 @@
 				<a href="" ng-click="remove();"><i class="icon-cancel"></i></a>
 				<a href="" ng-click="moveLeft();"><i class="icon-left"></i></a>
 				<a href="" ng-click="moveRight();"><i class="icon-right"></i></a>
-				<a href="" ng-click="flip();"><i class="icon-ok"></i></a>
+				<a href="" ng-click="chordBlockController.flip('closing');"><i class="icon-ok"></i></a>
 			</div>
 		</div>
 	</div>

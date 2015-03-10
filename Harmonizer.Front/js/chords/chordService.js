@@ -14,12 +14,12 @@
 
 			this.addAChord = function (chords, noteId, chordTypeId, durationId){
 
-				var chordNotation = staticDataService.createChordNotation(noteId, chordTypeId);
+				var notation = staticDataService.createChordNotation(noteId, chordTypeId);
 				var newChord = {
 					noteId: noteId,
 					chordTypeId: chordTypeId,
 					durationId: durationId,
-					chordNotation: chordNotation,
+					notation: notation,
 					playing: false
 				};
 				chords.push(newChord);

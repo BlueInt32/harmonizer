@@ -1,9 +1,9 @@
 (function () {
 	'use strict';
 	angular.module('app').controller('homeController',
-	['$log', 'soundFactory', 'chordService', 'sequenceFactory', 'resolvedStaticData', '$routeParams', '$location', '_', homeController]);
+	['$log', 'soundFactory', 'chordService', 'sequenceFactory', 'resolvedStaticData', '$routeParams', '$location', homeController]);
 	
-	function homeController($log, soundFactory, chordService, sequenceFactory, resolvedStaticData, $routeParams, $location, _){
+	function homeController($log, soundFactory, chordService, sequenceFactory, resolvedStaticData, $routeParams, $location){
 		
 		var self = this;
 
@@ -13,8 +13,14 @@
 		self.model.sequenceId = 0;
 
 		self.setChordSelected = function(index){
+			$log.debug('setChordSelected index', index);
 			self.model.selectedChordIndex = index;
 			self.model.chordEditor = self.model.chords[index];
+		};
+		self.updateSelectedChord = function(chordProperty, newValue){
+			if (self.model.selectedChordIndex !== -1){
+				self.model.chords[self.model.selectedChordIndex][chordProperty] = newValue;
+			};
 		};
 		self.increaseChordLength = function(index){ chordService.increaseChordLength(self.model.chords, self.model.durations, index); };
 		self.decreaseChordLength = function(index){ chordService.decreaseChordLength(self.model.chords, self.model.durations, index); };

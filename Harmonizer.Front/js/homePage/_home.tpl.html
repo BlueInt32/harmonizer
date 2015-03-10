@@ -18,11 +18,13 @@
 	<chord-block 
 		ng-repeat="chord in home.model.chords" 
 		chord="chord" 
+		index="{{$index}}"
+		is-selected="$index === home.model.selectedChordIndex"
 		increase-length="home.increaseChordLength($index)"
 		decrease-length="home.decreaseChordLength($index)"
 		move-left="home.moveChordLeft($index)"
 		move-right="home.moveChordRight($index)"
-		set-selected="home.setChordSelected($index)"
+		set-selected="home.setChordSelected(newIndex)"
 		remove="home.removeAChord($index)">
 	</chord-block>
 </section>
@@ -34,10 +36,10 @@
 		<input type="button" value="" ng-click="home.stop();" class="stop" />
 	</section>
 	<section class="multi_select">
-		<wheelselect elements="home.model.notes" selected="home.model.chordEditor.noteId"></wheelselect>
-		<wheelselect elements="home.model.chordTypes" selected="home.model.chordEditor.chordTypeId"></wheelselect>
-		<wheelselect elements="home.model.durations" selected="home.model.chordEditor.durationId"></wheelselect>
-		<wheelselect elements="home.model.tempi" selected="home.model.configuration.tempoId"></wheelselect>
+		<config-select elements="home.model.notes" selected="home.model.chordEditor.noteId" change="home.updateSelectedChord('noteId', newValue)"></config-select>
+		<config-select elements="home.model.chordTypes" selected="home.model.chordEditor.chordTypeId" change="home.updateSelectedChord('chordTypeId', newValue)"></config-select>
+		<config-select elements="home.model.durations" selected="home.model.chordEditor.durationId" change="home.updateSelectedChord('durationId', newValue)"></config-select>
+		<config-select elements="home.model.tempi" selected="home.model.configuration.tempoId"></config-select>
 	</section>
 	<section class="actions">
 		<div class="metro_block">

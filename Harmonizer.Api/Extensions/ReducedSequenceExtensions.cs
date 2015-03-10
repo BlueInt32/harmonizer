@@ -51,7 +51,7 @@ namespace Harmonizer.Api.Extensions
 						NoteId = chord.RootNote.Id,
 						DurationId = chord.DurationId,
 						ChordTypeId = chord.ChordTypeId,
-						ChordNotation = string.Format("{0}{1}", chord.RootNote.Name, chord.ChordType.Notation)
+						Notation = string.Format("{0}{1}", chord.RootNote.Name, chord.ChordType.Notation)
 					};
 					sequenceViewModel.Chords.Add(chordDescriptor);
 				}
