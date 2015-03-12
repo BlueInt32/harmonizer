@@ -3,19 +3,31 @@
 	'use strict';
 	angular.module('app').directive("chordBlock", [
 		"chordService",'$log', 'staticDataService',
-		function(chordService, $log, staticDataService)
-		{
+		function(chordService, $log, staticDataService){
+			
 			var linkFn = function(scope, element, attrs){
-				scope.$watch(function(){ return scope.chord.noteId; }, function(value){
-					$log.debug("in directive, chord note changed to", value);
-					scope.chord.notation = staticDataService.createChordNotation(value, scope.chord.chordTypeId);
-					$log.debug('scope.chord.notation', scope.chord.notation);
-				});
+
+				var watchChangeNoteCallback = function(newNote){
+					$log.debug('newNote catched', newNote);
+					if (!scope.flipped)
+						return;
+					scope.chord.notation = staticDataService.createChordNotation(newNote, scope.chord.chordTypeId);
+				};
+				var watchChangeChordTypeCallback = function(newChordType){
+					$log.debug('newChordType catched', newChordType);
+					if (!scope.flipped)
+						return;
+					scope.chord.notation = staticDataService.createChordNotation(scope.chord.noteId, newChordType);
+				};
+
+				scope.$watch(function(){ return scope.chord.noteId; }, watchChangeNoteCallback);
+				scope.$watch(function(){ return scope.chord.chordTypeId; }, watchChangeChordTypeCallback);
 			};
 			return {
 				restrict: 'E',
 				replace: true,
 				link: linkFn,
+				transclude:true,
 				scope: {
 					index:'@',
 					chord: '=',

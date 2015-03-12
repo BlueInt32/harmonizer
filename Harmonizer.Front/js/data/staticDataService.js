@@ -19,6 +19,7 @@
 					});
 				return defer.promise;
 			};
+			
 
 			var createChordNotation = function (noteId, chordTypeId) {
 				var foundNote = _.result(_.find(staticData.notes, function (note) {
@@ -28,7 +29,6 @@
 					return chordType.id === chordTypeId;
 				}), 'notation');
 
-				$log.debug('found ', foundNote, notation);
 				return foundNote + notation;
 			};
 

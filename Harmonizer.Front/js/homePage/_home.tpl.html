@@ -26,11 +26,11 @@
 		move-right="home.moveChordRight($index)"
 		set-selected="home.setChordSelected(newIndex)"
 		remove="home.removeAChord($index)">
+		{{$index === home.model.selectedChordIndex}}
 	</chord-block>
 </section>
 
 <section id="options">
-
 	<section class="controls">
 		<input type="button" value="" ng-click="home.play();" class="play" />
 		<input type="button" value="" ng-click="home.stop();" class="stop" />
