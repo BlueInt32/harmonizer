@@ -13,17 +13,16 @@
 		self.model.sequenceId = 0;
 
 		self.setChordSelected = function(index){
-			$log.debug('setChordSelected index', index);
 			self.model.selectedChordIndex = index;
 			var previousChordEditorVal = self.model.chordEditor;
 			self.model.chordEditor = index > -1 ? self.model.chords[index]: previousChordEditorVal;
 		};
 		self.updateSelectedChord = function(chordProperty, newValue){
-			$log.debug('newValue in editor', newValue);
 			if (self.model.selectedChordIndex !== -1){
 				self.model.chords[self.model.selectedChordIndex][chordProperty] = newValue;
 			}
 		};
+
 		self.increaseChordLength = function(index){ chordService.increaseChordLength(self.model.chords, self.model.durations, index); };
 		self.decreaseChordLength = function(index){ chordService.decreaseChordLength(self.model.chords, self.model.durations, index); };
 		self.removeAChord = function(index){ chordService.removeAChord(self.model.chords, index); };

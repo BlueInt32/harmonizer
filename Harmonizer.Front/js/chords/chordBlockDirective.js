@@ -8,13 +8,11 @@
 			var linkFn = function(scope, element, attrs){
 
 				var watchChangeNoteCallback = function(newNote){
-					$log.debug('newNote catched', newNote);
 					if (!scope.flipped)
 						return;
 					scope.chord.notation = staticDataService.createChordNotation(newNote, scope.chord.chordTypeId);
 				};
 				var watchChangeChordTypeCallback = function(newChordType){
-					$log.debug('newChordType catched', newChordType);
 					if (!scope.flipped)
 						return;
 					scope.chord.notation = staticDataService.createChordNotation(scope.chord.noteId, newChordType);
@@ -29,7 +27,7 @@
 				link: linkFn,
 				transclude:true,
 				scope: {
-					index:'@',
+					index:'=',
 					chord: '=',
 					durations: '=',
 					isSelected:'=',

@@ -18,7 +18,7 @@
 	<chord-block 
 		ng-repeat="chord in home.model.chords" 
 		chord="chord" 
-		index="{{$index}}"
+		index="$index"
 		is-selected="$index === home.model.selectedChordIndex"
 		increase-length="home.increaseChordLength($index)"
 		decrease-length="home.decreaseChordLength($index)"

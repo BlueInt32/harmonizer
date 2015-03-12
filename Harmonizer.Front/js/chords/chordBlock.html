@@ -7,16 +7,15 @@
 		</div>
 		<div class="back ">
 			<div class="chordType">
-				<a href="" ng-click="setSelected({newIndex:index});">{{chord.notation}}<i class="icon-icon"></i></a>
-				{{isSelected}}
+				<a href="" ng-click="setSelected({newIndex:index});" title="Modify">{{chord.notation}}<i class="icon-icon"></i></a>
 			</div>
 			<div class="chordCommands">
-				<a href="" ng-click="decreaseLength();"><i class="icon-minus"></i></a>
-				<a href="" ng-click="increaseLength();"><i class="icon-plus"></i></a>
-				<a href="" ng-click="remove();"><i class="icon-cancel"></i></a>
-				<a href="" ng-click="moveLeft();"><i class="icon-left"></i></a>
-				<a href="" ng-click="moveRight();"><i class="icon-right"></i></a>
-				<a href="" ng-click="chordBlockController.flip('closing');"><i class="icon-ok"></i></a>
+				<a href="" ng-click="decreaseLength();" title="Reduce duration"><i class="icon-minus"></i></a>
+				<a href="" ng-click="increaseLength();" title="Increase duration"><i class="icon-plus"></i></a>
+				<a href="" ng-click="remove();" title="Remove this chord" class="removeButton"><i class="icon-cancel"></i></a>
+				<a href="" ng-click="moveLeft();" title="Move to the left"><i class="icon-left"></i></a>
+				<a href="" ng-click="moveRight();" title="Move to the right"><i class="icon-right"></i></a>
+				<a href="" ng-click="chordBlockController.flip('closing');" title="Save" class="saveButton"><i class="icon-ok"></i></a>
 			</div>
 		</div>
 	</div>
