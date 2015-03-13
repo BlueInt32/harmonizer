@@ -1,10 +1,9 @@
 (function () {
 	'use strict';
-	angular.module('app').controller('homeController',
-	['$log', 'soundFactory', 'chordService', 'sequenceFactory', 'resolvedStaticData', '$routeParams', '$location', homeController]);
-	
-	function homeController($log, soundFactory, chordService, sequenceFactory, resolvedStaticData, $routeParams, $location){
-		
+
+
+	var homeController = function homeController($log, soundFactory, chordService, sequenceFactory, resolvedStaticData, $routeParams, $location){
+
 		var self = this;
 
 		self.model = resolvedStaticData;
@@ -15,7 +14,7 @@
 		self.setChordSelected = function(index){
 			self.model.selectedChordIndex = index;
 			var previousChordEditorVal = self.model.chordEditor;
-			self.model.chordEditor = index > -1 ? self.model.chords[index]: previousChordEditorVal;
+			self.model.chordEditor = index > -1 ? self.model.chords[index] : previousChordEditorVal;
 		};
 		self.updateSelectedChord = function(chordProperty, newValue){
 			if (self.model.selectedChordIndex !== -1){
@@ -31,12 +30,12 @@
 
 		self.toggleMetronome = soundFactory.toggleMetronome;
 
-		self.insertChord = function (){
+		self.insertChord = function(){
 			chordService.addAChord(self.model.chords, self.model.chordEditor.noteId, self.model.chordEditor.chordTypeId, self.model.chordEditor.durationId);
 			soundFactory.playASound(self.model.chordEditor.noteId, self.model.chordEditor.chordTypeId, self.model.chordEditor.durationId, self.model.configuration.tempoId);
 		};
 
-		self.play = function () {
+		self.play = function(){
 			soundFactory.playSequence(self.model.chords, self.model.configuration.tempoId, self.model.metronome);
 		};
 
@@ -54,10 +53,13 @@
 		self.save = function(){
 			sequenceFactory.saveSequence(self.model).then(function(data){
 				$log.debug('data', data);
-				$location.path('/load/'+ data.id);
+				$location.path('/load/' + data.id);
 			});
 		};
-	}
+	};
+
+	angular.module('app').controller('homeController',
+	['$log', 'soundFactory', 'chordService', 'sequenceFactory', 'resolvedStaticData', '$routeParams', '$location', homeController]);
 })();
 
 // TODO : modification d'un chord après avoir cliqué dessus

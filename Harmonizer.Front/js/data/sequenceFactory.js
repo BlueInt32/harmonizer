@@ -38,8 +38,8 @@
 		};
 
 		return {
-			loadSequenceFromQuery : loadSequenceFromQuery,
+			loadSequenceFromQuery: loadSequenceFromQuery,
 			saveSequence: saveSequence
-		}
+		};
 	}
 })();

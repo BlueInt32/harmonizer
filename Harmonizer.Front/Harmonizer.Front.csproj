@@ -108,6 +108,7 @@
     <Content Include="fonts\roboto-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\favicon.png" />
     <Content Include="images\hamburger.svg" />
