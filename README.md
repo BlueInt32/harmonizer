@@ -1,4 +1,4 @@
-harmonizer
+Harmonizer
 ==========
 
 Lightweight app for creating fast and simple harmony sequences.
