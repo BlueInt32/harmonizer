@@ -32,8 +32,8 @@
 
 <section id="options">
 	<section class="controls">
-		<input type="button" value="" ng-click="home.play();" class="play" />
-		<input type="button" value="" ng-click="home.stop();" class="stop" />
+		<input type="button" value="" ng-click="home.play();" class="play" ng-hide="home.model.isPlaying" />
+		<input type="button" value="" ng-click="home.stop();" class="stop" ng-show="home.model.isPlaying"/>
 	</section>
 	<section class="multi_select">
 		<config-select elements="home.model.notes" selected="home.model.chordEditor.noteId" change="home.updateSelectedChord('noteId', newValue)"></config-select>

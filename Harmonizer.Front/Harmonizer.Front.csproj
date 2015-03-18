@@ -159,7 +159,7 @@
     <Content Include="Samples\gb_sprite.mp3" />
     <Content Include="Samples\g_sprite.mp3" />
     <Content Include="Samples\metronome.mp3" />
-    <Content Include="test\test.js" />
+    <Content Include="js\test\test.js" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\web.config" />

@@ -10,6 +10,7 @@
 		self.model.chords = [];
 		self.model.selectedChordIndex = -1;
 		self.model.sequenceId = 0;
+		self.model.isPlaying = false;
 
 		self.setChordSelected = function(index){
 			self.model.selectedChordIndex = index;
@@ -36,11 +37,16 @@
 		};
 
 		self.play = function(){
-			soundFactory.playSequence(self.model.chords, self.model.configuration.tempoId, self.model.metronome);
+			self.model.isPlaying = true;
+			soundFactory.playSequence(self.model.chords, self.model.configuration.tempoId, self.model.metronome).then(function(){
+				self.model.isPlaying = false;
+			});
 		};
 
 		self.stop = function(){
-			soundFactory.stop(self.model.chords);
+			soundFactory.stop(self.model.chords).then(function(){
+				self.model.isPlaying = false;
+			});
 		};
 
 		/* Load Sequence */

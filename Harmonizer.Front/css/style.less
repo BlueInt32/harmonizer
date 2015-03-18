@@ -269,6 +269,10 @@ html {
 				z-index: 2;
 				font-size: @baseChordHeight * 0.7;
 				line-height: @baseChordHeight;
+
+				&:hover{
+					background: @teal_100;
+				}
 			}
 
 			.back {
@@ -293,18 +297,19 @@ html {
 				}
 
 				.chordType {
-					width: 33%;
+					flex-grow:1;
 
 					a {
 						height: @baseChordHeight - 2*@chordBorderWidth;
 						line-height: @baseChordHeight;
-						font-size: @baseChordHeight * 0.33;
+						font-size: @baseChordHeight * 0.7;
+						//font-size: @baseChordHeight * 0.33;
 						display: block;
 					}
 				}
 
 				.chordCommands {
-					width: 67%;
+					width: 310px;
 					display: flex;
 					flex-wrap: wrap;
 

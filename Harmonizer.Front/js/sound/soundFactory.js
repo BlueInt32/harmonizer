@@ -29,7 +29,8 @@
 				totalSequenceLength = 0,
 				noteIdPlaying = null,
 				chordIndex = 1,
-				isDoubledSprite = false; // this is used when 2 chords are played from the same howl, beta test
+				isDoubledSprite = false, // this is used when 2 chords are played from the same howl, beta test
+				playingDeferred = null;
 			var metronomeHowl = new Howl(
 			{
 				urls: ['/samples/metronome.mp3'],
@@ -72,8 +73,12 @@
 			};
 
 			var playSequence = function (chords, tempo, metronome){
-				if (!chords.length)
-					return;
+				playingDeferred = $q.defer();
+
+				if (!chords.length){
+					playingDeferred.resolve();
+					return playingDeferred.promise;
+				}
 				playingTempo = tempo;
 				var interval = 60000 / playingTempo;
 				var step = 1; // step is the tempo count, starts @ 1 because step 0 is made outside of setInterval
@@ -100,13 +105,16 @@
 					if (step >= totalSequenceLength) // has sequence ended ?
 					{
 						stop(chords);
-						return;
+						$log.debug('call resolve');
+						playingDeferred.resolve();
 					}
 					step++;
 					barStep = (barStep + 1) % 4;
 					//$log.debug('step', step);
 					//$log.debug("------------------");
 				}, interval);
+				
+				return playingDeferred.promise;
 			};
 
 			// As chords can be 1, 2 or 4 steps-length, we have to set an array containing each chord starting step
@@ -166,9 +174,11 @@
 				//}
 			};
 
-			var stop = function (chords) {
+			var stop = function (chords){
+				playingDeferred.resolve();
 				chordService.setPlaying(chords, -1);
 				$interval.cancel(timer);
+				return playingDeferred.promise;
 			};
 			
 			var getTheRightFileName = function(noteId){

@@ -1,10 +1,10 @@
 ﻿<div class="chordBlock flip-container duration_{{chord.durationId}}" ng-class="{'flipped':flipped, 'isSelected':isSelected}">
 
 	<div class="flipper">
-		<div class="front " ng-class="{'playing':chord.playing}" ng-click="chordBlockController.flip('opening');setSelected({newIndex:index});">
+		<a class="front " ng-class="{'playing':chord.playing}" ng-click="chordBlockController.flip('opening');setSelected({newIndex:index});">
 			{{chord.notation}}	
 			<span>{{chord.durationId}}</span>
-		</div>
+		</a>
 		<div class="back ">
 			<div class="chordType">
 				<a href="" ng-click="setSelected({newIndex:index});" title="Modify">{{chord.notation}}<i class="icon-icon"></i></a>
