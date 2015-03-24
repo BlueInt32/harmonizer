@@ -1,7 +1,6 @@
 (function () {
 	'use strict';
 
-
 	var homeController = function homeController($log, soundFactory, chordService, sequenceFactory, resolvedStaticData, $routeParams, $location){
 
 		var self = this;

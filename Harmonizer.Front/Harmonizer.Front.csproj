@@ -114,21 +114,24 @@
     <Content Include="images\hamburger.svg" />
     <Content Include="images\play.png" />
     <Content Include="images\stop.png" />
-    <Content Include="js\config.js" />
-    <Content Include="js\control\configSelect.js" />
-    <Content Include="js\data\sequenceFactory.js" />
-    <Content Include="js\chords\chordService.js" />
-    <Content Include="js\data\staticDataService.js" />
-    <Content Include="js\homePage\homeController.test.js" />
-    <Content Include="js\homePage\_home.tpl.html" />
-    <Content Include="js\sideMenu\sideMenuController.js" />
-    <Content Include="js\sound\soundFactory.js" />
-    <Content Include="js\utils\lodashFactory.js" />
+    <Content Include="js\app\config.js" />
+    <Content Include="js\app\control\configSelectDirective.js" />
+    <Content Include="js\app\data\sequenceFactory.js" />
+    <Content Include="js\app\chords\chordService.js" />
+    <Content Include="js\app\data\staticDataService.js" />
+    <Content Include="js\app\homePage\homeController.test.js" />
+    <Content Include="js\app\homePage\_home.tpl.html" />
+    <Content Include="js\app\burgerMenu\_burger.tpl.html" />
+    <Content Include="js\app\burgerMenu\burgerDirective.js" />
+    <Content Include="js\app\sound\soundFactory.js" />
+    <Content Include="js\app\utils\lodashFactory.js" />
+    <Content Include="js\test\staticDataService.test.js" />
     <Content Include="js\vendor\angular-animate.js" />
     <Content Include="js\vendor\angular-mocks.js" />
     <Content Include="js\vendor\angular-resource.js" />
     <Content Include="js\vendor\angular-route.js" />
     <Content Include="js\vendor\howler.js" />
+    <Content Include="js\vendor\jquery-1.10.2.min.js" />
     <Content Include="js\vendor\lodash.min.js" />
     <Content Include="karma.conf.js" />
     <Content Include="package.json" />
@@ -173,12 +176,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\app.js" />
-    <Content Include="js\homePage\homeController.js" />
-    <Content Include="js\chords\chordBlockDirective.js" />
+    <Content Include="js\app\app.js" />
+    <Content Include="js\app\homePage\homeController.js" />
+    <Content Include="js\app\chords\chordBlockDirective.js" />
     <Content Include="js\vendor\angular.js" />
-    <Content Include="js\control\configSelect.html" />
-    <Content Include="js\chords\chordBlock.html" />
+    <Content Include="js\app\control\configSelect.html" />
+    <Content Include="js\app\chords\chordBlock.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

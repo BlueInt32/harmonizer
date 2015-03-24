@@ -1,0 +1,47 @@
+﻿
+<section id="header">
+	<div class="burger" data-burger-menu-opener ng-click="broadcastOpenBurger()"></div>
+	<h1>Harmonizer</h1>
+</section>
+<section data-burger-menu>
+	<li><a href="#/" ng-click="home.save();">Save</a></li>
+	<li><a href="#">Share</a></li>
+	<li><a href="#/load/1">Load n°1</a></li>
+</section>
+<section id="sequencer">
+	<chord-block ng-repeat="chord in home.model.chords"
+				 chord="chord"
+				 index="$index"
+				 is-selected="$index === home.model.selectedChordIndex"
+				 increase-length="home.increaseChordLength($index)"
+				 decrease-length="home.decreaseChordLength($index)"
+				 move-left="home.moveChordLeft($index)"
+				 move-right="home.moveChordRight($index)"
+				 set-selected="home.setChordSelected(newIndex)"
+				 remove="home.removeAChord($index)">
+		{{$index === home.model.selectedChordIndex}}
+	</chord-block>
+</section>
+
+<section id="options">
+	<section class="controls">
+		<input type="button" value="" ng-click="home.play();" class="play" ng-hide="home.model.isPlaying" />
+		<input type="button" value="" ng-click="home.stop();" class="stop" ng-show="home.model.isPlaying" />
+	</section>
+	<section class="multi_select">
+		<config-select elements="home.model.notes" selected="home.model.chordEditor.noteId" change="home.updateSelectedChord('noteId', newValue)"></config-select>
+		<config-select elements="home.model.chordTypes" selected="home.model.chordEditor.chordTypeId" change="home.updateSelectedChord('chordTypeId', newValue)"></config-select>
+		<config-select elements="home.model.durations" selected="home.model.chordEditor.durationId" change="home.updateSelectedChord('durationId', newValue)"></config-select>
+		<config-select elements="home.model.tempi" selected="home.model.configuration.tempoId"></config-select>
+	</section>
+	<section class="actions">
+		<div class="metro_block">
+			<div id="metronome">
+				<div id="base"><div id="arm" ng-class="{on:home.model.metronome, off:!home.model.metronome}"></div></div>
+			</div>
+			<div class="metronome checked" ng-click="home.model.metronome = !home.model.metronome">Metronome</div>
+		</div>
+		<input type="checkbox" ng-model="home.metronome" ng-change="home.toggleMetronome()" class="metro_check hide" />
+		<input type="button" value="+" ng-click="home.insertChord()" class="insert" />
+	</section>
+</section>

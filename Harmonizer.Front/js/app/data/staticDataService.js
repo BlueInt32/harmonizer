@@ -6,9 +6,10 @@
 
 			var staticData;
 
-			var getStaticData = function () {
+			var getStaticData = function (){
 				var defer = $q.defer();
-
+				
+				console.log("calling " + apiurl);
 				$http({ method: 'GET', url: apiurl + '/api/staticdata/', cache: true })
 					.success(function (dataFromServer){
 						var formattedData = buildStaticData(dataFromServer);

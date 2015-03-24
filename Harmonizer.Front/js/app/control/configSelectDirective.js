@@ -17,7 +17,7 @@
 					selected: '=',
 					change: '&'
 				},
-				templateUrl: 'js/control/configSelect.html'
+				templateUrl: 'js/app/control/configSelect.html'
 			};
 		}
 	]);

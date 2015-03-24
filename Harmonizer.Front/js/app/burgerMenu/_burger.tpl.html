@@ -1,0 +1,8 @@
+﻿<section class="nav_bar" ng-class="{open:isOpen}">
+	<div class="nav_content" ng-show="isOpen">
+		<h1 ng-click="closeBurger();">X</h1>
+		<ul id="menu">
+			<ng-transclude></ng-transclude>
+		</ul>
+	</div>
+</section>

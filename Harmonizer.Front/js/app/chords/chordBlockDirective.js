@@ -38,7 +38,7 @@
 					increaseLength:'&',
 					remove:'&'
 				},
-				templateUrl: 'js/chords/chordBlock.html',
+				templateUrl: 'js/app/chords/chordBlock.html',
 				controller: ['$scope', '$log', 'staticDataService', function($scope, $log, staticDataService){
 					this.flip = function(state){
 						$scope.flipped = !$scope.flipped;

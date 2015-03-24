@@ -32,7 +32,7 @@
 				{
 					controller: 'homeController',
 					controllerAs: 'home',
-					templateUrl: 'js/homePage/_home.tpl.html',
+					templateUrl: 'js/app/homePage/_home.tpl.html',
 					resolve: {
 						resolvedStaticData: ['staticDataService', 'soundFactory',
 							function (staticDataService, soundFactory) {
@@ -45,7 +45,7 @@
 				.when('/load/:seqId', {
 					controller: 'homeController',
 					controllerAs: 'home',
-					templateUrl: 'js/homePage/_home.tpl.html',
+					templateUrl: 'js/app/homePage/_home.tpl.html',
 					resolve: {
 						resolvedStaticData: ['staticDataService', 'soundFactory',
 							function (staticDataService, soundFactory) {

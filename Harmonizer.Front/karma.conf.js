@@ -1,3 +1,4 @@
+/// <reference path="D:\Prog\Git\Harmonizer\Harmonizer.Front\js/vendor/jquery-1.10.2.min.js" />
 // Karma configuration
 // Generated on Tue Feb 17 2015 23:11:20 GMT+0100 (Romance Standard Time)
 
@@ -6,27 +7,29 @@ module.exports = function(config) {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-
+	client: {
+	    captureConsole: true
+    },
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
 		'js/vendor/angular.js',
-		'js/vendor/angular-mocks.js',
-		'js/vendor/angular-resource.js',
-		'js/vendor/angular-route.js',
-		'js/**/*.js'
+		'js/vendor/angular-*.js',
+		'js/app/**/*.js',
+		'js/test/**/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
       //'js/vendor/*.js',
-      'js/min.js'
+      'js/min.js',
+	  'js/vendor/jquery-1.10.2.min.js'
     ],
 
 
@@ -66,6 +69,13 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+	plugins: [
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-script-launcher',
+            'karma-jasmine'
+            ],
   });
 };
