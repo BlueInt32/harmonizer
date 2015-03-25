@@ -1,13 +1,15 @@
 ﻿
 <section id="header">
-	<div class="burger" data-burger-menu-opener ng-click="broadcastOpenBurger()"></div>
+	<div class="burger" ng-click="burgerCtrl.openBurger()"></div>
 	<h1>Harmonizer</h1>
 </section>
-<section data-burger-menu>
-	<li><a href="#/" ng-click="home.save();">Save</a></li>
-	<li><a href="#">Share</a></li>
-	<li><a href="#/load/1">Load n°1</a></li>
-</section>
+<burger-menu>
+	<ul id="menu">
+		<li><a href="#/" ng-click="home.save();">Save</a></li>
+		<li><a href="#">Share</a></li>
+		<li><a href="#/load/1">Load n°1</a></li>
+	</ul>
+</burger-menu>
 <section id="sequencer">
 	<chord-block ng-repeat="chord in home.model.chords"
 				 chord="chord"

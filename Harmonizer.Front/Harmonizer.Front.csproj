@@ -114,6 +114,7 @@
     <Content Include="images\hamburger.svg" />
     <Content Include="images\play.png" />
     <Content Include="images\stop.png" />
+    <Content Include="js\app\burgerMenu\burgerService.js" />
     <Content Include="js\app\config.js" />
     <Content Include="js\app\control\configSelectDirective.js" />
     <Content Include="js\app\data\sequenceFactory.js" />
