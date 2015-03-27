@@ -124,6 +124,7 @@
     <Content Include="js\app\homePage\_home.tpl.html" />
     <Content Include="js\app\burgerMenu\_burger.tpl.html" />
     <Content Include="js\app\burgerMenu\burgerDirective.js" />
+    <Content Include="js\app\SequenceComponent\SequenceComponent.js" />
     <Content Include="js\app\sound\soundFactory.js" />
     <Content Include="js\app\utils\lodashFactory.js" />
     <Content Include="js\test\staticDataService.test.js" />
