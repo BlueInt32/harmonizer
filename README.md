@@ -19,3 +19,4 @@ Resources :
 - [Home made cute metronome css animation](http://codepen.io/anon/pen/GgXpZo?editors=110)
 - [How To update one-many relationships](http://www.entityframeworktutorial.net/EntityFramework4.3/update-one-to-many-entity-using-dbcontext.aspx)
 - [How to create a popup (or burger menu or anything similar)](http://jsfiddle.net/92z54z04/1/)
+- [Drag and drop](http://bevacqua.github.io/dragula/)
