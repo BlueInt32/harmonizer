@@ -8,7 +8,7 @@ You can test it here :
 
 [Mockup](https://moqups.com/Journeyman/LfvhebdP) (thanks to moqups.com)
 
-
+[Pivotal tracker](https://www.pivotaltracker.com/n/projects/1336886) : follow how the project is done.
 
 
 Resources : 
