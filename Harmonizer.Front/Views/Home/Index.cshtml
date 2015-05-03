@@ -1,4 +1,6 @@
 ﻿@using System.Configuration
+@model Harmonizer.Front.Models.HarmonizerModel
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
 <head>
@@ -47,6 +49,7 @@
 			<script src="~/js/app/control/configSelectDirective.js"></script>
 			<script>
 				angular.module('app').value("apiurl", "@ConfigurationManager.AppSettings["apiUrl"]");
+				angular.module('app').value('rawStaticData', @Html.Raw(Model.StaticData));
 			</script>
 			<script>
 

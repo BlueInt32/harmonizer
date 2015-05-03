@@ -1,7 +1,7 @@
-using Harmonizer.Api.Services;
 using Harmonizer.Domain.Interfaces;
 using Harmonizer.Infrastructure.DataAccess;
 using Harmonizer.Infrastructure.DataAccess.Repositories;
+using Harmonizer.Services;
 using Harmonizer.Services.Interfaces;
 using Microsoft.Practices.Unity;
 using System.Web.Http;

@@ -31,6 +31,7 @@
 				chordIndex = 1,
 				isDoubledSprite = false, // this is used when 2 chords are played from the same howl, beta test
 				playingDeferred = null;
+
 			var metronomeHowl = new Howl(
 			{
 				urls: ['/samples/metronome.mp3'],

@@ -1,11 +1,12 @@
 (function () {
 	'use strict';
 
-	var homeController = function homeController($log, soundFactory, chordService, sequenceFactory, resolvedStaticData, $routeParams, $location){
+	var homeController = function homeController($log, soundFactory, chordService, sequenceFactory, staticDataService, $routeParams, $location){
 
 		var self = this;
 
-		self.model = resolvedStaticData;
+		self.model = staticDataService.clientModel;
+		$log.debug(self.model);
 		self.model.chords = [];
 		self.model.selectedChordIndex = -1;
 		self.model.sequenceId = 0;
@@ -64,7 +65,7 @@
 	};
 
 	angular.module('app').controller('homeController',
-	['$log', 'soundFactory', 'chordService', 'sequenceFactory', 'resolvedStaticData', '$routeParams', '$location', homeController]);
+	['$log', 'soundFactory', 'chordService', 'sequenceFactory', 'staticDataService', '$routeParams', '$location', homeController]);
 })();
 
 // TODO : modification d'un chord après avoir cliqué dessus

@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Harmonizer.Api.Services;
 using Harmonizer.Domain.Interfaces;
 using Harmonizer.Infrastructure.DataAccess;
 using Harmonizer.Services.Interfaces;

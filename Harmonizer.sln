@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{6FC32269
 		Utils\saveAll.sql = Utils\saveAll.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmonizer.Services", "Harmonizer.Services\Harmonizer.Services.csproj", "{D3E56CAA-5842-4E4E-9564-F8B1C89272EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,10 @@ Global
 		{A7D256E8-9681-43D3-AD84-C92943EA7EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7D256E8-9681-43D3-AD84-C92943EA7EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7D256E8-9681-43D3-AD84-C92943EA7EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E56CAA-5842-4E4E-9564-F8B1C89272EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E56CAA-5842-4E4E-9564-F8B1C89272EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E56CAA-5842-4E4E-9564-F8B1C89272EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E56CAA-5842-4E4E-9564-F8B1C89272EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +100,6 @@ Global
 		{765D1D68-7751-4961-9F4E-8CBCF407B45A} = {39D91491-876B-4A8D-8AA8-1BBA9632D32B}
 		{0E075889-1497-42F5-B0C3-E74287EE7174} = {963C97A3-F5A7-4872-A252-7EA217F1DB36}
 		{A7D256E8-9681-43D3-AD84-C92943EA7EFD} = {EF67F117-200A-46E0-AE84-C418962A143C}
+		{D3E56CAA-5842-4E4E-9564-F8B1C89272EC} = {963C97A3-F5A7-4872-A252-7EA217F1DB36}
 	EndGlobalSection
 EndGlobal
