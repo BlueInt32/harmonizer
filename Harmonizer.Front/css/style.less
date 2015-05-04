@@ -220,157 +220,177 @@ html {
 }
 
 @baseChordWidth: 24.5vw;
-@baseChordHeight:150px;
+@baseChordHeight: 150px;
 @chordBorderWidth: 5px;
 
-#sequencer {
+#sequencer  {
 	display: flex;
 	flex-flow: row wrap;
 	height: 60vh;
 	width: 100%;
 	background: @blue_grey_800;
 	cursor: default;
+}
+#metadata {
+	width: 100%;
+	background: @blue_grey_800;
 
-	.chordBlock {
-		height: @baseChordHeight;
-		width: @baseChordWidth;
-		perspective: 1000;
-		.font1();
-		color: white;
-		line-height: @baseChordHeight;
-		text-align: center;
-		justify-content: space-around;
+	input[type=text]{
+		background:@blue_grey_900;
+		color:white;
+		border:none;
+		
+		&#tb-name{
+			height: 1.5em;
+			font-size: 3em;
+		}
+		&#tb-description{
+			font-style: italic;
+			font-size:small;
+		}
+	}
+}
+.chordBlock {
+	height: @baseChordHeight;
+	width: @baseChordWidth;
+	perspective: 1000;
+	.font1();
+	color: white;
+	line-height: @baseChordHeight;
+	text-align: center;
+	justify-content: space-around;
 
 
-		&.flipped {
-			.flipper {
-				transform: rotateY(180deg);
+	&.flipped {
+		.flipper {
+			transform: rotateY(180deg);
+		}
+	}
+
+	.flipper {
+		position: relative;
+		transform-origin: 50% 50%;
+		transition: 0.2s;
+		transform-style: preserve-3d;
+
+		.front, .back {
+			width: @baseChordWidth;
+			background: @teal_300;
+			height: @baseChordHeight;
+			border: 5px solid #37474f;
+			backface-visibility: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.front {
+			z-index: 2;
+			font-size: @baseChordHeight * 0.7;
+			line-height: @baseChordHeight;
+
+			&:hover {
+				background: @teal_100;
 			}
 		}
 
-		.flipper {
-			position: relative;
-			transform-origin: 50% 50%;
-			transition: 0.2s;
-			transform-style: preserve-3d;
+		.back {
+			transform: rotateY(180deg);
+			.flex-display(flex);
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: stretch;
+			align-items: stretch;
 
-			.front, .back {
-				width: @baseChordWidth;
-				background: @teal_300;
-				height: @baseChordHeight;
-				border: 5px solid #37474f;
-				backface-visibility: hidden;
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
+			a {
+				flex-grow: 1;
+				background: @teal_200;
+				text-decoration: none;
+				border: 1px solid @teal_300;
+				color: white;
 
-			.front {
-				z-index: 2;
-				font-size: @baseChordHeight * 0.7;
-				line-height: @baseChordHeight;
-
-				&:hover{
+				&:hover {
 					background: @teal_100;
 				}
 			}
 
-			.back {
-				transform: rotateY(180deg);
-				.flex-display(flex);
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: center;
-				align-content: stretch;
-				align-items: stretch;
+			.chordType {
+				flex-grow: 1;
 
 				a {
-					flex-grow: 1;
-					background: @teal_200;
-					text-decoration: none;
-					border: 1px solid @teal_300;
-					color: white;
-
-					&:hover {
-						background: @teal_100;
-					}
+					height: @baseChordHeight - 2*@chordBorderWidth;
+					line-height: @baseChordHeight;
+					font-size: @baseChordHeight * 0.7;
+					//font-size: @baseChordHeight * 0.33;
+					display: block;
 				}
+			}
 
-				.chordType {
-					flex-grow:1;
+			.chordCommands {
+				width: 310px;
+				display: flex;
+				flex-wrap: wrap;
 
-					a {
-						height: @baseChordHeight - 2*@chordBorderWidth;
-						line-height: @baseChordHeight;
-						font-size: @baseChordHeight * 0.7;
-						//font-size: @baseChordHeight * 0.33;
-						display: block;
+				a {
+					height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
+					line-height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
+					font-size: 6vh;
+					width: 33%;
+
+					&.saveButton {
+						color: @green_200;
 					}
-				}
 
-				.chordCommands {
-					width: 310px;
-					display: flex;
-					flex-wrap: wrap;
-
-					a {
-						height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
-						line-height: (@baseChordHeight - 2*@chordBorderWidth) / 2;
-						font-size: 6vh;
-						width: 33%;
-						
-						&.saveButton{
-							color:@green_200;
-						}
-						&.removeButton{
-							color:@red_200;
-						}
+					&.removeButton {
+						color: @red_200;
 					}
 				}
 			}
 		}
+	}
 
-		span {
-			font-size: 20px;
-		}
+	span {
+		font-size: 20px;
+	}
+	/*#region durations styles */
+	&.duration_2 {
+		width: 2*@baseChordWidth;
 
-		/*#region durations styles */
-		&.duration_2 {
+		.front, .back {
 			width: 2*@baseChordWidth;
-
-			.front, .back {
-				width: 2*@baseChordWidth;
-			}
 		}
+	}
 
-		&.duration_4 {
+	&.duration_4 {
+		width: 4*@baseChordWidth;
+
+		.front, .back {
 			width: 4*@baseChordWidth;
-
-			.front, .back {
-				width: 4*@baseChordWidth;
-			}
 		}
-		/*#endregion */
+	}
+	/*#endregion */
+	/*#region animations */
+	&.ng-enter,
+	&.ng-leave {
+		-webkit-transition: 0.3s linear all;
+		transition: 0.3s linear opacity;
+	}
 
-		/*#region animations */
-		&.ng-enter,
-		&.ng-leave {
-			-webkit-transition: 0.3s linear all;
-			transition: 0.3s linear opacity;
-		}
+	&.ng-enter,
+	&.ng-leave.ng-leave-active {
+		opacity: 0;
+	}
 
-		&.ng-enter,
-		&.ng-leave.ng-leave-active {
-			opacity: 0;
-		}
-
-		&.ng-leave,
-		&.ng-enter.ng-enter-active {
-			opacity: 1;
-		}
-		/*#endregion */
-		&.isSelected {
-			.flipper .back .chordType a {color: @teal_100;background:@white}
+	&.ng-leave,
+	&.ng-enter.ng-enter-active {
+		opacity: 1;
+	}
+	/*#endregion */
+	&.isSelected {
+		.flipper .back .chordType a {
+			color: @teal_100;
+			background: @white;
 		}
 	}
 }

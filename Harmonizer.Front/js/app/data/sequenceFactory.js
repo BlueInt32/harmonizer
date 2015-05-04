@@ -14,7 +14,7 @@
 				$log.debug("sequence ID route param : ", seqId);
 				sequenceResource.get({ id: seqId }, function(sequence){
 					$log.debug('sequence.chords', sequence.chords);
-					deferred.resolve({ sequenceId: seqId, chords:sequence.chords });
+					deferred.resolve({ sequenceId: seqId, chords:sequence.chords, name:sequence.name, description:sequence.description });
 				});
 			} else{
 				deferred.reject("ho nooes");
@@ -26,9 +26,9 @@
 			var deferred = $q.defer();
 			var sequence = {
 				id: model.sequenceId,
-				name: "premiere sequence",
+				name: model.name,
 				tempo: model.configuration.tempoId,
-				description: "premiere description",
+				description: model.description,
 				chords: model.chords
 			};
 			sequenceResource.save(sequence, function (data){

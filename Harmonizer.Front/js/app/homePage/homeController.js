@@ -53,6 +53,8 @@
 		sequenceFactory.loadSequenceFromQuery().then(function(data){
 			self.model.chords = data.chords;
 			self.model.sequenceId = data.sequenceId;
+			self.model.name = data.name;
+			self.model.description = data.description;
 		});
 
 		/* Save Sequence */
