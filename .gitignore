@@ -1,4 +1,4 @@
-###################
+﻿###################
 # compiled source #
 ###################
 *.com
@@ -81,3 +81,5 @@ Harmonizer.Api/Web.Release.config
 Harmonizer.Front/Web.Release.config
 Harmonizer.Api/Properties/PublishProfiles/
 Harmonizer.Front/Properties/PublishProfiles/Arvixe.pubxml
+Harmonizer.Front/.idea
+Harmonizer.Front/.settings
