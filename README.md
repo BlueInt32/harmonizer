@@ -23,6 +23,7 @@ Resources :
 - [Google fonts](https://www.google.com/fonts#UsePlace:use/Collection:Roboto+Mono)
 
 CSS inspiration : 
+- [Bulma CSS](http://bulma.io/)
 - [Periodic table of elements](http://boag.online/playground/periodictable/)
 - [RedditIpsum](http://redditipsum.xyz/)
 - Nice JS/CSS3 circular select -> [Codrops](http://tympanus.net/Development/SelectInspiration/index8.html)
