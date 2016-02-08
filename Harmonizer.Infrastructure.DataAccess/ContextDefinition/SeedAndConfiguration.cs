@@ -73,7 +73,7 @@ namespace Harmonizer.Infrastructure.DataAccess.Migrations
 				}
 			}
 
-			context.Chords.AddOrUpdate(c => new { c.RootNote, c.DurationId, c.ChordTypeId }, chordsToAdd.ToArray());
+			//context.Chords.AddOrUpdate(c => new { c.RootNote, c.DurationId, c.ChordTypeId }, chordsToAdd.ToArray());
 
 			context.SaveChanges();
 		}

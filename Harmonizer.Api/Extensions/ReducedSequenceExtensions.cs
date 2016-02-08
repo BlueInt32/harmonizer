@@ -48,10 +48,9 @@ namespace Harmonizer.Api.Extensions
 					var chordDescriptor = new ChordDescriptorViewModel
 					{
 						SequenceChordId = sequenceChord.Id,
-						NoteId = chord.RootNote.Id,
+						NoteId = chord.RootNoteId,
 						DurationId = chord.DurationId,
-						ChordTypeId = chord.ChordTypeId,
-						Notation = string.Format("{0}{1}", chord.RootNote.Name, chord.ChordType.Notation)
+						ChordTypeId = chord.ChordTypeId
 					};
 					sequenceViewModel.Chords.Add(chordDescriptor);
 				}
@@ -62,9 +61,9 @@ namespace Harmonizer.Api.Extensions
 		private static Chord FindChord(IStaticDataService staticDataService, ChordDescriptorViewModel chordDescriptor)
 		{
 			return staticDataService.GetChords().FirstOrDefault(
-					c => c.RootNote.Id == chordDescriptor.NoteId
+					c => c.RootNoteId == chordDescriptor.NoteId
 					&& c.DurationId == chordDescriptor.DurationId
-					&& c.ChordType.Id == chordDescriptor.ChordTypeId);
+					&& c.ChordTypeId == chordDescriptor.ChordTypeId);
 		}
 		private static Chord FindChord(IStaticDataService staticDataService, int chordId)
 		{

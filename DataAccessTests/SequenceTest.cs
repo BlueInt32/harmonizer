@@ -4,6 +4,7 @@ using Harmonizer.Infrastructure.DapperDataAccess;
 using Harmonizer.Infrastructure.DapperDataAccess.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataAccessTests
 {
@@ -18,7 +19,7 @@ namespace DataAccessTests
         }
 
         [TestMethod]
-        public void SaveAndGetSequence()
+        public void SaveBlubAndGetSequence()
         {
             Sequence s = new Sequence
             {
@@ -37,7 +38,6 @@ namespace DataAccessTests
                     ChordId = 1,
                     SequenceId = sequenceId
                 },
-
                 new SequenceChord {
                     PositionInSequence = 2,
                     ChordId = 25,
@@ -62,6 +62,9 @@ namespace DataAccessTests
             Assert.AreEqual("SequenceTest_SaveAndGetSequence", sRead.Name);
             Assert.AreEqual("So good !", sRead.Description);
             Assert.AreEqual(70, sRead.TempoId);
+            Assert.AreEqual(3, sRead.Chords.Count);
+            Assert.AreEqual(25, sRead.Chords.Where(c => c.PositionInSequence == 2).FirstOrDefault().ChordId);
+            Assert.AreEqual(3, sRead.Chords.Where(c => c.ChordId == 50).FirstOrDefault().PositionInSequence);
         }
 
         [TestMethod,
@@ -97,7 +100,7 @@ namespace DataAccessTests
         {
             var sequences = _sequenceRepository.Search("SequenceTest_");
             foreach (Sequence sequence in sequences)
-            {
+            {   
                 _sequenceRepository.DeleteSequence(sequence.Id);
             }
 
@@ -105,47 +108,9 @@ namespace DataAccessTests
 
         [TestMethod, TestCategory("Exception scenario"),
             ExpectedException(typeof(SequenceNotFoundException), "A unexisting sequenceId did not throw")]
-        public void ProperlyNotFoundException()
+        public void SequenceNotFoundException()
         {
             _sequenceRepository.GetSequence(-1);
-        }
-
-        public class Person
-        {
-            public int Id;
-            public string FirstName;
-            public string LastName;
-            public Class Classroom;
-        }
-
-        public class Class
-        {
-            public int Id;
-            public string Name;
-        }
-
-        [TestMethod]
-        public void Can_Map_Matching_Field_Names_With_Ease()
-        {
-            // Arrange
-            var dictionary = new Dictionary<string, object>
-                            {
-                                { "Id", 1 },
-                                { "FirstName", "Clark" },
-                                { "LastName", "Kent" },
-                                { "Id", 2 },
-                                { "Name", "Class B" }
-                            };
-
-            // Act
-            var person = Slapper.AutoMapper.Map<Person>(dictionary);
-
-            // Assert
-            Assert.IsNotNull(person);
-            Assert.IsTrue(person.Id == 1);
-            Assert.IsTrue(person.FirstName == "Clark");
-            Assert.IsTrue(person.LastName == "Kent");
-            Assert.IsTrue(person.Classroom.Name == "Class B");
         }
     }
 }
