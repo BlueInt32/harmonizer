@@ -1,0 +1,98 @@
+@import "colors.less";
+
+#metronome {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 36px;
+
+	#base {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 35px;
+		border-bottom: 34px solid @blue_grey_100;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		height: 0;
+		position: relative;
+
+		#arm {
+			position: absolute;
+			left: 6px;
+			bottom: -28px;
+			transform-origin: bottom center;
+			width: 5px;
+			height: 38px;
+			border: 1px solid #263238;
+			background-color: @blue_grey_100;
+
+			&.on {
+				.animation(armmove 0.8s infinite);
+				.animationTiming(ease-in-out);
+			}
+
+			&.off {
+				transform: rotate(-30deg);
+				transition: transform linear 0.5s;
+			}
+		}
+	}
+
+
+
+	@keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+
+	@-webkit-keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+
+	@-moz-keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+
+	@-o-keyframes armmove {
+		0% {
+			transform: rotate(-30deg);
+		}
+
+		50% {
+			transform: rotate(30deg);
+		}
+
+		100% {
+			transform: rotate(-30deg);
+		}
+	}
+}

@@ -13,7 +13,7 @@ namespace Harmonizer.Infrastructure.DataAccess
 	public class SequenceRepository : ISequenceRepository, IDisposable
 	{
 		private readonly HarmonizerContext _db = new HarmonizerContext();
-		public void SaveSequence(Sequence sequence)
+		public void CreateOrUpdateSequence(Sequence sequence)
 		{
 			var sequenceInDb = _db.Sequences.AsNoTracking().Include("Chords").FirstOrDefault(s => s.Id == sequence.Id);
 			if (sequenceInDb != null)
@@ -37,35 +37,33 @@ namespace Harmonizer.Infrastructure.DataAccess
 			// when updating a sequence, potentially all sequenceChords are messed up so we have to check all the possibilities
 
 			//1- Get fresh data from database
-			//var existingStudent = _db.Students.AsNoTracking().Include(s => s.Standard).Include(s => s.Standard.Teachers).Where(s => s.StudentName == "updated student").FirstOrDefault<Student>();
-
 			var existingSequence = _db.Sequences.Include("Chords").SingleOrDefault(s => s.Id == sequence.Id);
 
-			var existingSequenceChords = existingSequence.Chords.ToList<SequenceChord>();
+			var existingSequenceChords = existingSequence.Chords.ToList();
 
 			var updatedSequenceChords = sequence.Chords;
 
-			//2- Find newly added teachers by updatedTeachers (teacher came from client sided) - existingTeacher = newly added teacher
-			var addedSequenceChords = updatedSequenceChords.Except(existingSequenceChords, sChord => sChord.Id);
+            //2- Find newly added chords by updatedSequenceChords (from client) 'minus' existingSequenceChords = newly added chords
+            var addedSequenceChords = updatedSequenceChords.Except(existingSequenceChords, sChord => sChord.Id);
 
-			//3- Find deleted teachers by existing teachers - updatedTeachers = deleted teachers
-			var deletedSequenceChords = existingSequenceChords.Except(updatedSequenceChords, sChord => sChord.Id);
+            //3- Find deleted chords by existingSequenceChords 'minus' updatedSequenceChords = deletedSequenceChords
+            var deletedSequenceChords = existingSequenceChords.Except(updatedSequenceChords, sChord => sChord.Id);
 
-			//4- Find modified teachers by updatedTeachers - addedTeachers = modified teachers
-			var modifiedSequenceChords = updatedSequenceChords.Except(addedSequenceChords, sChord => sChord.Id);
+            //4- Find modified chords by updatedSequenceChords - addedSequenceChords = modifiedSequenceChords
+            var modifiedSequenceChords = updatedSequenceChords.Except(addedSequenceChords, sChord => sChord.Id);
 
-			//5- Mark all added teachers entity state to Added
-			addedSequenceChords.ToList<SequenceChord>().ForEach(sChord => _db.Entry(sChord).State = EntityState.Added);
+            //5- Mark all added chords entity state to Added
+            addedSequenceChords.ToList().ForEach(sChord => _db.Entry(sChord).State = EntityState.Added);
 
-			//6- Mark all deleted teacher entity state to Deleted
-			deletedSequenceChords.ToList<SequenceChord>().ForEach(sChord => _db.Entry(sChord).State = EntityState.Deleted);
+            //6- Mark all deleted chords entity state to Deleted
+            deletedSequenceChords.ToList().ForEach(sChord => _db.Entry(sChord).State = EntityState.Deleted);
 
 
-			//7- Apply modified teachers current property values to existing property values
-			foreach (SequenceChord sChord in modifiedSequenceChords)
+            //7- Apply modified chords current property values to existing property values
+            foreach (SequenceChord sChord in modifiedSequenceChords)
 			{
-				//8- Find existing teacher by id from fresh database teachers
-				var existingSequenceChord = _db.SequenceChords.Find(sChord.Id);
+                //8- Find existing chords by id from fresh database teachers
+                var existingSequenceChord = _db.SequenceChords.Find(sChord.Id);
 
 				if (existingSequenceChord != null)
 				{
@@ -93,7 +91,7 @@ namespace Harmonizer.Infrastructure.DataAccess
 			return results;
 		}
 
-		public Sequence ReadSequence(int sequenceId)
+		public Sequence GetSequence(int sequenceId)
 		{
 			Sequence sequence = _db.Sequences.Include("Chords.Chord.ChordType").Include("Chords.Chord.RootNote").SingleOrDefault(s => s.Id == sequenceId);
 			return sequence;

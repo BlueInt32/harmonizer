@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccessTests</RootNamespace>
     <AssemblyName>DataAccessTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,10 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Slapper, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Slapper.AutoMapper.1.0.0.7\lib\Slapper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -106,9 +111,9 @@
       <Project>{E01EA0BA-903F-4AED-ABB1-AB2876D340FE}</Project>
       <Name>Harmonizer.Domain.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Harmonizer.Infrastructure.DataAccess\Harmonizer.Infrastructure.DataAccess.csproj">
-      <Project>{5F61FEE7-6DFE-482A-B8B6-3855000CED21}</Project>
-      <Name>Harmonizer.Infrastructure.DataAccess</Name>
+    <ProjectReference Include="..\Harmonizer.Infrastructure.DapperDataAccess\Harmonizer.Infrastructure.DapperDataAccess.csproj">
+      <Project>{f66f40de-9355-47ae-8541-fc2ca6083613}</Project>
+      <Name>Harmonizer.Infrastructure.DapperDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

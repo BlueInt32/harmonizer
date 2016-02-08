@@ -5,6 +5,118 @@
   font-weight: normal;
   font-style: normal;
 }
+@keyframes anim_1dp_to_5dp {
+  from {
+    -webkit-box-shadow: 0px 0px 1px 0px #37474f;
+    -moz-box-shadow: 0px 0px 1px 0px #37474f;
+    box-shadow: 0px 0px 1px 0px #37474f;
+    font-size: 3em;
+  }
+  to {
+    -webkit-box-shadow: 0px 0px 5px 1px #37474f;
+    -moz-box-shadow: 0px 0px 5px 1px #37474f;
+    box-shadow: 0px 0px 5px 1px #37474f;
+    font-size: 3.07em;
+  }
+}
+@keyframes anim_5dp_to_1dp {
+  from {
+    -webkit-box-shadow: 0px 0px 5px 1px #37474f;
+    -moz-box-shadow: 0px 0px 5px 1px #37474f;
+    box-shadow: 0px 0px 5px 1px #37474f;
+    font-size: 3.07em;
+  }
+  to {
+    -webkit-box-shadow: 0px 0px 1px 0px #37474f;
+    -moz-box-shadow: 0px 0px 1px 0px #37474f;
+    box-shadow: 0px 0px 1px 0px #37474f;
+    font-size: 3em;
+  }
+}
+#metronome {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 36px;
+}
+#metronome #base {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 35px;
+  border-bottom: 34px solid #cfd8dc;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  height: 0;
+  position: relative;
+}
+#metronome #base #arm {
+  position: absolute;
+  left: 6px;
+  bottom: -28px;
+  transform-origin: bottom center;
+  width: 5px;
+  height: 38px;
+  border: 1px solid #263238;
+  background-color: #cfd8dc;
+}
+#metronome #base #arm.on {
+  -webkit-animation: armmove 0.8s infinite;
+  -moz-animation: armmove 0.8s infinite;
+  -o-animation: armmove 0.8s infinite;
+  animation: armmove 0.8s infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+#metronome #base #arm.off {
+  transform: rotate(-30deg);
+  transition: transform linear 0.5s;
+}
+@keyframes armmove {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@-webkit-keyframes armmove {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@-moz-keyframes armmove {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@-o-keyframes armmove {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
 html,
 body,
 div,
@@ -147,7 +259,7 @@ html {
 #header {
   height: 10vh;
   width: 100%;
-  background: #263238;
+  background: #607d8b;
 }
 #header .burger {
   float: left;
@@ -188,60 +300,229 @@ html {
   color: #ffffff;
   line-height: 100px;
   cursor: pointer;
-  background: #80cbc4;
+  background: #cfd8dc;
 }
 .nav_bar .nav_content ul {
-  border-bottom: 1px solid #80cbc4;
+  border-bottom: 1px solid #cfd8dc;
 }
 .nav_bar .nav_content ul li {
   height: 60px;
   text-align: center;
-  border-top: 1px solid #80cbc4;
+  border-top: 1px solid #cfd8dc;
 }
 .nav_bar .nav_content ul li a {
   display: block;
   font-family: 'roboto-regular';
   font-size: 16px;
-  color: #80cbc4;
+  color: #cfd8dc;
   text-decoration: none;
   line-height: 60px;
 }
 .nav_bar .nav_content ul li a:hover {
-  background: #80cbc4;
+  background: #cfd8dc;
   color: #ffffff;
 }
+.loader {
+  background: #263238;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.loader .loadingMessage {
+  font-family: 'roboto-regular';
+  color: #ffffff;
+  text-align: center;
+}
+.loader .loadingError {
+  font-family: 'roboto-regular';
+  color: red;
+  text-align: center;
+}
+.loader.ng-hide {
+  opacity: 0;
+}
+.loader.ng-hide-add.ng-hide-add-active,
+.loader.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
 #sequencer {
+  display: flex;
+  flex-flow: row wrap;
+  height: 55vh;
+  width: 100%;
+  background: #eceff1;
+  cursor: default;
+}
+#metadata {
+  width: 100%;
+  background: #eceff1;
+}
+#metadata input[type=text] {
+  background: #eceff1;
+  color: white;
+  border: none;
+}
+#metadata input[type=text]#tb-name {
+  height: 1.5em;
+  font-size: 3em;
+}
+#metadata input[type=text]#tb-description {
+  font-style: italic;
+  font-size: small;
+}
+.chordBlock {
+  height: 150px;
+  width: 23vw;
+  perspective: 1000;
+  font-family: 'roboto-regular';
+  color: #607d8b;
+  line-height: 150px;
+  text-align: center;
+  margin: 1vh 1vw;
+  /*#region durations styles */
+  /*#endregion */
+  /*#region animations */
+  /*#endregion */
+}
+.chordBlock.flipped .flipper {
+  transform: rotateY(180deg);
+}
+.chordBlock .flipper {
+  position: relative;
+  transform-origin: 50% 50%;
+  transition: 0.2s;
+  transform-style: preserve-3d;
+}
+.chordBlock .flipper .front,
+.chordBlock .flipper .back {
+  width: 23vw;
+  background: #cfd8dc;
+  height: 150px;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.chordBlock .flipper .front {
+  z-index: 2;
+  font-size: 105px;
+  line-height: 150px;
+  -webkit-box-shadow: 0px 0px 1px 0px #37474f;
+  -moz-box-shadow: 0px 0px 1px 0px #37474f;
+  box-shadow: 0px 0px 1px 0px #37474f;
+  font-size: 3em;
+  -moz-animation-duration: 150ms;
+  -o-animation-duration: 150ms;
+  -webkit-animation-duration: 150ms;
+  animation-duration: 150ms;
+  -moz-animation-name: anim_5dp_to_1dp;
+  -o-animation-name: anim_5dp_to_1dp;
+  -webkit-animation-name: anim_5dp_to_1dp;
+  animation-name: anim_5dp_to_1dp;
+}
+.chordBlock .flipper .front:hover {
+  -webkit-box-shadow: 0px 0px 5px 1px #37474f;
+  -moz-box-shadow: 0px 0px 5px 1px #37474f;
+  box-shadow: 0px 0px 5px 1px #37474f;
+  font-size: 3.07em;
+  -moz-animation-duration: 150ms;
+  -o-animation-duration: 150ms;
+  -webkit-animation-duration: 150ms;
+  animation-duration: 150ms;
+  -moz-animation-name: anim_1dp_to_5dp;
+  -o-animation-name: anim_1dp_to_5dp;
+  -webkit-animation-name: anim_1dp_to_5dp;
+  animation-name: anim_1dp_to_5dp;
+}
+.chordBlock .flipper .back {
+  transform: rotateY(180deg);
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: -ms-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  height: 60vh;
-  width: 100%;
-  background: #37474f;
+  justify-content: center;
+  align-content: stretch;
+  align-items: stretch;
 }
-#sequencer .chordBlock {
-  margin: 2vh;
-  height: 15vh;
-  width: 22vw;
-  background: #80cbc4;
-  font-family: 'roboto-regular';
-  font-size: 15vh;
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 15vh;
-  text-align: center;
+.chordBlock .flipper .back a {
+  flex-grow: 1;
+  background: #cfd8dc;
+  text-decoration: none;
+  border: 1px solid #cfd8dc;
+  color: white;
+  /*&:hover {
+					background: @blue_grey_100;
+				}*/
 }
-#sequencer .chordBlock.duration_2 {
-  width: 47vw;
+.chordBlock .flipper .back .chordType {
+  flex-grow: 1;
 }
-#sequencer .chordBlock.duration_4 {
-  width: 97vw;
+.chordBlock .flipper .back .chordType a {
+  height: 140px;
+  line-height: 150px;
+  font-size: 49.5px;
+  display: block;
+}
+.chordBlock .flipper .back .chordCommands {
+  width: 310px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.chordBlock .flipper .back .chordCommands a {
+  height: 70px;
+  line-height: 70px;
+  font-size: 6vh;
+  width: 33%;
+}
+.chordBlock .flipper .back .chordCommands a.saveButton {
+  color: #b9f9cf;
+}
+.chordBlock .flipper .back .chordCommands a.removeButton {
+  color: #f9b9b9;
+}
+.chordBlock span {
+  font-size: 20px;
+}
+.chordBlock.duration_2 {
+  width: 46vw;
+}
+.chordBlock.duration_2 .front,
+.chordBlock.duration_2 .back {
+  width: 46vw;
+}
+.chordBlock.duration_4 {
+  width: 92vw;
+}
+.chordBlock.duration_4 .front,
+.chordBlock.duration_4 .back {
+  width: 92vw;
+}
+.chordBlock.ng-enter,
+.chordBlock.ng-leave {
+  -webkit-transition: 0.3s linear all;
+  transition: 0.3s linear opacity;
+}
+.chordBlock.ng-enter,
+.chordBlock.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.chordBlock.ng-leave,
+.chordBlock.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.chordBlock.isSelected .flipper .back .chordType a {
+  color: #cfd8dc;
+  background: #ffffff;
 }
 #options {
   display: -webkit-flex;
@@ -252,7 +533,7 @@ html {
   padding: 1vh 0;
   height: 30vh;
   width: 100%;
-  background: #263238;
+  background: #eceff1;
 }
 #options section {
   -webkit-flex: 1;
@@ -287,16 +568,16 @@ html {
   width: 60%;
   height: 7vh;
   text-align: center;
-  color: #80cbc4;
+  color: rgba(0, 0, 0, 0.870588);
   font-family: 'roboto-regular';
   font-size: 2.5vh;
-  background: #37474f;
+  background: #b0bec5;
   text-indent: 2vh;
   cursor: pointer;
 }
 #options section.multi_select select:hover {
-  color: #ffffff;
-  background: #80cbc4;
+  color: rgba(0, 0, 0, 0.870588);
+  background: #90a4ae;
 }
 #options section.actions .metro_block {
   float: left;
@@ -308,13 +589,13 @@ html {
   font-family: 'roboto-regular';
   font-size: 2.5vh;
   line-height: 7vh;
-  color: #80cbc4;
-  border: 1px solid #80cbc4;
+  color: #cfd8dc;
+  border: 1px solid #cfd8dc;
   cursor: pointer;
 }
 #options section.actions .metro_block .metronome.checked {
   color: #ffffff;
-  background: #80cbc4;
+  background: #cfd8dc;
   border: 1px solid #37474f;
   cursor: pointer;
 }
@@ -324,11 +605,11 @@ html {
   width: 50%;
   font-family: 'roboto-regular';
   font-size: 30vh;
-  color: #80cbc4;
+  color: #cfd8dc;
   background: #37474f;
   line-height: 30vh;
 }
 #options section.actions .insert:hover {
   color: #ffffff;
-  background: #80cbc4;
+  background: #cfd8dc;
 }

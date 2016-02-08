@@ -18,11 +18,11 @@ namespace Harmonizer.Services
 		}
 		public Sequence GetSequence(int sequenceId)
 		{
-			return _sequenceRepository.ReadSequence(sequenceId);
+			return _sequenceRepository.GetSequence(sequenceId);
 		}
 		public void SaveSequence(Sequence sequence)
 		{
-			_sequenceRepository.SaveSequence(sequence);
+			_sequenceRepository.CreateOrUpdateSequence(sequence);
 		}
 	}
 }

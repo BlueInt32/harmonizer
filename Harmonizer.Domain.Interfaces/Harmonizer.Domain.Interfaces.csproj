@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISequenceChordRepository.cs" />
     <Compile Include="IStaticDataRepository.cs" />
     <Compile Include="ISequenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

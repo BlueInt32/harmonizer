@@ -1,0 +1,28 @@
+﻿@keyframes anim_1dp_to_5dp {
+  from {
+    -webkit-box-shadow: 0px 0px 1px 0px #37474f;
+    -moz-box-shadow: 0px 0px 1px 0px #37474f;
+    box-shadow: 0px 0px 1px 0px #37474f;
+    font-size: 3em;
+  }
+  to {
+    -webkit-box-shadow: 0px 0px 5px 1px #37474f;
+    -moz-box-shadow: 0px 0px 5px 1px #37474f;
+    box-shadow: 0px 0px 5px 1px #37474f;
+    font-size: 3.07em;
+  }
+}
+@keyframes anim_5dp_to_1dp {
+  from {
+    -webkit-box-shadow: 0px 0px 5px 1px #37474f;
+    -moz-box-shadow: 0px 0px 5px 1px #37474f;
+    box-shadow: 0px 0px 5px 1px #37474f;
+    font-size: 3.07em;
+  }
+  to {
+    -webkit-box-shadow: 0px 0px 1px 0px #37474f;
+    -moz-box-shadow: 0px 0px 1px 0px #37474f;
+    box-shadow: 0px 0px 1px 0px #37474f;
+    font-size: 3em;
+  }
+}

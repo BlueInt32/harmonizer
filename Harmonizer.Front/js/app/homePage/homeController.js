@@ -2,7 +2,7 @@
 	'use strict';
 
 	var homeController = function homeController($log, soundFactory, chordService, sequenceFactory, staticDataService, $routeParams, $location){
-
+		debugger;
 		var self = this;
 
 		self.model = staticDataService.clientModel;

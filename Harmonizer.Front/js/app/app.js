@@ -23,7 +23,7 @@
 			$rootScope.apiError = true;
 		});
 	}]);
-
+debugger;
 	angular.module('app').config(['$routeProvider',
 		function ($routeProvider) {
 			$routeProvider
@@ -31,28 +31,12 @@
 				{
 					controller: 'homeController',
 					controllerAs: 'home',
-					templateUrl: 'js/app/homePage/_home.tpl.html'//,
-					//resolve: {
-					//	resolvedStaticData: ['staticDataService', 'soundFactory',
-					//		function (staticDataService, soundFactory) {
-					//			return staticDataService.processClientModel().then(function (staticData) {
-					//				return soundFactory.inititalize(staticData);
-					//			});
-					//		}]
-					//}
+					templateUrl: '/js/app/homePage/_home.tpl.html'
 				})
 				.when('/load/:seqId', {
 					controller: 'homeController',
 					controllerAs: 'home',
-					templateUrl: 'js/app/homePage/_home.tpl.html'//,
-					//resolve: {
-					//	resolvedStaticData: ['staticDataService', 'soundFactory',
-					//		function (staticDataService, soundFactory) {
-					//			return staticDataService.processClientModel().then(function (staticData) {
-					//				return soundFactory.inititalize(staticData);
-					//			});
-					//		}]
-					//}
+					templateUrl: '/js/app/homePage/_home.tpl.html'
 				});
 		}
 	]);

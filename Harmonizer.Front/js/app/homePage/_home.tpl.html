@@ -11,8 +11,10 @@
 	</ul>
 </burger-menu>
 <section id="metadata">
-	<p><input type="text" id="tb-name" placeholder="Name" ng-model="home.model.name" /></p>
-	<p><input type="text" id="tb-description" placeholder="Description" ng-model="home.model.description" /></p>
+	<p ng-if="false">
+		<input type="text" id="tb-name" placeholder="Name" ng-model="home.model.name" />
+		<input type="text" id="tb-description" placeholder="Description" ng-model="home.model.description" />
+	</p>
 </section>
 <section id="sequencer">
 	<chord-block ng-repeat="chord in home.model.chords"

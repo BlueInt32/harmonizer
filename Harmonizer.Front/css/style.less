@@ -1,75 +1,15 @@
-// -------------------------------------------------
-// -------------------------------------------------
-//  /$$      /$$ /$$$$$$ /$$   /$$ /$$$$$$ /$$   /$$
-// | $$$    /$$$|_  $$_/| $$  / $$|_  $$_/| $$$ | $$
-// | $$$$  /$$$$  | $$  |  $$/ $$/  | $$  | $$$$| $$
-// | $$ $$/$$ $$  | $$   \  $$$$/   | $$  | $$ $$ $$
-// | $$  $$$| $$  | $$    >$$  $$   | $$  | $$  $$$$
-// | $$\  $ | $$  | $$   /$$/\  $$  | $$  | $$\  $$$
-// | $$ \/  | $$ /$$$$$$| $$  \ $$ /$$$$$$| $$ \  $$
-// |__/     |__/|______/|__/  |__/|______/|__/  \__/
-// -------------------------------------------------
-// -------------------------------------------------
 @import "mixin.less";
-
-// --------------------------------------------------
-// --------------------------------------------------
-//   /$$$$$$   /$$$$$$  /$$        /$$$$$$  /$$$$$$$
-//  /$$__  $$ /$$__  $$| $$       /$$__  $$| $$__  $$
-// | $$  \__/| $$  \ $$| $$      | $$  \ $$| $$  \ $$
-// | $$      | $$  | $$| $$      | $$  | $$| $$$$$$$/
-// | $$      | $$  | $$| $$      | $$  | $$| $$__  $$
-// | $$    $$| $$  | $$| $$      | $$  | $$| $$  \ $$
-// |  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/| $$  | $$
-//  \______/  \______/ |________/ \______/ |__/  |__/
-// --------------------------------------------------
-// --------------------------------------------------
-@import "color.less";
-
-// ---------------------------------------
-// ---------------------------------------
-//  /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$$$
-// | $$_____//$$__  $$| $$$ | $$|__  $$__/
-// | $$     | $$  \ $$| $$$$| $$   | $$
-// | $$$$$  | $$  | $$| $$ $$ $$   | $$
-// | $$__/  | $$  | $$| $$  $$$$   | $$
-// | $$     | $$  | $$| $$\  $$$   | $$
-// | $$     |  $$$$$$/| $$ \  $$   | $$
-// |__/      \______/ |__/  \__/   |__/
-// ---------------------------------------
-// ---------------------------------------
+@import "colors.less";
 @import "font.less";
+@import "material.less";
+@import "metronome.less";
 
 .font1() {
 	font-family: 'roboto-regular';
 }
 
-// --------------------------------------------------
-// --------------------------------------------------
-//  /$$$$$$$  /$$$$$$$$  /$$$$$$  /$$$$$$$$ /$$$$$$$$
-// | $$__  $$| $$_____/ /$$__  $$| $$_____/|__  $$__/
-// | $$  \ $$| $$      | $$  \__/| $$         | $$
-// | $$$$$$$/| $$$$$   |  $$$$$$ | $$$$$      | $$
-// | $$__  $$| $$__/    \____  $$| $$__/      | $$
-// | $$  \ $$| $$       /$$  \ $$| $$         | $$
-// | $$  | $$| $$$$$$$$|  $$$$$$/| $$$$$$$$   | $$
-// |__/  |__/|________/ \______/ |________/   |__/
-// --------------------------------------------------
-// --------------------------------------------------
 @import "reset.less";
 
-// ------------------------------------------------------------------
-// ------------------------------------------------------------------
-//   /$$$$$$   /$$$$$$  /$$      /$$ /$$      /$$  /$$$$$$  /$$   /$$
-//  /$$__  $$ /$$__  $$| $$$    /$$$| $$$    /$$$ /$$__  $$| $$$ | $$
-// | $$  \__/| $$  \ $$| $$$$  /$$$$| $$$$  /$$$$| $$  \ $$| $$$$| $$
-// | $$      | $$  | $$| $$ $$/$$ $$| $$ $$/$$ $$| $$  | $$| $$ $$ $$
-// | $$      | $$  | $$| $$  $$$| $$| $$  $$$| $$| $$  | $$| $$  $$$$
-// | $$    $$| $$  | $$| $$\  $ | $$| $$\  $ | $$| $$  | $$| $$\  $$$
-// |  $$$$$$/|  $$$$$$/| $$ \/  | $$| $$ \/  | $$|  $$$$$$/| $$ \  $$
-//  \______/  \______/ |__/     |__/|__/     |__/ \______/ |__/  \__/
-// ------------------------------------------------------------------
-// ------------------------------------------------------------------
 *,
 *:after,
 *:before {
@@ -95,23 +35,10 @@ html {
 	}
 }
 
-// -------------------------------------------------------------
-// -------------------------------------------------------------
-// /$$   /$$ /$$$$$$$$  /$$$$$$  /$$$$$$$  /$$$$$$$$ /$$$$$$$
-// | $$  | $$| $$_____/ /$$__  $$| $$__  $$| $$_____/| $$__  $$
-// | $$  | $$| $$      | $$  \ $$| $$  \ $$| $$      | $$  \ $$
-// | $$$$$$$$| $$$$$   | $$$$$$$$| $$  | $$| $$$$$   | $$$$$$$/
-// | $$__  $$| $$__/   | $$__  $$| $$  | $$| $$__/   | $$__  $$
-// | $$  | $$| $$      | $$  | $$| $$  | $$| $$      | $$  \ $$
-// | $$  | $$| $$$$$$$$| $$  | $$| $$$$$$$/| $$$$$$$$| $$  | $$
-// |__/  |__/|________/|__/  |__/|_______/ |________/|__/  |__/
-// -------------------------------------------------------------
-// -------------------------------------------------------------
-
 #header {
 	height: 10vh;
 	width: 100%;
-	background: @blue_grey_900;
+	background: @blue_grey_500;
 
 	.burger {
 		float: left;
@@ -154,27 +81,27 @@ html {
 			color: @white;
 			line-height: 100px;
 			cursor: pointer;
-			background: @teal_200;
+			background: @blue_grey_100;
 		}
 
 		ul {
-			border-bottom: 1px solid @teal_200;
+			border-bottom: 1px solid @blue_grey_100;
 
 			li {
 				height: 60px;
 				text-align: center;
-				border-top: 1px solid @teal_200;
+				border-top: 1px solid @blue_grey_100;
 
 				a {
 					display: block;
 					.font1();
 					font-size: 16px;
-					color: @teal_200;
+					color: @blue_grey_100;
 					text-decoration: none;
 					line-height: 60px;
 
 					&:hover {
-						background: @teal_200;
+						background: @blue_grey_100;
 						color: @white;
 					}
 				}
@@ -219,24 +146,22 @@ html {
 	}
 }
 
-@baseChordWidth: 24.5vw;
-@baseChordHeight: 150px;
-@chordBorderWidth: 5px;
 
 #sequencer  {
 	display: flex;
 	flex-flow: row wrap;
-	height: 60vh;
+	height: 55vh;
 	width: 100%;
-	background: @blue_grey_800;
+	background: @blue_grey_50;
 	cursor: default;
 }
+
 #metadata {
 	width: 100%;
-	background: @blue_grey_800;
+	background: @blue_grey_50;
 
 	input[type=text]{
-		background:@blue_grey_900;
+		background:@blue_grey_50;
 		color:white;
 		border:none;
 		
@@ -250,16 +175,19 @@ html {
 		}
 	}
 }
+
+@baseChordWidth: 23vw;
+@baseChordHeight: 150px;
+@chordBorderWidth: 5px;
 .chordBlock {
 	height: @baseChordHeight;
 	width: @baseChordWidth;
 	perspective: 1000;
 	.font1();
-	color: white;
+	color: @blue_grey_500;
 	line-height: @baseChordHeight;
 	text-align: center;
-	justify-content: space-around;
-
+	margin:1vh 1vw;
 
 	&.flipped {
 		.flipper {
@@ -275,9 +203,9 @@ html {
 
 		.front, .back {
 			width: @baseChordWidth;
-			background: @teal_300;
+			background: @blue_grey_100;
 			height: @baseChordHeight;
-			border: 5px solid #37474f;
+			//border: 5px solid @blue_grey_50;
 			backface-visibility: hidden;
 			position: absolute;
 			top: 0;
@@ -288,9 +216,10 @@ html {
 			z-index: 2;
 			font-size: @baseChordHeight * 0.7;
 			line-height: @baseChordHeight;
-
+			.out();
+			
 			&:hover {
-				background: @teal_100;
+				.hover();
 			}
 		}
 
@@ -305,14 +234,14 @@ html {
 
 			a {
 				flex-grow: 1;
-				background: @teal_200;
+				background: @blue_grey_100;
 				text-decoration: none;
-				border: 1px solid @teal_300;
+				border: 1px solid @blue_grey_100;
 				color: white;
 
-				&:hover {
-					background: @teal_100;
-				}
+				/*&:hover {
+					background: @blue_grey_100;
+				}*/
 			}
 
 			.chordType {
@@ -321,7 +250,7 @@ html {
 				a {
 					height: @baseChordHeight - 2*@chordBorderWidth;
 					line-height: @baseChordHeight;
-					font-size: @baseChordHeight * 0.7;
+					font-size: @baseChordHeight * 0.33;
 					//font-size: @baseChordHeight * 0.33;
 					display: block;
 				}
@@ -389,7 +318,7 @@ html {
 	/*#endregion */
 	&.isSelected {
 		.flipper .back .chordType a {
-			color: @teal_100;
+			color: @blue_grey_100;
 			background: @white;
 		}
 	}
@@ -400,7 +329,7 @@ html {
 	padding: 1vh 0;
 	height: 30vh;
 	width: 100%;
-	background: @blue_grey_900;
+	background: @blue_grey_50;
 
 	section {
 		.flex(1);
@@ -438,16 +367,16 @@ html {
 				width: 60%;
 				height: 7vh;
 				text-align: center;
-				color: @teal_200;
+				color: @black_text;
 				.font1();
 				font-size: 2.5vh;
-				background: @blue_grey_800;
+				background: @blue_grey_200;
 				text-indent: 2vh;
 				cursor: pointer;
 
 				&:hover {
-					color: @white;
-					background: @teal_200;
+					color: @black_text;
+					background: @blue_grey_300;
 				}
 			}
 		}
@@ -464,13 +393,13 @@ html {
 					.font1();
 					font-size: 2.5vh;
 					line-height: 7vh;
-					color: @teal_200;
-					border: 1px solid @teal_200;
+					color: @blue_grey_100;
+					border: 1px solid @blue_grey_100;
 					cursor: pointer;
 
 					&.checked {
 						color: @white;
-						background: @teal_200;
+						background: @blue_grey_100;
 						border: 1px solid @blue_grey_800;
 						cursor: pointer;
 					}
@@ -484,112 +413,15 @@ html {
 				width: 50%;
 				.font1();
 				font-size: 30vh;
-				color: @teal_200;
+				color: @blue_grey_100;
 				background: @blue_grey_800;
 				line-height: 30vh;
 
 				&:hover {
 					color: @white;
-					background: @teal_200;
+					background: @blue_grey_100;
 				}
 			}
-		}
-	}
-}
-
-#metronome {
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	height: 36px;
-
-	#base {
-		flex-grow: 0;
-		flex-shrink: 0;
-		flex-basis: 35px;
-		border-bottom: 34px solid @teal_200;
-		border-left: 9px solid transparent;
-		border-right: 9px solid transparent;
-		height: 0;
-		position: relative;
-
-		#arm {
-			position: absolute;
-			left: 6px;
-			bottom: -28px;
-			transform-origin: bottom center;
-			width: 5px;
-			height: 38px;
-			border: 1px solid #263238;
-			background-color: @teal_200;
-
-			&.on {
-				.animation(armmove 0.8s infinite);
-				.animationTiming(ease-in-out);
-			}
-
-			&.off {
-				transform: rotate(-30deg);
-				transition: transform linear 0.5s;
-			}
-		}
-	}
-
-
-
-	@keyframes armmove {
-		0% {
-			transform: rotate(-30deg);
-		}
-
-		50% {
-			transform: rotate(30deg);
-		}
-
-		100% {
-			transform: rotate(-30deg);
-		}
-	}
-
-	@-webkit-keyframes armmove {
-		0% {
-			transform: rotate(-30deg);
-		}
-
-		50% {
-			transform: rotate(30deg);
-		}
-
-		100% {
-			transform: rotate(-30deg);
-		}
-	}
-
-	@-moz-keyframes armmove {
-		0% {
-			transform: rotate(-30deg);
-		}
-
-		50% {
-			transform: rotate(30deg);
-		}
-
-		100% {
-			transform: rotate(-30deg);
-		}
-	}
-
-	@-o-keyframes armmove {
-		0% {
-			transform: rotate(-30deg);
-		}
-
-		50% {
-			transform: rotate(30deg);
-		}
-
-		100% {
-			transform: rotate(-30deg);
 		}
 	}
 }
