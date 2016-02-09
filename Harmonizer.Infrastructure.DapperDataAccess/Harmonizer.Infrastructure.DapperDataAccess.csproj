@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Harmonizer.Infrastructure.DapperDataAccess</RootNamespace>
     <AssemblyName>Harmonizer.Infrastructure.DapperDataAccess</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -58,6 +58,7 @@
     <Compile Include="SequenceChordRepository.cs" />
     <Compile Include="SequenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticDataRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Harmonizer.Domain.Entities\Harmonizer.Domain.Entities.csproj">

@@ -2,23 +2,20 @@
 using Harmonizer.Domain.Interfaces;
 using Harmonizer.Infrastructure.DapperDataAccess;
 using Harmonizer.Infrastructure.DapperDataAccess.Exceptions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DataAccessTests
 {
-    [TestClass]
+    [TestFixture]
     public class SequenceTest
     {
         private readonly ISequenceRepository _sequenceRepository = new SequenceRepository();
         private readonly ISequenceChordRepository _sequenceChordRepository = new SequenceChordRepository();
-        [TestInitialize]
-        public void InitClass()
-        {
-        }
+        
 
-        [TestMethod]
+        [Test]
         public void SaveBlubAndGetSequence()
         {
             Sequence s = new Sequence
@@ -55,9 +52,9 @@ namespace DataAccessTests
                 _sequenceChordRepository.CreateSequenceChord(sequenceChord);
             }
 
-            Assert.IsTrue(sequenceId > 0);
             Sequence sRead = _sequenceRepository.GetSequence(sequenceId);
 
+            Assert.IsTrue(sequenceId > 0);
             Assert.IsNotNull(sRead);
             Assert.AreEqual("SequenceTest_SaveAndGetSequence", sRead.Name);
             Assert.AreEqual("So good !", sRead.Description);
@@ -67,8 +64,7 @@ namespace DataAccessTests
             Assert.AreEqual(3, sRead.Chords.Where(c => c.ChordId == 50).FirstOrDefault().PositionInSequence);
         }
 
-        [TestMethod,
-            ExpectedException(typeof(SequenceNotFoundException), "A unexisting sequenceId did not throw")]
+        [Test]
         public void DeleteSequence()
         {
             Sequence s = new Sequence { Name = "SequenceTest_DeleteSequencetest", Description = "So good !", TempoId = 70 };
@@ -77,11 +73,11 @@ namespace DataAccessTests
 
             _sequenceRepository.DeleteSequence(sequenceId);
 
-            Assert.IsNull(_sequenceRepository.GetSequence(sequenceId));
+            Assert.Throws<SequenceNotFoundException>(() => _sequenceRepository.GetSequence(sequenceId));
 
         }
 
-        [TestMethod]
+        [Test]
         public void SearchByNameMethod()
         {
             Sequence s1 = new Sequence { Name = "SequenceTest_SearchMethod_1", Description = "So good !", TempoId = 70 };
@@ -95,22 +91,21 @@ namespace DataAccessTests
             Assert.AreEqual(2, sequences.Count, "Search by name");
         }
 
-        [TestCleanup]
+        [TearDown]
         public void CleanUp()
         {
+            //CallContext.FreeNamedDataSlot("__Key");
             var sequences = _sequenceRepository.Search("SequenceTest_");
             foreach (Sequence sequence in sequences)
-            {   
+            {
                 _sequenceRepository.DeleteSequence(sequence.Id);
             }
-
         }
 
-        [TestMethod, TestCategory("Exception scenario"),
-            ExpectedException(typeof(SequenceNotFoundException), "A unexisting sequenceId did not throw")]
+        [Test, Category("Exception scenario")]
         public void SequenceNotFoundException()
         {
-            _sequenceRepository.GetSequence(-1);
+            Assert.Throws<SequenceNotFoundException>(() => _sequenceRepository.GetSequence(-1));
         }
     }
 }

@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Harmonizer.Infrastructure.DapperDataAccess/Harmonizer.Infrastructure.DapperDataAccess.csproj",
+      "bin": {
+        "assembly": "../../Harmonizer.Infrastructure.DapperDataAccess/obj/{configuration}/Harmonizer.Infrastructure.DapperDataAccess.dll",
+        "pdb": "../../Harmonizer.Infrastructure.DapperDataAccess/obj/{configuration}/Harmonizer.Infrastructure.DapperDataAccess.pdb"
+      },
+      "dependencies": {
+        "Dapper": "1.42",
+        "Microsoft.Net.Compilers": "1.2.0-beta1-20160202-02",
+        "Slapper.AutoMapper": "1.0.0.7",
+        "Harmonizer.Domain.Entities": "1.0.0-*",
+        "Harmonizer.Domain.Interfaces": "1.0.0-*"
+      }
+    }
+  }
+}

@@ -140,7 +140,6 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\StaticDataController.cs" />
-    <Compile Include="Controllers\TypicalController.cs" />
     <Compile Include="Controllers\ValidateModelAttribute.cs" />
     <Compile Include="Model\ChordDescriptorViewModel.cs" />
     <Compile Include="Controllers\SequenceController.cs" />

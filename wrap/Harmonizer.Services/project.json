@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Harmonizer.Services/Harmonizer.Services.csproj",
+      "bin": {
+        "assembly": "../../Harmonizer.Services/obj/{configuration}/Harmonizer.Services.dll",
+        "pdb": "../../Harmonizer.Services/obj/{configuration}/Harmonizer.Services.pdb"
+      },
+      "dependencies": {
+        "Harmonizer.Domain.Entities": "1.0.0-*",
+        "Harmonizer.Domain.Interfaces": "1.0.0-*",
+        "Harmonizer.Services.Interfaces": "1.0.0-*"
+      }
+    }
+  }
+}

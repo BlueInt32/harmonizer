@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../Harmonizer.Domain.Entities/Harmonizer.Domain.Entities.csproj",
+      "bin": {
+        "assembly": "../../Harmonizer.Domain.Entities/obj/{configuration}/Harmonizer.Domain.Entities.dll",
+        "pdb": "../../Harmonizer.Domain.Entities/obj/{configuration}/Harmonizer.Domain.Entities.pdb"
+      }
+    }
+  }
+}
