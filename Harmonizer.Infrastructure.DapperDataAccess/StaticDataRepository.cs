@@ -8,6 +8,7 @@ using Harmonizer.Domain.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 using Dapper;
+using Harmonizer.Infrastructure.DapperDataAccess.Exceptions;
 
 namespace Harmonizer.Infrastructure.DapperDataAccess
 {
@@ -56,5 +57,18 @@ namespace Harmonizer.Infrastructure.DapperDataAccess
                 return durations.ToList();
             }
         }
-	}
+
+        public int FindChord(string noteId, int durationId, string chordTypeId)
+        {
+            var foundChord = GetChords().FirstOrDefault(
+                    c => c.RootNoteId == noteId
+                    && c.DurationId == durationId
+                    && c.ChordTypeId == chordTypeId);
+            if (foundChord == null)
+            {
+                throw new ChordNotFoundException(noteId, durationId, chordTypeId);
+            }
+            return foundChord.Id;
+        }
+    }
 }

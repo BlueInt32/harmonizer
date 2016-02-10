@@ -17,7 +17,7 @@ namespace Harmonizer.Domain.Entities
 		public int ChordId { get; set; }
 		public Chord Chord { get; set; }
 
-		public int SequenceId { get; set; }
-		public Sequence Sequence { get; set; }
+		//public int SequenceId { get; set; }
+		//public Sequence Sequence { get; set; }
 	}
 }

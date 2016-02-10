@@ -16,14 +16,14 @@ namespace Harmonizer.Infrastructure.DapperDataAccess
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["HarmonizerContext"].ConnectionString;
 
-        public void CreateSequence(Sequence sequence)
+        public void CreateSequence(SequenceToSaveArgs sequenceToSaveArgs)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = @" insert into Sequences values (@Name, @Description, @TempoId);
                                 select cast(SCOPE_IDENTITY() as int)";
-                var id = connection.Query<int>(sql, sequence).Single();
-                sequence.Id = id;
+                var id = connection.Query<int>(sql, sequenceToSaveArgs).Single();
+                sequenceToSaveArgs.Id = id;
             }
         }
 
@@ -67,7 +67,7 @@ namespace Harmonizer.Infrastructure.DapperDataAccess
             }
         }
 
-        public void CreateOrUpdateSequence(Sequence sequence)
+        public void CreateOrUpdateSequence(SequenceToSaveArgs sequence)
         {
             //var sequenceInDb = _db.Sequences.AsNoTracking().Include("Chords").FirstOrDefault(s => s.Id == sequence.Id);
             //if (sequenceInDb != null)
@@ -80,21 +80,24 @@ namespace Harmonizer.Infrastructure.DapperDataAccess
             //}
         }
 
-        public List<Sequence> Search(string token)
+        public List<Sequence> Search(SearchSequenceQuery query)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 Func<string, string> encodeForLike = input => input.Replace("[", "[[]").Replace("%", "[%]");
 
-                string term = "%" + encodeForLike(token) + "%";
+                string term = "%" + encodeForLike(query.Term) + "%";
                 IEnumerable<Sequence> sequences = connection.Query<Sequence>(
                     "select * from Sequences where Name like @term",
                     new { term });
-                return sequences.ToList();
+                return sequences
+                    .Skip((query.Pagination.PageNumber - 1) * query.Pagination.PageSize)
+                    .Take(query.Pagination.PageSize)
+                    .ToList();
             }
         }
 
-        public void UpdateSequence(Sequence sequence)
+        public void UpdateSequence(SequenceToSaveArgs sequenceToSaveArgs)
         {
             throw new NotImplementedException();
         }

@@ -44,6 +44,10 @@
     <Compile Include="ChordType.cs" />
     <Compile Include="Duration.cs" />
     <Compile Include="Note.cs" />
+    <Compile Include="Pagination.cs" />
+    <Compile Include="SearchSequenceQuery.cs" />
+    <Compile Include="SequenceToSaveArgs.cs" />
+    <Compile Include="Sorting.cs" />
     <Compile Include="StaticData.cs" />
     <Compile Include="Tempo.cs" />
     <Compile Include="Sequence.cs" />

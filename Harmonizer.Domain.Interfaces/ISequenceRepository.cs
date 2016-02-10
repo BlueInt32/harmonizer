@@ -9,11 +9,11 @@ namespace Harmonizer.Domain.Interfaces
 {
     public interface ISequenceRepository
     {
-	    void CreateOrUpdateSequence(Sequence sequence);
-	    void CreateSequence(Sequence sequence);
-	    void UpdateSequence(Sequence sequence);
+	    void CreateOrUpdateSequence(SequenceToSaveArgs sequence);
+	    void CreateSequence(SequenceToSaveArgs sequence);
+	    void UpdateSequence(SequenceToSaveArgs sequence);
 	    Sequence GetSequence(int sequenceId);
 	    void DeleteSequence(int sequenceId);
-		List<Sequence> Search(string token);
+		List<Sequence> Search(SearchSequenceQuery query);
     }
 }

@@ -14,5 +14,7 @@ namespace Harmonizer.Domain.Interfaces
 		List<Note> GetNotes();
 		List<Tempo> GetTempi();
 		List<Duration> GetDurations();
+
+        int FindChord(string noteId, int durationId, string chordTypeId);
 	}
 }

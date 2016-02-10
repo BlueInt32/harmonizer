@@ -10,6 +10,7 @@ namespace Harmonizer.Services.Interfaces
     public interface ISequenceService
     {
 	    Sequence GetSequence(int sequenceId);
-	    void SaveSequence(Sequence sequence);
+        Sequence SaveSequence(SequenceToSaveArgs sequence);
+        List<Sequence> SearchForSequences(SearchSequenceQuery query);
     }
 }

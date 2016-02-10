@@ -61,18 +61,22 @@ namespace DataAccessTests
 
             //context.Chords.AddOrUpdate(c => new { c.RootNote, c.DurationId, c.ChordTypeId }, chordsToAdd.ToArray());
 
-            context.SaveChanges();
+            //context.SaveChanges();
         }
 
         [Category("Seeding")]
         public void CreateChordsFromStatic()
         {
             List<Chord> chordsToAdd = new List<Chord>();
-            foreach (ChordType chordType in context.ChordTypes.ToList())
+            List<ChordType> chordTypes = _staticDataRepository.GetChordTypes();
+            List<Note> notes = _staticDataRepository.GetNotes();
+            List<Duration> durations = _staticDataRepository.GetDurations();
+
+            foreach (ChordType chordType in chordTypes)
             {
-                foreach (Note note in context.Notes.ToList())
+                foreach (Note note in notes)
                 {
-                    foreach (Duration duration in context.Durations.ToList())
+                    foreach (Duration duration in durations)
                     {
                         chordsToAdd.Add(CreateChord(chordType, duration, note));
                     }

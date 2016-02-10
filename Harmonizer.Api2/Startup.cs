@@ -40,9 +40,9 @@ namespace Harmonizer.Api2
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseIISPlatformHandler();
+            //app.UseIISPlatformHandler();
 
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
 
             app.UseMvc();
         }

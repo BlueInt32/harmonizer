@@ -10,15 +10,9 @@ namespace Harmonizer.Domain.Entities
 	public class Sequence
 	{
 		public int Id { get; set; }
-
-		public List<SequenceChord> Chords { get; set; }
-
-		[StringLength(50)]
 		public string Name { get; set; }
-		[StringLength(255)]
 		public string Description { get; set; }
-
-		public int TempoId { get; set; }
+		public List<SequenceChord> Chords { get; set; }
 		public virtual Tempo Tempo { get; set; }
 	}
 }

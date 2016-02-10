@@ -20,9 +20,18 @@ namespace Harmonizer.Services
 		{
 			return _sequenceRepository.GetSequence(sequenceId);
 		}
-		public void SaveSequence(Sequence sequence)
+		public Sequence SaveSequence(SequenceToSaveArgs sequenceToSaveArgs)
 		{
-			_sequenceRepository.CreateOrUpdateSequence(sequence);
-		}
-	}
+			_sequenceRepository.CreateOrUpdateSequence(sequenceToSaveArgs);
+            Sequence savedSequence = new Sequence();
+            savedSequence.
+
+        }
+        public List<Sequence> SearchForSequences(SearchSequenceQuery query)
+        {
+            return _sequenceRepository.Search(query);
+        }
+
+        private Sequence Reconciliate(int sequenceId)
+    }
 }

@@ -11,7 +11,10 @@ namespace Harmonizer.Domain.Entities
 	{
 		public int Id { get; set; }
 		public string RootNoteId { get; set; }
-		public string ChordTypeId { get; set; }
-		public int DurationId { get; set; }
-	}
+        public Note RootNote { get; set; }
+        public string ChordTypeId { get; set; }
+        public ChordType ChordType { get; set; }
+        public int DurationId { get; set; }
+        public Duration Duration { get; set; }
+    }
 }
